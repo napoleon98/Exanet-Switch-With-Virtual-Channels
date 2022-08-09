@@ -14,8 +14,11 @@ import exanet_pkg::*;
 module exa_crosb_traffic_gen #(
 	parameter prio_num	        = 2,
 	parameter prio_val          = 0,
-	parameter [127:0]tag               = 0,
-	parameter vc_num            = 2
+	parameter [127:0]tag        = 0,
+	parameter vc_num            = 2,
+	parameter dimension_x       = 4,
+    parameter dimension_y       = 2,
+    parameter dimension_z       = 2 
 )(
     input           clk,
     input           resetn,
@@ -26,7 +29,9 @@ module exa_crosb_traffic_gen #(
     input           fixed_dest_enable,
     input           fixed_header_vc_enable,
     input           delay_enable,
-    input [4:0]     fixed_dest,
+    input [4:0]     fixed_dest_x,
+    input [4:0]     fixed_dest_y,
+    input [4:0]     fixed_dest_z,
     input [4:0]     valid_drop_rate,
     input [4:0]     fixed_header_vc,
     exanet.master   exa
@@ -72,16 +77,20 @@ module exa_crosb_traffic_gen #(
   } baket_info_t;
    
    
-  reg [127:0] cur_time_q = 0;
-  reg [1:0]  rand_2     = 0;
+  reg [127:0] cur_time_q      = 0;
+  reg [1:0]  rand_2           = 0;
+  reg [3:0]  rand_4_z         = 0;
+  reg [3:0]  rand_4_y         = 0;
+  reg [3:0]  rand_4_x         = 0;
   
-  reg [6:0]  rand_7     = 0;
-  reg [5:0] rand_6 = 0; //used for random delay between packets
+  
+  reg [6:0]  rand_7           = 0;
+  reg [5:0]  rand_6           = 0;      //used for random delay between packets
 
-  reg [7:0]  rand_8     = 0;
-  reg [31:0] rand_32    = 0;
-  reg [4:0] rand_5 = 0; //used for valid delay
-  reg [4:0] rand_5_header_vc = 0;
+  reg [7:0]  rand_8           = 0;
+  reg [31:0] rand_32          = 0;
+  reg [4:0]  rand_5           = 0; //used for valid delay
+  reg [4:0]  rand_5_header_vc = 0;
 
 
   always @(posedge clk) begin
@@ -92,6 +101,9 @@ module exa_crosb_traffic_gen #(
       cur_time_q     = $time ;//it was <= but with that, currtime is one packet delayed
       rand_6         <= $urandom() % 10;
       rand_2         <= $random();
+      rand_4_x       <= $urandom() % dimension_x;
+      rand_4_y       <= $urandom() % dimension_y;
+      rand_4_z       <= $urandom() % dimension_z;
       rand_7         <= $random();
       rand_8         <= $random();
     end  
@@ -181,8 +193,9 @@ module exa_crosb_traffic_gen #(
   reg  [127:0] MEM [23*128] ;/*it was 23*64*/ //up to 512 packets storage
   reg  [31:0]  mem_pointer = 0;
   
-  wire [127:0] display_addr = exa_header_t.addr[9:0];
-  wire [127:0] display_prio = prio_val;
+  //wire [127:0] display_addr = exa_header_t.addr[9:0];
+  wire [127:0] display_dest_coord = exa_header_t.dest_coord;
+  wire [127:0] display_prio = (exa_header_t.vc > (vc_num - 1)) ? 1 : 0;//prio_val;
   always @(posedge clk) begin
     if (exa.header_valid & exa.header_ready) begin
         fd = $fopen(filename, "a");
@@ -190,7 +203,8 @@ module exa_crosb_traffic_gen #(
         $fwrite(fd,"%h\n",tag);         //from whom
         $fwrite(fd,"%h\n",pkt_counter); //which packet this is
         $fwrite(fd," Current time is %0d\n",cur_time_q);  //what was the time it got sent
-        $fwrite(fd,"%h\n",display_addr);  //the dest
+       // $fwrite(fd,"%h\n",display_addr);  //the dest
+        $fwrite(fd,"%h\n",display_dest_coord);
         //$fwrite(fd,"%h\n",display_prio);  //the prio
         $fwrite(fd,"%h\n",exa.data);     //the data
         $fflush(fd);
@@ -198,10 +212,14 @@ module exa_crosb_traffic_gen #(
         MEM[mem_pointer] <= tag;
         mem_pointer = mem_pointer + 1;
         MEM[mem_pointer] <= pkt_counter;
-        mem_pointer = mem_pointer + 1;        
-        MEM[mem_pointer] <= cur_time_q;
+        mem_pointer = mem_pointer + 1; 
+             
+        //MEM[mem_pointer] <= cur_time_q;
+        /*save the input vc*/  
+        MEM[mem_pointer] <= exa_header_t.vc;
         mem_pointer = mem_pointer + 1;
-        MEM[mem_pointer] <= display_addr;
+       // MEM[mem_pointer] <= display_addr;
+        MEM[mem_pointer] <= display_dest_coord;
         mem_pointer = mem_pointer + 1;
         MEM[mem_pointer] <= display_prio;
         mem_pointer = mem_pointer + 1;
@@ -291,7 +309,7 @@ module exa_crosb_traffic_gen #(
   assign exa_header_t.ecc           = pkt_counter; //error correction
   assign exa_header_t.offset        = 0;		   //offset coordinate
   assign exa_header_t.rsrv          = tag;		   //reserved
-  assign exa_header_t.dest_coord    = 0;    	   //Destination Coordinate
+  assign exa_header_t.dest_coord    = 0;//22'b00_0000_0000_0000_0001_0010    	   //Destination Coordinate
   assign exa_header_t.pdid          = 0;           //Protection Domain  
   
    
@@ -311,12 +329,22 @@ module exa_crosb_traffic_gen #(
       exa_header_t.vc = rand_5_header_vc;    
   
     /*based on that prio, set the addres (should have the 0x38 in fron or not*/
+  /*  
     if (fixed_dest_enable) 
       exa_header_t.addr          = (exa_header_t.pkt_type >= 10) ?  (16*fixed_dest) + 10'h30 :
                                                                     {3'b111, 29'b0, ((10'd16*fixed_dest) + 10'h30) } ; //the second part should be 10 bits  
-    else                                                                     
+    else  */                                                                   
       exa_header_t.addr          = (exa_header_t.pkt_type >= 10) ?  (16*rand_2) + 10'h30 :
+     
                                                                     {3'b111, 29'b0, ((10'd16*rand_2) + 10'h30) } ; //the second part should be 10 bits   
+    
+    if(fixed_dest_enable)begin
+      exa_header_t.dest_coord = {8'b00000000,rand_2,fixed_dest_z,fixed_dest_y,fixed_dest_x};
+    end
+    else begin
+      exa_header_t.dest_coord = {8'b00000000,rand_2,rand_4_z,rand_4_y,rand_4_x};
+    end
+    
     if (!dif_size_enable)
         exa_header_t.size          = 'd256;	   //packet size
     else
