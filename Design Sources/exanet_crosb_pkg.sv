@@ -6,11 +6,12 @@ package exanet_crosb_pkg;
    typedef struct packed {
    	 logic        is_inter_router;     //if 1 then it routes based on inter routing.
    	 logic        is_central_router;   //if 1 then it routes based on Central routing, else based on ofset + addr.
-     logic [2:0]  dest_x0_port;        //which port takes you to "0". Only used on inter routing scheme.
-     logic [2:0]  dest_x1_port;        //which port takes you to "1". Only used on inter routing scheme.		
-     logic [2:0]  dest_x2_port;        //which port takes you to "2". Only used on inter routing scheme.		
-     logic [2:0]  dest_x3_port;        //which port takes you to "3". Only used on inter routing scheme.		
-     logic [2:0]  dest_y_port;         //which port takes you to mezz router. Only used on inter routing scheme.	
+     logic [3:0]  dest_x_plus;        
+     logic [3:0]  dest_x_minus;        
+     logic [3:0]  dest_y_plus;        
+     logic [3:0]  dest_y_minus;  
+     logic [3:0]  dest_z_plus;
+     logic [3:0]  dest_z_minus;// Are minus/plus needed ??..if you change it, change and the regfile as well !!     		                                	
      logic [2:0]  local_port;          //which port takes you to local NI crosb. Only used on inter routing scheme.		
      logic [1:0]  multipath_enable;
     } cntrl_info_t;

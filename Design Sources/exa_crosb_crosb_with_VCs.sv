@@ -1,14 +1,21 @@
 `timescale 1ns / 1ps
 
+`include "ceiling_up_log2.vh"
+
 module exa_crosb_crosb_with_VCs#(
   parameter integer data_width        = 128,
   parameter integer prio_num          = 2,
   parameter integer input_num         = 2,
   parameter integer vc_num            = 2,
-  parameter integer in_sel_width      = $clog2(input_num),
+  parameter integer in_sel_width      = `log2(input_num),
   parameter integer output_num        = 2,
-  parameter integer out_sel_width     = $clog2(output_num),
-  parameter DEBUG                     = "false"
+  parameter integer out_sel_width     = `log2(output_num),
+  parameter DEBUG                     = "false",
+  parameter logVcPrio    = `log2(prio_num*vc_num),
+  parameter logOutput    = `log2(output_num),
+  parameter logPrio      = `log2(prio_num),
+  parameter logVc        = `log2(vc_num),
+  parameter logInput     = `log2(input_num)
 
 )(
   
@@ -18,33 +25,30 @@ module exa_crosb_crosb_with_VCs#(
   AXIS.slave                           S_AXIS[input_num-1:0],
   AXIS.master                          M_AXIS[output_num-1:0],
   input [vc_num*prio_num-1:0]          i_output_fifo_credits [output_num-1:0],
-  input [$clog2(vc_num*prio_num)-1:0]  i_output_vc[input_num-1:0][vc_num*prio_num-1:0],/**each axi stream should have an output vc in which the stream will get in at output*/
+  input [logVcPrio-1:0]                i_output_vc[input_num-1:0][vc_num*prio_num-1:0],/**each axi stream should have an output vc in which the stream will get in at output*/
                                                                  
-  //input [$clog2(vc_num*prio_num)-1:0]  i_input_vc[input_num-1:0],//each axi stream should get in on input vc
+  //input [logVcPrio-1:0]  i_input_vc[input_num-1:0],//each axi stream should get in on input vc
                                                                  /*using this input vc, has packet will be created*/
   input [prio_num*vc_num-1:0]          i_has_packet[input_num-1:0],
-  input [$clog2(output_num)-1 :0]      i_dests[input_num-1:0][prio_num*vc_num-1 :0],
+  input [logOutput-1 :0]               i_dests[input_num-1:0][prio_num*vc_num-1 :0],
   
-  output [$clog2(vc_num*prio_num)-1:0] o_selected_vc_from_input_arbiter[input_num-1:0],
+  output [logVcPrio-1:0]               o_selected_vc_from_input_arbiter[input_num-1:0],
   output                               o_cts_from_input_arbiter[input_num-1:0],
   /* below signals will be used by top_module, in choosing the correct output_vc*/
-  output [$clog2(output_num)-1 :0]     o_dest_output_of_each_input[input_num-1:0],
-  output [$clog2(vc_num*prio_num)-1:0] o_dest_output_vc_of_each_input[input_num-1:0],
-  output [$clog2(input_num)-1 :0]      o_selected_input_for_each_output[output_num-1:0]
+  output [logOutput-1 :0]              o_dest_output_of_each_input[input_num-1:0],
+  output [logVcPrio-1:0]               o_dest_output_vc_of_each_input[input_num-1:0],
+  output [logInput-1 :0]               o_selected_input_for_each_output[output_num-1:0]
   
  );
-  var [data_width-1:0]                   data_to_mux[output_num][input_num-1:0] ; // why var???
-  wire [output_num-1:0]                  grants_from_output_arbiter [input_num-1:0];//out of for loop for inputs or change the dimension
-  wire [vc_num*prio_num-1:0]             output_fifo_credits [output_num-1:0];
+  var [data_width-1:0]                   data_to_mux[output_num-1:0][input_num-1:0]            ; // it was output_num without -1 : 0....why var???
+  wire [output_num-1:0]                  grants_from_output_arbiter [input_num-1:0]            ;//out of for loop for inputs or change the dimension
   
   wire [vc_num*prio_num-1:0]             requests_from_in_to_out[output_num-1:0][input_num-1:0];
-  wire [input_num-1:0]                   lasts_from_demux [output_num-1:0];
-  wire [input_num-1:0]                   ctses_from_demux [output_num-1:0];
-  wire [input_num-1:0]                   valids_from_demux [output_num-1:0];
+  wire [input_num-1:0]                   lasts_from_demux [output_num-1:0]                     ;
+  wire [input_num-1:0]                   ctses_from_demux [output_num-1:0]                     ;
+  wire [input_num-1:0]                   valids_from_demux [output_num-1:0]                    ;
   
   
-  wire [$clog2(output_num)-1 :0]         dest_output[input_num-1:0];
-  wire [$clog2(vc_num*prio_num)-1:0]     dest_output_vc[input_num-1:0];
   
   genvar i;
   genvar j;
@@ -57,23 +61,23 @@ module exa_crosb_crosb_with_VCs#(
   generate 
     for (i=0; i<input_num; i=i+1)begin :INPUTS
      /* Input arbiter's signals */
-      wire                                   cts;
+      wire                                   cts                             ;
       //wire                                   last;
-      wire [$clog2(output_num)-1 :0]         dest_output;
-      wire [$clog2(vc_num*prio_num)-1:0]     dest_output_vc;
-     // wire [$clog2(vc_num*prio_num)-1:0]     selected_vc;
-      wire [vc_num*prio_num-1:0]             request_to_output_arbiter;
+      wire [logOutput-1 :0]                  dest_output                     ;
+      wire [logVcPrio-1:0]                   dest_output_vc                  ;
+     // wire [logVcPrio-1:0]     selected_vc;
+      wire [vc_num*prio_num-1:0]             request_to_output_arbiter       ;
       
       /* demux signals*/
-      wire [data_width-1:0]                  demux_dout [output_num-1:0];
-      wire [output_num-1 : 0]                last_from_demux;
-      wire [output_num-1 : 0]                cts_from_demux;
+      wire [data_width-1:0]                  demux_dout [output_num-1:0]     ;
+      wire [output_num-1 : 0]                last_from_demux                 ;
+      wire [output_num-1 : 0]                cts_from_demux                  ; 
       //wire [output_num-1 : 0]                prio_from_demux;
-      wire [output_num-1 : 0]                valid_from_demux;
-      wire [$clog2(output_num)-1 :0]               dest_o [prio_num*vc_num-1 :0];
+      wire [output_num-1 : 0]                valid_from_demux                ;
+      wire [logOutput-1 :0]                  dest_o [prio_num*vc_num-1 :0]   ;
      // wire [vc_num*prio_num-1:0]             has_packet;// check S_AXIS[I].TVALID & input_vc to fill each place with 1 or 0
-      //logic [$clog2(vc_num*prio_num)-1:0]    output_vc [vc_num*prio_num-1:0];
-      wire [$clog2(vc_num*prio_num)-1:0]     output_vc_o [vc_num*prio_num-1:0];
+      //logic [logVcPrio-1:0]    output_vc [vc_num*prio_num-1:0];
+      wire [logVcPrio-1:0]                  output_vc_o [vc_num*prio_num-1:0];
       //wire [(output_num)-1 :0]               dests [prio_num*vc_num-1 :0];
       
 	  exa_crosb_demux # (
@@ -119,10 +123,10 @@ module exa_crosb_crosb_with_VCs#(
    
        );
       
-      assign o_dest_output_of_each_input[i] = dest_output;
+      assign o_dest_output_of_each_input[i]    = dest_output;
       assign o_dest_output_vc_of_each_input[i] = dest_output_vc;
-      assign o_cts_from_input_arbiter[i] = cts;
-      assign S_AXIS[i].TREADY = cts;// not sure about it
+      assign o_cts_from_input_arbiter[i]       = cts;
+      assign S_AXIS[i].TREADY                  = cts;// not sure about it
      
     end
   endgenerate
@@ -161,13 +165,13 @@ module exa_crosb_crosb_with_VCs#(
   generate
     for (i= 0 ; i<output_num ; i = i + 1) begin :OUTPUTS
       
-      wire [input_num-1:0]                   grant;
-      wire                                   cts;
-      wire [$clog2(input_num)-1:0]           input_sel; 
-      wire                                   valid_from_mux;
-      wire                                   last_from_mux;
+      wire [input_num-1:0]                   grant                          ;
+      wire                                   cts                            ;
+      wire [logInput-1:0]                    input_sel                      ; 
+      wire                                   valid_from_mux                 ;
+      wire                                   last_from_mux                  ;
       wire                                   cts_from_input_arbiter_from_mux;
-      //wire [$clog2(vc_num*prio_num)-1:0]     output_vc [vc_num*prio_num-1:0];
+      //wire [logVcPrio-1:0]     output_vc [vc_num*prio_num-1:0];
        //wire                                  prio_from_mux;
        
       exa_crosb_mux # (
@@ -193,7 +197,8 @@ module exa_crosb_crosb_with_VCs#(
       exa_crosb_output_arbiter_with_VCs #(
         .input_num(input_num),
         .output_num(output_num),
-        .vc_num(vc_num)
+        .vc_num(vc_num),
+        .prio_num(prio_num)
      
       )output_arbiter_with_VCs(
         .clk(clk),
@@ -212,9 +217,9 @@ module exa_crosb_crosb_with_VCs#(
       );
       
       assign o_selected_input_for_each_output[i] = input_sel;
-      assign M_AXIS[i].TVALID = valid_from_mux & cts_from_input_arbiter_from_mux;
-      assign M_AXIS[i].TLAST  = last_from_mux  & cts_from_input_arbiter_from_mux;
-      assign M_AXIS[i].TDEST  = 0;//I used TDEST, output has been chosen, so store 0 in TDEST
+      assign M_AXIS[i].TVALID                    = valid_from_mux & cts_from_input_arbiter_from_mux;
+      assign M_AXIS[i].TLAST                     = last_from_mux  & cts_from_input_arbiter_from_mux;
+      assign M_AXIS[i].TDEST                     = 0;//I used TDEST, output has been chosen, so store 0 in TDEST
      // assign M_AXIS[i].prio   = prio_from_mux & cts;
 
       

@@ -2,7 +2,7 @@
 
 import exanet_pkg::*;
 import exanet_crosb_pkg::*;
-
+`include "ceiling_up_log2.vh"
 
 
 module exa_crosb_e2s_with_VCs # (
@@ -13,12 +13,19 @@ module exa_crosb_e2s_with_VCs # (
     parameter output_num           = 4,
     parameter integer in_fifo_depth= 40,
     parameter max_ports            = 32,
-	parameter TDEST_WIDTH          = $clog2(output_num),
+	parameter TDEST_WIDTH          = `log2(output_num),
 	parameter REG_DQ               = 1,
 	parameter INPUT_PORT_NUMBER    = 0,
 	parameter [41:0] PORTx_LOW_ADDR  [max_ports] = '{default:0}/*{0}*/ ,
     parameter [41:0] PORTx_HIGH_ADDR [max_ports] = '{default:0}/*{0} */,
-    parameter DEBUG                = "false"     
+    parameter DEBUG                = "false",
+    parameter dimension_x          = 4,
+    parameter dimension_y          = 2,
+    parameter dimension_z          = 2 ,
+    parameter logVcPrio            = `log2(prio_num*vc_num),
+    parameter logOutput            = `log2(output_num),
+    parameter logPrio              = `log2(prio_num),
+    parameter logVc                = `log2(vc_num)    
     ) 
 
 (
@@ -28,7 +35,7 @@ module exa_crosb_e2s_with_VCs # (
 	//
 	input  [ 21:0]                       i_src_coord,
 	input                                i_cts_from_input_arbiter,
-	input [$clog2(vc_num*prio_num)-1:0]  i_selected_vc_from_input_arbiter,
+	input [logVcPrio-1:0]  i_selected_vc_from_input_arbiter,
 	//
     AXIS.master                          M_AXIS,	
 	// ExaNet IF
@@ -40,8 +47,8 @@ module exa_crosb_e2s_with_VCs # (
 	output counter_t                     o_pkt_counter,
 	output [prio_num*vc_num-1:0]         o_has_packet,
 	output [prio_num*vc_num-1:0]         o_fifo_full,
-	output [$clog2(output_num)-1 :0]     o_dests [prio_num*vc_num-1:0],
-    output [$clog2(vc_num*prio_num)-1:0] o_output_vc [vc_num*prio_num-1:0]
+	output [logOutput-1 :0]              o_dests [prio_num*vc_num-1:0],
+    output [logVcPrio-1:0]               o_output_vc [vc_num*prio_num-1:0]
 );
     
 /*implement pkt counter logic here*/
@@ -104,7 +111,10 @@ module exa_crosb_e2s_with_VCs # (
         .PORTx_LOW_ADDR(PORTx_LOW_ADDR) ,
         .PORTx_HIGH_ADDR(PORTx_HIGH_ADDR),
         .reg_enable(net_route_reg_enable),
-        .DEBUG(DEBUG) 
+        .DEBUG(DEBUG),
+        .dimension_x(dimension_x),
+        .dimension_y(dimension_y),
+        .dimension_z(dimension_z) 
       ) exa_crosb_net_routing (
         .Clk                     ( M_ACLK ),
         .Reset                   ( ~M_ARESETN) ,

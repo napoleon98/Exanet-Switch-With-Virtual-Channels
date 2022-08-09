@@ -2,6 +2,7 @@
 `timescale 1ns/1ns
 
 import exanet_crosb_pkg::*;
+`include "ceiling_up_log2.vh"
 
 module exa_crosb_regfile #(
     parameter integer input_num     = 4,
@@ -10,7 +11,7 @@ module exa_crosb_regfile #(
 	parameter S_AXI_DATA_WIDTH      = 128,
 	parameter conf_reg_num          = 1,
 	parameter prio_num              = 2,
-	parameter S_AXI_ADDR_WIDTH      = $clog2(conf_reg_num*16),
+	parameter S_AXI_ADDR_WIDTH      = `log2(conf_reg_num*16),// 16 may needs to be changed !!!!!
 	parameter DEBUG                 = "false"
 	)(
 	// AXI Clock and Reset
@@ -62,9 +63,9 @@ module exa_crosb_regfile #(
     (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
 	output cntrl_info_t             o_cntrl_info,	
     (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
-	input counter_t                 i_pkt_counter_input[input_num-1:0][prio_num-1:0],	
+	input counter_t                 i_pkt_counter_input[input_num-1:0][prio_num-1:0],// needs to be changed !!!!!!!!
     (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
-	input counter_t                 i_pkt_counter_output[output_num-1:0][prio_num-1:0]
+	input counter_t                 i_pkt_counter_output[output_num-1:0][prio_num-1:0] // needs to be changed !!!!!!!!
 
 );
 
@@ -301,12 +302,14 @@ module exa_crosb_regfile #(
 /*----------------------------------------------------------------------------------*/
 	assign o_cntrl_info.is_inter_router   = cntrl_info_reg[0][0]     ;
 	assign o_cntrl_info.is_central_router = cntrl_info_reg[0][1]     ;
-	assign o_cntrl_info.dest_x0_port      = cntrl_info_reg[1][3:0]   ;
-	assign o_cntrl_info.dest_x1_port      = cntrl_info_reg[1][7:4]   ;
-	assign o_cntrl_info.dest_x2_port      = cntrl_info_reg[1][11:8]  ;
-	assign o_cntrl_info.dest_x3_port      = cntrl_info_reg[1][15:12] ;
-	assign o_cntrl_info.dest_y_port       = cntrl_info_reg[1][19:16] ;
-	assign o_cntrl_info.local_port        = cntrl_info_reg[1][23:20] ;
+	assign o_cntrl_info.dest_x_minus      = cntrl_info_reg[1][3:0]   ;
+	assign o_cntrl_info.dest_x_plus       = cntrl_info_reg[1][7:4]   ;
+	assign o_cntrl_info.dest_y_minus      = cntrl_info_reg[1][11:8]  ;
+	assign o_cntrl_info.dest_y_plus       = cntrl_info_reg[1][15:12] ;
+	assign o_cntrl_info.dest_z_minus      = cntrl_info_reg[1][19:16] ;
+	assign o_cntrl_info.dest_z_plus       = cntrl_info_reg[1][23:20] ;
+	//assign o_cntrl_info.dest_y_port       = cntrl_info_reg[1][19:16] ;
+	assign o_cntrl_info.local_port        = cntrl_info_reg[1][27:24] ;
 	
 	assign o_cntrl_info.multipath_enable  = cntrl_info_reg[2][1:0]  ;
 

@@ -23,6 +23,8 @@
 //
 // =============================================================================
 
+
+`include "ceiling_up_log2.vh"
 module exa_fifo #(
   parameter DEPTH               = 1024,
   parameter DWIDTH              = 32,

@@ -1,17 +1,22 @@
 `timescale 1ns / 1ps
-
+`include "ceiling_up_log2.vh"
 
 
 module exa_crosb_output_arbiter_with_VCs#(
 	 parameter prio_num  	= 2,       
 	 parameter output_num 	= 4,
 	 parameter vc_num       = 2,
-	 parameter input_num    = 4
+	 parameter input_num    = 4,
+	 parameter logVcPrio    = `log2(prio_num*vc_num),
+     parameter logOutput    = `log2(output_num),
+     parameter logPrio      = `log2(prio_num),
+     parameter logVc        = `log2(vc_num),
+     parameter logInput     = `log2(input_num)
 )(   
      input                                                    clk,
      input                                                    resetn,
      input [vc_num*prio_num-1:0]                              i_request[input_num-1:0],
-    // input [$clog2(vc_num*prio_num)-1:0]                      i_output_vc [vc_num*prio_num-1:0], 
+    // input [`log2(vc_num*prio_num)-1:0]                      i_output_vc [vc_num*prio_num-1:0], 
      input                                                    i_last,
      input                                                    cts_from_input_arbiter,
      
@@ -19,10 +24,10 @@ module exa_crosb_output_arbiter_with_VCs#(
      
    //output [vc_num*prio_num-1:0]                             o_grant[input_num-1:0],
      output [input_num-1:0]                                   o_grant,
-     output [$clog2(input_num)-1:0]                           o_input_sel,
+     output [(logInput-1):0]                                  o_input_sel,
      output                                                   o_cts,
      output [input_num-1:0]                                   o_request_array [prio_num-1:0],//************just for testing********
-     output [$clog2(prio_num)-1:0]                            o_prio_sel//************just for testing********
+     output [logPrio-1:0]                                     o_prio_sel//************just for testing********
      // another one output for granted_input may be declared                           
      
 
@@ -33,9 +38,9 @@ module exa_crosb_output_arbiter_with_VCs#(
   reg [1:0]                         state_q; 
   reg [input_num-1:0]               request_array_q [prio_num-1:0];// *********** it needs to be initialised ***********
   reg [prio_num-1:0]                rr_go_after_prio_enf_q;
-  reg [$clog2(input_num)-1 :0]      input_sel_q;
+  reg [logInput-1 :0]               input_sel_q;
   
-  reg [$clog2(prio_num)-1 :0]       prio_sel_q;//************just for testing********
+  reg [logPrio-1 :0]                prio_sel_q;//************just for testing********
   reg [input_num-1:0]               grant_q;
   
   logic [1:0]                       state_d;
@@ -47,8 +52,8 @@ module exa_crosb_output_arbiter_with_VCs#(
   wire [prio_num-1:0]               rr_go_after_prio_enf;
   wire [input_num-1:0]              grant_array[prio_num-1:0];
   wire [input_num-1:0]              grant_d;
-  wire [$clog2(prio_num)-1 :0]      prio_sel;
-  wire [$clog2(input_num)-1 :0]     input_sel;
+  wire [logPrio-1 :0]               prio_sel;
+  wire [logInput-1 :0]              input_sel;
   wire                              grant_valid;
   logic                             empty_request_array ;
   logic                             flag = 0;

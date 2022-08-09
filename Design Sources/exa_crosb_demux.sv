@@ -1,9 +1,10 @@
 `timescale 1ns/1ns
+`include "ceiling_up_log2.vh"
 
 module exa_crosb_demux #(
 	parameter integer data_width        = 128,
 	parameter integer output_num        = 16,
-	parameter integer sel_width         = $clog2(output_num)
+	parameter integer sel_width         = `log2(output_num)
 	)
 (
 	input [data_width-1 :0]                DATA_i,

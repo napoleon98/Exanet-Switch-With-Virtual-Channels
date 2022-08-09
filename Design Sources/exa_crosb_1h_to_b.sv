@@ -1,9 +1,9 @@
 `timescale 1ns/1ns
-
+`include "ceiling_up_log2.vh"
 module ss_1h_to_b #(
 
  parameter input_width  = 4,
- parameter output_width = $clog2(input_width)
+ parameter output_width = `log2(input_width)
 
 )(
 
@@ -45,15 +45,15 @@ module ss_1h_to_b #(
 			     	i_in[4]  ? 4'd4 :
 			     	i_in[5]  ? 4'd5 :
 			     	i_in[6]  ? 4'd6 : 
-				i_in[7]  ? 4'd7 :
+				    i_in[7]  ? 4'd7 :
 			     	i_in[8]  ? 4'd8 :
-			     	i_in[9]  ? 4'd9 :
-			     	i_in[10] ? 4'd10 :
+			     	i_in[9]  ? 4'd9 : 4'b1001;
+			     /*	i_in[10] ? 4'd10 :
 			     	i_in[11] ? 4'd11 :
 			     	i_in[12] ? 4'd12 :
 			     	i_in[13] ? 4'd13 : 
 			     	i_in[14] ? 4'd14 :
-			     	i_in[15] ? 4'd15 : 'b1111;
+			     	i_in[15] ? 4'd15 : 'b1111; */
 
 	end
   endgenerate

@@ -1,52 +1,57 @@
 `timescale 1ns / 1ps
-
+`include "ceiling_up_log2.vh"
 
 
 module exa_crosb_input_arbiter_with_VCs #(
 	 parameter prio_num  	= 2,       
 	 parameter output_num 	= 4,
-	 parameter vc_num       = 2
+	 parameter vc_num       = 2,
+	 parameter logVcPrio    = `log2(prio_num*vc_num),
+	 parameter logOutput    = `log2(output_num),
+	 parameter logPrio      = `log2(prio_num),
+	 parameter logVc        = `log2(vc_num)
+	 
 )(
   
     input						                clk,
 	input						                resetn,
     input  [vc_num*prio_num-1:0]                i_has_packet,
-	//input  [$clog2(output_num)-1 :0]            i_dest [prio_num*vc_num-1 :0],// destination of the packet
-	input  [$clog2(output_num)-1 :0]                  i_dest [prio_num*vc_num-1 :0],
+	//input  [`log2(output_num)-1 :0]            i_dest [prio_num*vc_num-1 :0],// destination of the packet
+	input  [logOutput-1 :0]                     i_dest [prio_num*vc_num-1 :0],
     //input  [vc_num*prio_num-1:0]                i_grant_from_output_arbiter[output_num-1:0],//************** dimension [vc_num*prio_num-1:0] may be useless *************	
     input  [output_num-1:0]                     i_grant_from_output_arbiter,
     input						                i_last,
     input  [vc_num*prio_num-1:0]                output_fifo_credits [output_num-1:0], 
-    input  [$clog2(vc_num*prio_num)-1:0]        i_output_vc [vc_num*prio_num-1:0], // should be latched...s
+    input  [logVcPrio-1:0]                      i_output_vc [vc_num*prio_num-1:0], // should be latched...s
     
-    output logic [$clog2(vc_num*prio_num)-1:0]  o_output_vc [vc_num*prio_num-1:0],
+    output logic [logVcPrio-1:0]                o_output_vc [vc_num*prio_num-1:0],
     output [prio_num*vc_num-1:0]                o_selected_request [output_num-1:0],
-   // output logic [$clog2(output_num)-1 :0]      o_dest [prio_num*vc_num-1 :0],
-    output logic [$clog2(output_num)-1 :0]            o_dest [prio_num*vc_num-1 :0],
+   // output logic [`log2(output_num)-1 :0]      o_dest [prio_num*vc_num-1 :0],
+    output logic [logOutput-1 :0]               o_dest [prio_num*vc_num-1 :0],
     output                                      o_cts,
-    output [$clog2(vc_num*prio_num)-1:0]        o_selected_vc,
+    output [logVcPrio - 1 : 0]                  o_selected_vc,/*[`log2(vc_num*prio_num)-1:0]   */ 
     output [vc_num-1:0]                         o_request_array [prio_num-1:0],//**************just for testing**************
     output [prio_num*vc_num-1:0]                o_request_to_output_arbiter,
-    output [$clog2(output_num)-1 :0]            o_dest_output,//**************just for testing**************
-    output [$clog2(vc_num*prio_num)-1 :0]       o_dest_vc//**************just for testing**************.
+    output [logOutput-1 :0]                     o_dest_output,//**************just for testing**************
+    output [logVcPrio-1 :0]                     o_dest_vc//**************just for testing**************.
     
 );
 
   
   reg [1:0]                         state_q; 
-  //reg [$clog2(output_num)-1 :0]     dest_q [prio_num*vc_num-1 :0];
-  reg [$clog2(output_num)-1 :0]           dest_q [prio_num*vc_num-1 :0];
-  reg [$clog2(vc_num*prio_num)-1:0] output_vc_q [vc_num*prio_num-1:0];
+  //reg [`log2(output_num)-1 :0]     dest_q [prio_num*vc_num-1 :0];
+  reg [logOutput-1 :0]           dest_q [prio_num*vc_num-1 :0];
+  reg [logVcPrio-1:0] output_vc_q [vc_num*prio_num-1:0];
   reg [prio_num-1:0]                has_request_after_prio_enf_q;
-  reg [$clog2(prio_num)-1 :0]       prio_sel_q;
-  reg [$clog2(vc_num)-1 :0]         vc_sel_q;
+  reg [logPrio-1 :0]       prio_sel_q;
+  reg [logVc-1 :0]         vc_sel_q;
   reg [prio_num-1:0]                has_request_q;
   
   reg                               grant_from_output_arbiter_q;
  
-  reg [$clog2(output_num)-1 :0]     dest_output_q;
-  reg [$clog2(vc_num*prio_num)-1 :0]dest_vc_q;
-  reg [$clog2(vc_num*prio_num)-1:0] selected_vc_q;
+  reg [logOutput-1 :0]     dest_output_q;
+  reg [logVcPrio-1 :0]dest_vc_q;
+  reg [logVcPrio-1:0] selected_vc_q;
   
   logic [1:0]                       state_d; 
   
@@ -56,15 +61,15 @@ module exa_crosb_input_arbiter_with_VCs #(
   
   wire [prio_num-1:0]               has_request_after_prio_enf;
   wire [vc_num-1:0]                 select_array [prio_num-1:0];
-  wire [$clog2(prio_num)-1 :0]      prio_sel;
-  wire [$clog2(vc_num)-1 :0]        vc_sel;
+  wire [logPrio-1 :0]               prio_sel;
+  wire [logVc-1 :0]                 vc_sel;
   wire [prio_num*vc_num-1:0]        selected_request [output_num-1:0] ;
-  wire [$clog2(prio_num)-1 :0]      selected_prio; 
-  wire [$clog2(vc_num)-1 :0]        selected_vc_per_prio;                       
+  wire [logPrio-1 :0]               selected_prio; 
+  wire [logVc-1 :0]                 selected_vc_per_prio;                       
   
   
-  wire [$clog2(output_num)-1 :0]    dest_output;
-  wire [$clog2(vc_num*prio_num)-1 :0]   dest_vc;
+  wire [logOutput-1 :0]             dest_output;
+  wire [logVcPrio-1 :0]             dest_vc;
   wire                              grant_from_output_arbiter;
   wire  [prio_num-1:0]              grant_from_output_arbiter_per_prio;
  
@@ -235,8 +240,8 @@ module exa_crosb_input_arbiter_with_VCs #(
     for (i=0; i<output_num ; i = i+1) begin
       for(j=0; j<prio_num; j++)begin
         for(k=0; k<vc_num; k++)begin
-        /*we need to check has_packet, because non valid request_to_output are generated */
-          assign o_request_to_output_arbiter[j*vc_num + k] = (o_selected_vc == j*vc_num + k &(i_has_packet[o_selected_vc] != 0)) ? 1 : 0;
+        /*we need to check request_packet(instead of has_packet, has_packet was wrong), because non valid request_to_output are generated */
+          assign o_request_to_output_arbiter[j*vc_num + k] = (o_selected_vc == j*vc_num + k &(request_array[selected_prio][selected_vc_per_prio] != 0)) ? 1 : 0;
           assign selected_request[i][j*vc_num + k] = (has_request != 0/*request_array != 0*/) ? (dest_output == i) & (dest_vc == j*vc_num + k) : 0;//***** change******
         end
       end

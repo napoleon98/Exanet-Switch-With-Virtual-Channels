@@ -6,6 +6,7 @@
 
 import exanet_pkg::*;
 import exanet_crosb_pkg::*;
+`include "ceiling_up_log2.vh"
 
 `define DST_X_RANGE 	24:21
 `define DST_Y_RANGE 	28:25 
@@ -23,7 +24,10 @@ module exa_crosb_net_routing #(
 	parameter [41:0] PORTx_LOW_ADDR  [max_ports] = {0} ,
     parameter [41:0] PORTx_HIGH_ADDR [max_ports] = {0} ,
     parameter reg_enable           = 0                  ,
-    parameter DEBUG                = "false"     
+    parameter DEBUG                = "false"  ,
+    parameter dimension_x          = 4,
+    parameter dimension_y          = 2,
+    parameter dimension_z          = 2   
 	)( 
 	input                        	Clk,
 	input                        	Reset,
@@ -59,7 +63,7 @@ module exa_crosb_net_routing #(
   (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
   wire [3:0] dst_x    = i_header[`DST_X_RANGE];	
   (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
-    wire [3:0] dst_y    = i_header[`DST_Y_RANGE];	
+  wire [3:0] dst_y    = i_header[`DST_Y_RANGE];	
   (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
   wire [3:0] dst_z    = i_header[`DST_Z_RANGE];	
   (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
@@ -123,9 +127,11 @@ module exa_crosb_net_routing #(
     if (i_hdr_valid) begin
       /*-----------------------------------------------*/
       /*IF this is the Network FPGA Router (INTER-QFDB)*/
-      if (i_cntrl_info.is_inter_router) begin
+      
+      //*********************** == 0 IS ADDED JUST FOR TESTING *******************
+      if (i_cntrl_info.is_inter_router == 0) begin
         /*first see if its for this QFDB*/
-        if ((dst_y == local_y) & (dst_x == local_x)) begin
+        if ((dst_y == local_y) & (dst_x == local_x) & (dst_z == local_z)) begin
           /*if yes, then route to the apropriate port based on dest FPGA*/
           if (dst_off == 0)
             tdest_var      =  i_cntrl_info.local_port;   //f1
@@ -137,75 +143,80 @@ module exa_crosb_net_routing #(
             tdest_var      =  i_cntrl_info.local_port+3; //f4
           dec_error_var  =  0;
         end
-        /*otherwise route on the correct mezz*/
-        /*do multipathing if enabled and if set*/
-        else if ((i_cntrl_info.multipath_enable !=0)&(path!=0)) begin
-          dec_error_var  =  0;
-          if (path == 1) //has to go thgrough A (x0)
-            tdest_var  =  i_cntrl_info.dest_x0_port;
-          if (path == 2) //has to go thgrough B (x1)
-            tdest_var  =  i_cntrl_info.dest_x1_port;
-          if (path == 3) //has to go thgrough D (x2)
-            tdest_var  =  i_cntrl_info.dest_x2_port;
-          if (path == 4) //has to go thgrough C (x3)
-            tdest_var  =  i_cntrl_info.dest_x3_port;
+        
+        else if(dst_z > local_z)begin
+          tdest_var     =  i_cntrl_info.dest_z_plus ; 
+          dec_error_var =  0;
         end
-        /*else do the normal routing*/
-        else if (dst_y != local_y) begin               
-          tdest_var  =  i_cntrl_info.dest_y_port;
-          dec_error_var <=  0;
-        end
-        /*otherwise, route on the correct QFDB*/
-        else if (dst_x == 0) begin
-          tdest_var     =  i_cntrl_info.dest_x0_port;
+        else if(dst_z < local_z)begin
+          tdest_var     =  i_cntrl_info.dest_z_minus ; 
           dec_error_var =  0;
-        end else if (dst_x == 1) begin 
-          tdest_var     =  i_cntrl_info.dest_x1_port;
-          dec_error_var =  0;
-        end else if (dst_x == 2) begin
-          tdest_var     =  i_cntrl_info.dest_x2_port;
-          dec_error_var =  0;
-        end else if (dst_x == 3) begin
-          tdest_var     =  i_cntrl_info.dest_x3_port;
-          dec_error_var =  0;
-        end else begin
-          tdest_var     =  15;
-          dec_error_var =  1;
-        end
-      end
-      /*----------------------------*/
-      /*else, if this a Central FPGA*/
-      else if (i_cntrl_info.is_central_router) begin
-        dec_error_var = 0;
-        tdest_var     = dst_y;
-      end 
-      /*------------------------------------------*/
-      /*Else, this is the NI crossbar  */            
-      else begin               
-        /*first see if the packet is for enother qfdb or mezz*/
-        if ((local_x != dst_x) | (local_y != dst_y)) begin
-          /* Send to F1  by using port 0. In F1, port 0 should be connected to the
-          inter router.*/
-          tdest_var     =  0;
-          dec_error_var =  0;
-        /*then see if the packet is for enother FPGA within this Q*/
-        end else if (local_off != dst_off) begin
-          if (local_off==0) begin //this is a F1 so again go to the inter router.
-            tdest_var     =  0;
-            dec_error_var =  0;
-          end else begin          
-            tdest_var      =  dst_off ;
-            dec_error_var  =  0;
-          end        
-        /*finaly, if none of the above, then route it localy*/
-        end else begin
-          tdest_var     =  tdest_d;
-          dec_error_var =  dec_err_d;  
         end 
-      end            
+     
+        //check if the destination is in an upper blade
+        else if(dst_y > local_y)begin
+        
+        //check if wraparaound path is smaller(dimension - 1 because we start counting from 0, and +1 because it needs an extra hop for wraparound)
+          if((dst_y - local_y) > (local_y + 1 + dimension_y - 1 - dst_y ))begin
+            tdest_var     =  i_cntrl_info.dest_y_minus ;// supposing that if you go to dest_y_minus from 0, you will be drived to the 3 blade/mezz 
+            dec_error_var =  0;
+          end
+          else begin 
+            tdest_var     =  i_cntrl_info.dest_y_plus;// tdest_var takes the port that goes to the upper QFDB
+            dec_error_var =  0;          
+          end   
+        end
+        
+        //else if the destination is in a lower blade
+        else if(dst_y < local_y)begin
+        //check if wraparaound path is smaller(dimension - 1 because we start counting from 0, and +1 because it needs an extra hop for wraparound)
+          if((local_y - dst_y) > ((dimension_y - 1 - local_y + dst_y + 1)) ) begin 
+            tdest_var     =  i_cntrl_info.dest_y_plus ;
+            dec_error_var =  0;           
+          end
+          else begin
+            tdest_var     =  i_cntrl_info.dest_y_minus ; 
+            dec_error_var =  0; 
+          end
+        end
+        
+        //if you are here, the destination is in the same blade, so check if he is in a rigther QFDB 
+        else if(dst_x > local_x)begin
+        //check if wraparaound path is smaller(dimension - 1 because we start counting from 0, and +1 because it needs an extra hop for wraparound)
+          if((dst_x - local_x) > (local_x + 1 + dimension_x - 1 - dst_x ))begin
+            tdest_var     =  i_cntrl_info.dest_x_minus ; 
+            dec_error_var =  0;
+          end
+          else begin 
+            tdest_var     =  i_cntrl_info.dest_x_plus ; 
+            dec_error_var =  0;
+          end
+        end
+        
+        // else
+        else if (dst_x < local_x)begin
+        //check if wraparaound path is smaller(dimension - 1 because we start counting from 0, and +1 because it needs an extra hop for wraparound)
+          if((local_x - dst_x) > ((dimension_x - 1 - local_x + dst_x + 1)))begin
+            tdest_var     =  i_cntrl_info.dest_x_plus ; 
+            dec_error_var =  0;
+          end
+          else begin
+            tdest_var     =  i_cntrl_info.dest_x_minus ; 
+            dec_error_var =  0;
+          end
+        end
+
+      end
     end
   end
-   
+   /************* high level ********
+     if Dx = Sx and Dy = Sy, then route based on offset.
+     else
+     if Dy>Sy then route to y-
+     if Duy<Sy the nrouutre to y+
+     same for x        
+          
+   */  
     
     
   generate

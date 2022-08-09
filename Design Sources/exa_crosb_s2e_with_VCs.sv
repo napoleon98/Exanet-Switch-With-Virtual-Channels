@@ -3,24 +3,30 @@
 import exanet_pkg::*;
 import exanet_crosb_pkg::*;
 
+`include "ceiling_up_log2.vh"
+
 module exa_crosb_s2e_with_VCs #(
 	parameter prio_num               = 2,
 	parameter vc_num                 = 2,
 	parameter output_num             = 4, // maybe useless
 	parameter input_num              = 4, // number of inputs of next input
-	parameter integer out_fifo_depth = 40 // in testbench depth is 36
+	parameter integer out_fifo_depth = 40, // in testbench depth is 36,
+    parameter logVcPrio              = `log2(prio_num*vc_num),
+    parameter logOutput              = `log2(output_num),
+    parameter logPrio                = `log2(prio_num),
+    parameter logVc                  = `log2(vc_num)
 
 ) (
 	// Stream IF
 	input                                        S_ACLK,
     input                                        S_ARESETN,
-	input [$clog2(vc_num*prio_num)-1:0]          i_output_vc,
-    output [prio_num*vc_num-1:0]  o_fifo_full,
-    AXIS.slave                    S_AXIS,
+	input [logVcPrio-1:0]                        i_output_vc,
+    output [prio_num*vc_num-1:0]                 o_fifo_full,
+    AXIS.slave                                   S_AXIS,
 	
 	// ExaNet IF
-    exanet.master                 exanet_tx,
-    output counter_t              o_pkt_counter
+    exanet.master                                exanet_tx,
+    output counter_t                             o_pkt_counter
 
 );
  
@@ -31,42 +37,42 @@ module exa_crosb_s2e_with_VCs #(
   localparam  IDDLE     = 2'b00,     
               GRANTED   = 2'b10;		  
   
-  logic [vc_num-1:0]                   request_array [prio_num-1:0];
+  logic [vc_num-1:0]                   request_array [prio_num-1:0]        ;
  
-  wire [$clog2(vc_num*prio_num)-1:0]   selected_vc;
+  wire [logVcPrio-1:0]                 selected_vc                         ;
   //wire [prio_num * vc_num-1 :0]        has_packet;
  // wire                                 grant_valid;
    
     
   /*helper signals used for interface connections*/
-  wire [prio_num * vc_num -1:0][127:0] data_from_fifo; /*= '{default:0};*/
-  wire [prio_num * vc_num -1:0]        valid_from_fifo;
-  wire                                 last_from_fifo;
+  wire [prio_num * vc_num -1:0][127:0] data_from_fifo                      ; /*= '{default:0};*/
+  wire [prio_num * vc_num -1:0]        valid_from_fifo                     ;
+  wire                                 last_from_fifo                      ;
       
-  wire [prio_num * vc_num -1:0]        fifo_empty;
-  wire [prio_num * vc_num -1:0]        fifo_prog_full;    
+  wire [prio_num * vc_num -1:0]        fifo_empty                          ;
+  wire [prio_num * vc_num -1:0]        fifo_prog_full                      ;    
   wire [prio_num * vc_num -1:0]        fifo_full;    
       
   wire [128:0]                         fifo_rd_data [prio_num * vc_num-1:0];
   wire [128:0]                         fifo_wr_data [prio_num * vc_num-1:0];  
-  wire [prio_num * vc_num-1 :0]        fifo_enq;    
-  wire [prio_num * vc_num-1 :0]        fifo_deq; 
-  wire                                 fifo_deq_drop;
+  wire [prio_num * vc_num-1 :0]        fifo_enq                            ;    
+  wire [prio_num * vc_num-1 :0]        fifo_deq                            ; 
+  wire                                 fifo_deq_drop                       ;
   
-  wire [prio_num-1:0]                  rr_go;
-  wire [prio_num-1:0]                  rr_go_after_prio_enf;
-  wire [vc_num-1:0]                    select_array[prio_num-1:0];
-  wire [$clog2(prio_num)-1 :0]         prio_sel;
-  wire [$clog2(vc_num)-1 :0]           vc_sel;
+  wire [prio_num-1:0]                  rr_go                               ;
+  wire [prio_num-1:0]                  rr_go_after_prio_enf                ;
+  wire [vc_num-1:0]                    select_array[prio_num-1:0]          ;
+  wire [logPrio-1 :0]                  prio_sel                            ;
+  wire [logVc-1 :0]                    vc_sel                              ;
       
-  reg [1:0]                            state_d,state_q;    
-  reg [1:0]                            fsm_state;     
-  reg [prio_num-1:0]                   rr_go_after_prio_enf_q;
+  reg [1:0]                            state_d,state_q                     ;    
+  reg [1:0]                            fsm_state                           ;     
+  reg [prio_num-1:0]                   rr_go_after_prio_enf_q              ;
  
-  reg [$clog2(prio_num)-1 :0]          prio_sel_q;
-  reg [$clog2(vc_num)-1 :0]            vc_sel_q;
-  
-  reg [prio_num-1:0]                   rr_go_q;
+  reg [logPrio-1 :0]                   prio_sel_q                          ;
+  reg [logVc-1 :0]                     vc_sel_q                            ;
+   
+  reg [prio_num-1:0]                   rr_go_q                             ;
 //  reg                                  second_condition_rr_go_q;
  // wire                                 second_condition_rr_go;
   
@@ -150,10 +156,11 @@ module exa_crosb_s2e_with_VCs #(
     for(i=0; i<prio_num; i++) begin : PRIO
       for(j=0; j<vc_num; j++) begin : VC
 	  	  
-	    assign data_from_fifo[i*vc_num + j]       = (fifo_deq[i*vc_num + j]) ? fifo_rd_data[i*vc_num + j][127:0] : data_from_fifo[i*vc_num + j];// same comment as fifo_wr_data
+	  //  assign data_from_fifo[i*vc_num + j]       = (fifo_deq[i*vc_num + j]) ? fifo_rd_data[i*vc_num + j][127:0] : data_from_fifo[i*vc_num + j];// same comment as fifo_wr_data
+		assign data_from_fifo[i*vc_num + j]       = (!S_ARESETN) ? 0 : ((fifo_deq[i*vc_num + j]) ? fifo_rd_data[i*vc_num + j][127:0] : data_from_fifo[i*vc_num + j]);
 		assign valid_from_fifo[i*vc_num + j]      = !fifo_empty[i*vc_num + j];//
 		
-		assign fifo_wr_data[i*vc_num + j]        = (S_AXIS.TVALID & ( i_output_vc == i*vc_num + j)) ? {S_AXIS.TLAST,S_AXIS.TDATA} : 0;// Does any condition need to be checked ?? or fifo_enq's conditions do the job?
+		assign fifo_wr_data[i*vc_num + j]         = (S_AXIS.TVALID & ( i_output_vc == i*vc_num + j)) ? {S_AXIS.TLAST,S_AXIS.TDATA} : 0;// Does any condition need to be checked ?? or fifo_enq's conditions do the job?
 	
 		
 		assign fifo_enq[i*vc_num + j]             = S_AXIS.TVALID & ( i_output_vc == i*vc_num + j);
@@ -196,7 +203,7 @@ module exa_crosb_s2e_with_VCs #(
 	 
 	//testing - 09/03/2022 firstly ->  
 	/*exanet_tx.header_ready is added in this condition because, in case that exanet_tx.header_ready is low, rr_go should wait...rr_go_q may be unnecessary*/
-	assign rr_go[i] = ((request_array[i]!=0) & (fsm_state == Sop_st) & !rr_go_q & exanet_tx.header_ready);
+	assign rr_go[i] = ((request_array[i]!=0) & (fsm_state == Sop_st) & /*!rr_go_q &*/ exanet_tx.header_ready);
 	
 	
 	// assign second_condition_rr_go  = (request_array[i]!=0) & last_from_fifo & exanet_tx.footer_ready;

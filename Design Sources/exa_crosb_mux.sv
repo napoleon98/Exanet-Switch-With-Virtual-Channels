@@ -1,9 +1,9 @@
 `timescale 1ns/1ns
-
+`include "ceiling_up_log2.vh"
 module exa_crosb_mux #(
 	parameter integer data_width        = 128,
 	parameter integer input_num         = 16,
-	parameter integer sel_width         = $clog2(input_num)
+	parameter integer sel_width         = `log2(input_num)
 )(
   input                                  clk,
   input                                  resetn,
