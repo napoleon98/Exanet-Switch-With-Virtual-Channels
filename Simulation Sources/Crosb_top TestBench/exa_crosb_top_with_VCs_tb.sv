@@ -512,7 +512,7 @@ module exa_crosb_top_with_VCs_tb();
      //singe size, single type , single dest , no backpressure , no validdrop
     //run_test ( 16'b0000000000000001 ,   16'b0000000000000000 ,    16'b0000000000000000 ,   16'b0000000000000001 , 4'b0011, 4'b0000,4'b0000,     '{default:0} ,  '{default:0}  , testlength, 16'b0000000000000000, 4'b0000);
      
-     run_test ( 10'b0000000001 ,   10'b0000000000 ,    10'b0000000000 ,   10'b0000000001 , 4'b0011, 4'b0000,4'b0000,     '{default:0} ,  '{default:0}  , testlength, 10'b0000000000, 4'b0000);  
+     run_test ( 10'b0000000001 ,   10'b0000000000 ,    10'b0000000000 ,   10'b0000000001 , 4'b0011, 4'b0001,4'b0000,     '{default:0} ,  '{default:0}  , testlength, 10'b0000000000, 4'b0000);  
      //with backpressure  
      run_test ( 10'b0000000001 ,   10'b0000000000 ,    10'b0000000000 ,   10'b0000000001 , 4'b0001, 4'b0001,4'b0000,     '{4,4,4,4,4,4,4,4,4,4}   ,  '{default:0}  , testlength, 10'b0000000000, 4'b0000);  
      //with valid_drop

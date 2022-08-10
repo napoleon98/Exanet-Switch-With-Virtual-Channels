@@ -13,1636 +13,1407 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="284709583333fs"></ZoomStartTime>
-      <ZoomEndTime time="284954083334fs"></ZoomEndTime>
-      <Cursor1Time time="285115000000fs"></Cursor1Time>
+      <ZoomStartTime time="840926000fs"></ZoomStartTime>
+      <ZoomEndTime time="1192426001fs"></ZoomEndTime>
+      <Cursor1Time time="1045000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="165"></NameColumnWidth>
-      <ValueColumnWidth column_width="240"></ValueColumnWidth>
+      <ValueColumnWidth column_width="117"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="391" />
+   <WVObjectSize size="334" />
    <wave_markers>
-      <marker time="22535667000" label="" />
-      <marker time="22225000000" label="" />
-      <marker time="22252167000" label="" />
-      <marker time="147855000000" label="" />
-      <marker time="147345000000" label="" />
-      <marker time="147955000000" label="" />
-      <marker time="147295000000" label="" />
-      <marker time="147275000000" label="" />
-      <marker time="147055000000" label="" />
+      <marker label="" time="22535667000" />
+      <marker label="" time="22225000000" />
+      <marker label="" time="22252167000" />
+      <marker label="" time="147855000000" />
+      <marker label="" time="147345000000" />
+      <marker label="" time="147955000000" />
+      <marker label="" time="147295000000" />
+      <marker label="" time="147275000000" />
+      <marker label="" time="147055000000" />
    </wave_markers>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/clk" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/resetn" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/resetn">
       <obj_property name="ElementShortName">resetn</obj_property>
       <obj_property name="ObjectShortName">resetn</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/traffic_work" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/traffic_work">
       <obj_property name="ElementShortName">traffic_work[9:0]</obj_property>
       <obj_property name="ObjectShortName">traffic_work[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/output_vc_for_each_input" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/output_vc_for_each_input">
       <obj_property name="ElementShortName">output_vc_for_each_input[9:0][3:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">output_vc_for_each_input[9:0][3:0][1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_cons[2].traffic_consumer /i_dests_of_each_input" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\traffic_cons[2].traffic_consumer /i_dests_of_each_input">
       <obj_property name="ElementShortName">i_dests_of_each_input[9:0][3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_dests_of_each_input[9:0][3:0][3:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
-      <obj_property name="label">EXA INPUT[0]</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/i_input_vc">
+      <obj_property name="ElementShortName">i_input_vc[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_input_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_hdr" type="array">
-      <obj_property name="ElementShortName">exa_hdr</obj_property>
-      <obj_property name="ObjectShortName">exa_hdr</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_6" type="array">
-      <obj_property name="ElementShortName">rand_6[5:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_6[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /state_q" type="array">
-      <obj_property name="ElementShortName">state_q[4:0]</obj_property>
-      <obj_property name="ObjectShortName">state_q[4:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /state_d" type="array">
-      <obj_property name="ElementShortName">state_d[4:0]</obj_property>
-      <obj_property name="ObjectShortName">state_d[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /delay_counter" type="array">
-      <obj_property name="ElementShortName">delay_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">delay_counter[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /delay_enable" type="logic">
-      <obj_property name="ElementShortName">delay_enable</obj_property>
-      <obj_property name="ObjectShortName">delay_enable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /header_valid" type="logic">
-      <obj_property name="ElementShortName">header_valid</obj_property>
-      <obj_property name="ObjectShortName">header_valid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /header_ready" type="logic">
-      <obj_property name="ElementShortName">header_ready</obj_property>
-      <obj_property name="ObjectShortName">header_ready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /payload_valid" type="logic">
-      <obj_property name="ElementShortName">payload_valid</obj_property>
-      <obj_property name="ObjectShortName">payload_valid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /payload_ready" type="logic">
-      <obj_property name="ElementShortName">payload_ready</obj_property>
-      <obj_property name="ObjectShortName">payload_ready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /footer_valid" type="logic">
-      <obj_property name="ElementShortName">footer_valid</obj_property>
-      <obj_property name="ObjectShortName">footer_valid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /footer_ready" type="logic">
-      <obj_property name="ElementShortName">footer_ready</obj_property>
-      <obj_property name="ObjectShortName">footer_ready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /data" type="array">
-      <obj_property name="ElementShortName">data[127:0]</obj_property>
-      <obj_property name="ObjectShortName">data[127:0]</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider26">
-      <obj_property name="label">E2S[0]</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /tdest_valid" type="logic">
-      <obj_property name="ElementShortName">tdest_valid</obj_property>
-      <obj_property name="ObjectShortName">tdest_valid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /o_dests" type="array">
-      <obj_property name="ElementShortName">o_dests[3:0][3:0]</obj_property>
-      <obj_property name="ObjectShortName">o_dests[3:0][3:0]</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider900">
-      <obj_property name="label">NET ROUTING</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_header" type="array">
-      <obj_property name="ElementShortName">i_header[127:0]</obj_property>
-      <obj_property name="ObjectShortName">i_header[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_header" type="array">
-      <obj_property name="ElementShortName">o_header[127:0]</obj_property>
-      <obj_property name="ObjectShortName">o_header[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_hdr_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/i_hdr_valid">
       <obj_property name="ElementShortName">i_hdr_valid</obj_property>
       <obj_property name="ObjectShortName">i_hdr_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_src_coord" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/i_src_coord">
+      <obj_property name="ElementShortName">i_src_coord[21:0]</obj_property>
+      <obj_property name="ObjectShortName">i_src_coord[21:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/i_tdest">
+      <obj_property name="ElementShortName">i_tdest[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_tdest[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/exa_hdr">
+      <obj_property name="ElementShortName">exa_hdr</obj_property>
+      <obj_property name="ObjectShortName">exa_hdr</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/i_cntrl_info">
+      <obj_property name="ElementShortName">i_cntrl_info</obj_property>
+      <obj_property name="ObjectShortName">i_cntrl_info</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/o_output_vc">
+      <obj_property name="ElementShortName">o_output_vc[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">o_output_vc[3:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/input_port_dimension">
+      <obj_property name="ElementShortName">input_port_dimension</obj_property>
+      <obj_property name="ObjectShortName">input_port_dimension</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_output_vc_allocation/output_port_dimension">
+      <obj_property name="ElementShortName">output_port_dimension</obj_property>
+      <obj_property name="ObjectShortName">output_port_dimension</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider26" type="divider">
+      <obj_property name="label">EXA INPUT[0]</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_hdr">
+      <obj_property name="ElementShortName">exa_hdr</obj_property>
+      <obj_property name="ObjectShortName">exa_hdr</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /header_valid">
+      <obj_property name="ElementShortName">header_valid</obj_property>
+      <obj_property name="ObjectShortName">header_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /header_ready">
+      <obj_property name="ElementShortName">header_ready</obj_property>
+      <obj_property name="ObjectShortName">header_ready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /payload_valid">
+      <obj_property name="ElementShortName">payload_valid</obj_property>
+      <obj_property name="ObjectShortName">payload_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /payload_ready">
+      <obj_property name="ElementShortName">payload_ready</obj_property>
+      <obj_property name="ObjectShortName">payload_ready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /footer_valid">
+      <obj_property name="ElementShortName">footer_valid</obj_property>
+      <obj_property name="ObjectShortName">footer_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /footer_ready">
+      <obj_property name="ElementShortName">footer_ready</obj_property>
+      <obj_property name="ObjectShortName">footer_ready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[0] /data">
+      <obj_property name="ElementShortName">data[127:0]</obj_property>
+      <obj_property name="ObjectShortName">data[127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider26" type="divider">
+      <obj_property name="label">E2S[0]</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /tdest_valid">
+      <obj_property name="ElementShortName">tdest_valid</obj_property>
+      <obj_property name="ObjectShortName">tdest_valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /o_dests">
+      <obj_property name="ElementShortName">o_dests[3:0][3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_dests[3:0][3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider900" type="divider">
+      <obj_property name="label">NET ROUTING</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_header">
+      <obj_property name="ElementShortName">i_header[127:0]</obj_property>
+      <obj_property name="ObjectShortName">i_header[127:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_header">
+      <obj_property name="ElementShortName">o_header[127:0]</obj_property>
+      <obj_property name="ObjectShortName">o_header[127:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_hdr_valid">
+      <obj_property name="ElementShortName">i_hdr_valid</obj_property>
+      <obj_property name="ObjectShortName">i_hdr_valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_src_coord">
       <obj_property name="ElementShortName">i_src_coord[21:0]</obj_property>
       <obj_property name="ObjectShortName">i_src_coord[21:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_prio" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_prio">
       <obj_property name="ElementShortName">o_prio</obj_property>
       <obj_property name="ObjectShortName">o_prio</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_tdest" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_tdest">
       <obj_property name="ElementShortName">o_tdest[4:0]</obj_property>
       <obj_property name="ObjectShortName">o_tdest[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_dec_error" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_dec_error">
       <obj_property name="ElementShortName">o_dec_error</obj_property>
       <obj_property name="ObjectShortName">o_dec_error</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_cntrl_info" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i_cntrl_info">
       <obj_property name="ElementShortName">i_cntrl_info</obj_property>
       <obj_property name="ObjectShortName">i_cntrl_info</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_dest_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_dest_valid">
       <obj_property name="ElementShortName">o_dest_valid</obj_property>
       <obj_property name="ObjectShortName">o_dest_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_err_d" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_err_d">
       <obj_property name="ElementShortName">dec_err_d</obj_property>
       <obj_property name="ObjectShortName">dec_err_d</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_x" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_x">
       <obj_property name="ElementShortName">local_x[3:0]</obj_property>
       <obj_property name="ObjectShortName">local_x[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_y" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_y">
       <obj_property name="ElementShortName">local_y[3:0]</obj_property>
       <obj_property name="ObjectShortName">local_y[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_z" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_z">
       <obj_property name="ElementShortName">local_z[3:0]</obj_property>
       <obj_property name="ObjectShortName">local_z[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_off" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_off">
       <obj_property name="ElementShortName">local_off[1:0]</obj_property>
       <obj_property name="ObjectShortName">local_off[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_tor" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/local_tor">
       <obj_property name="ElementShortName">local_tor[5:0]</obj_property>
       <obj_property name="ObjectShortName">local_tor[5:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_x" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_x">
       <obj_property name="ElementShortName">dst_x[3:0]</obj_property>
       <obj_property name="ObjectShortName">dst_x[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_y" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_y">
       <obj_property name="ElementShortName">dst_y[3:0]</obj_property>
       <obj_property name="ObjectShortName">dst_y[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_z" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_z">
       <obj_property name="ElementShortName">dst_z[3:0]</obj_property>
       <obj_property name="ObjectShortName">dst_z[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_off" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dst_off">
       <obj_property name="ElementShortName">dst_off[1:0]</obj_property>
       <obj_property name="ObjectShortName">dst_off[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/path" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/path">
       <obj_property name="ElementShortName">path[2:0]</obj_property>
       <obj_property name="ObjectShortName">path[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/pkt_type" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/pkt_type">
       <obj_property name="ElementShortName">pkt_type[4:0]</obj_property>
       <obj_property name="ObjectShortName">pkt_type[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/pkt_size" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/pkt_size">
       <obj_property name="ElementShortName">pkt_size[13:0]</obj_property>
       <obj_property name="ObjectShortName">pkt_size[13:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/small_addr" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/small_addr">
       <obj_property name="ElementShortName">small_addr[9:0]</obj_property>
       <obj_property name="ObjectShortName">small_addr[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/big_addr" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/big_addr">
       <obj_property name="ElementShortName">big_addr[41:0]</obj_property>
       <obj_property name="ObjectShortName">big_addr[41:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/exa_addr" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/exa_addr">
       <obj_property name="ElementShortName">exa_addr[41:0]</obj_property>
       <obj_property name="ObjectShortName">exa_addr[41:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/prio_d" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/prio_d">
       <obj_property name="ElementShortName">prio_d</obj_property>
       <obj_property name="ObjectShortName">prio_d</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/prio_q" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/prio_q">
       <obj_property name="ElementShortName">prio_q</obj_property>
       <obj_property name="ObjectShortName">prio_q</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/i">
       <obj_property name="ElementShortName">i[31:0]</obj_property>
       <obj_property name="ObjectShortName">i[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/tdest_var" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/tdest_var">
       <obj_property name="ElementShortName">tdest_var[4:0]</obj_property>
       <obj_property name="ObjectShortName">tdest_var[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_error_var" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_error_var">
       <obj_property name="ElementShortName">dec_error_var</obj_property>
       <obj_property name="ObjectShortName">dec_error_var</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/TDEST_WIDTH" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/TDEST_WIDTH">
       <obj_property name="ElementShortName">TDEST_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">TDEST_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/REG_DQ" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/REG_DQ">
       <obj_property name="ElementShortName">REG_DQ[31:0]</obj_property>
       <obj_property name="ObjectShortName">REG_DQ[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/INPUT_PORT_NUMBER" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/INPUT_PORT_NUMBER">
       <obj_property name="ElementShortName">INPUT_PORT_NUMBER[31:0]</obj_property>
       <obj_property name="ObjectShortName">INPUT_PORT_NUMBER[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/output_num" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/output_num">
       <obj_property name="ElementShortName">output_num[31:0]</obj_property>
       <obj_property name="ObjectShortName">output_num[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/max_ports" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/max_ports">
       <obj_property name="ElementShortName">max_ports[31:0]</obj_property>
       <obj_property name="ObjectShortName">max_ports[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/PORTx_LOW_ADDR" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/PORTx_LOW_ADDR">
       <obj_property name="ElementShortName">PORTx_LOW_ADDR[0:9][41:0]</obj_property>
       <obj_property name="ObjectShortName">PORTx_LOW_ADDR[0:9][41:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/PORTx_HIGH_ADDR" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/PORTx_HIGH_ADDR">
       <obj_property name="ElementShortName">PORTx_HIGH_ADDR[0:9][41:0]</obj_property>
       <obj_property name="ObjectShortName">PORTx_HIGH_ADDR[0:9][41:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/reg_enable" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/reg_enable">
       <obj_property name="ElementShortName">reg_enable</obj_property>
       <obj_property name="ObjectShortName">reg_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/DEBUG" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/DEBUG">
       <obj_property name="ElementShortName">DEBUG[39:0]</obj_property>
       <obj_property name="ObjectShortName">DEBUG[39:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider941">
+   <wvobject fp_name="divider941" type="divider">
       <obj_property name="label">END OF NET ROUTING</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_dec_error" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/o_dec_error">
       <obj_property name="ElementShortName">o_dec_error</obj_property>
       <obj_property name="ObjectShortName">o_dec_error</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_error_var" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_error_var">
       <obj_property name="ElementShortName">dec_error_var</obj_property>
       <obj_property name="ObjectShortName">dec_error_var</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_err_d" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exa_crosb_net_routing/dec_err_d">
       <obj_property name="ElementShortName">dec_err_d</obj_property>
       <obj_property name="ObjectShortName">dec_err_d</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /X_State" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /X_State">
       <obj_property name="ElementShortName">X_State[1:0]</obj_property>
       <obj_property name="ObjectShortName">X_State[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /o_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /o_has_packet">
       <obj_property name="ElementShortName">o_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_has_packet[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /i_selected_vc_from_input_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /i_selected_vc_from_input_arbiter">
       <obj_property name="ElementShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
       <obj_property name="ObjectShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exanet_ready_q" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /exanet_ready_q">
       <obj_property name="ElementShortName">exanet_ready_q[3:0]</obj_property>
       <obj_property name="ObjectShortName">exanet_ready_q[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_prog_full" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_prog_full">
       <obj_property name="ElementShortName">fifo_prog_full[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_prog_full[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][133:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][133:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider941">
+   <wvobject fp_name="divider941" type="divider">
       <obj_property name="label">M_AXIS[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TVALID" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TVALID">
       <obj_property name="ElementShortName">TVALID</obj_property>
       <obj_property name="ObjectShortName">TVALID</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TREADY" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TREADY">
       <obj_property name="ElementShortName">TREADY</obj_property>
       <obj_property name="ObjectShortName">TREADY</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TDATA" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TDATA">
       <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
       <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TDEST" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TDEST">
       <obj_property name="ElementShortName">TDEST[4:0]</obj_property>
       <obj_property name="ObjectShortName">TDEST[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TLAST" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS/TLAST">
       <obj_property name="ElementShortName">TLAST</obj_property>
       <obj_property name="ObjectShortName">TLAST</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /\PRIO[0].VC[1].in_fifo /memory" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /\PRIO[0].VC[1].in_fifo /memory">
       <obj_property name="ElementShortName">memory[63:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">memory[63:0][133:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">M_AXIS_exa2axi[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TVALID" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TVALID">
       <obj_property name="ElementShortName">TVALID</obj_property>
       <obj_property name="ObjectShortName">TVALID</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TREADY" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TREADY">
       <obj_property name="ElementShortName">TREADY</obj_property>
       <obj_property name="ObjectShortName">TREADY</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TDATA" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TDATA">
       <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
       <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TDEST" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TDEST">
       <obj_property name="ElementShortName">TDEST[4:0]</obj_property>
       <obj_property name="ObjectShortName">TDEST[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TLAST" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[0].e2s_with_VCs /M_AXIS_exa2axi/TLAST">
       <obj_property name="ElementShortName">TLAST</obj_property>
       <obj_property name="ObjectShortName">TLAST</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">EXA INPUT[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[1] /data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">E2S[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /X_State" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /X_State">
       <obj_property name="ElementShortName">X_State[1:0]</obj_property>
       <obj_property name="ObjectShortName">X_State[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /i_cts_from_input_arbiter" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /i_cts_from_input_arbiter">
       <obj_property name="ElementShortName">i_cts_from_input_arbiter</obj_property>
       <obj_property name="ObjectShortName">i_cts_from_input_arbiter</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /i_selected_vc_from_input_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /i_selected_vc_from_input_arbiter">
       <obj_property name="ElementShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
       <obj_property name="ObjectShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /o_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /o_has_packet">
       <obj_property name="ElementShortName">o_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_has_packet[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /o_fifo_full" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /o_fifo_full">
       <obj_property name="ElementShortName">o_fifo_full[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_fifo_full[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][133:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][133:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">M_AXIS_exa2axi[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TVALID" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TVALID">
       <obj_property name="ElementShortName">TVALID</obj_property>
       <obj_property name="ObjectShortName">TVALID</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TREADY" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TREADY">
       <obj_property name="ElementShortName">TREADY</obj_property>
       <obj_property name="ObjectShortName">TREADY</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TDATA" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TDATA">
       <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
       <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TDEST" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TDEST">
       <obj_property name="ElementShortName">TDEST[4:0]</obj_property>
       <obj_property name="ObjectShortName">TDEST[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TLAST" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[1].e2s_with_VCs /M_AXIS_exa2axi/TLAST">
       <obj_property name="ElementShortName">TLAST</obj_property>
       <obj_property name="ObjectShortName">TLAST</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">EXA INPUT[2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[2] /data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">E2S[2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /tdest_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /tdest_valid">
       <obj_property name="ElementShortName">tdest_valid</obj_property>
       <obj_property name="ObjectShortName">tdest_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /X_State" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /X_State">
       <obj_property name="ElementShortName">X_State[1:0]</obj_property>
       <obj_property name="ObjectShortName">X_State[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /i_cts_from_input_arbiter" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /i_cts_from_input_arbiter">
       <obj_property name="ElementShortName">i_cts_from_input_arbiter</obj_property>
       <obj_property name="ObjectShortName">i_cts_from_input_arbiter</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /i_selected_vc_from_input_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /i_selected_vc_from_input_arbiter">
       <obj_property name="ElementShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
       <obj_property name="ObjectShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /o_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /o_has_packet">
       <obj_property name="ElementShortName">o_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_has_packet[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][133:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][133:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">M_AXIS_exa2axi[2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TVALID" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TVALID">
       <obj_property name="ElementShortName">TVALID</obj_property>
       <obj_property name="ObjectShortName">TVALID</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TREADY" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TREADY">
       <obj_property name="ElementShortName">TREADY</obj_property>
       <obj_property name="ObjectShortName">TREADY</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TDATA" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TDATA">
       <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
       <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TDEST" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TDEST">
       <obj_property name="ElementShortName">TDEST[4:0]</obj_property>
       <obj_property name="ObjectShortName">TDEST[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TLAST" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[2].e2s_with_VCs /M_AXIS_exa2axi/TLAST">
       <obj_property name="ElementShortName">TLAST</obj_property>
       <obj_property name="ObjectShortName">TLAST</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">EXA INPUT[3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\s_exanet_rx[3] /data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">E2S[3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /i_cts_from_input_arbiter" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /i_cts_from_input_arbiter">
       <obj_property name="ElementShortName">i_cts_from_input_arbiter</obj_property>
       <obj_property name="ObjectShortName">i_cts_from_input_arbiter</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /i_selected_vc_from_input_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /i_selected_vc_from_input_arbiter">
       <obj_property name="ElementShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
       <obj_property name="ObjectShortName">i_selected_vc_from_input_arbiter[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /o_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /o_has_packet">
       <obj_property name="ElementShortName">o_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_has_packet[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /o_fifo_full" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /o_fifo_full">
       <obj_property name="ElementShortName">o_fifo_full[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_fifo_full[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /X_State" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /X_State">
       <obj_property name="ElementShortName">X_State[1:0]</obj_property>
       <obj_property name="ObjectShortName">X_State[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][133:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][133:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][133:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">M_AXIS_exa2axi[3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TVALID" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TVALID">
       <obj_property name="ElementShortName">TVALID</obj_property>
       <obj_property name="ObjectShortName">TVALID</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TREADY" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TREADY">
       <obj_property name="ElementShortName">TREADY</obj_property>
       <obj_property name="ObjectShortName">TREADY</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TDATA" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TDATA">
       <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
       <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TDEST" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TDEST">
       <obj_property name="ElementShortName">TDEST[4:0]</obj_property>
       <obj_property name="ObjectShortName">TDEST[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TLAST" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\E2S[3].e2s_with_VCs /M_AXIS_exa2axi/TLAST">
       <obj_property name="ElementShortName">TLAST</obj_property>
       <obj_property name="ObjectShortName">TLAST</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">INPUT_ARBITER[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#0000FF</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_has_packet">
       <obj_property name="ElementShortName">i_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">i_has_packet[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_dest" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_dest">
       <obj_property name="ElementShortName">i_dest[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_dest[3:0][3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /output_fifo_credits" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /output_fifo_credits">
       <obj_property name="ElementShortName">output_fifo_credits[9:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">output_fifo_credits[9:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_output_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_output_vc">
       <obj_property name="ElementShortName">i_output_vc[3:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">i_output_vc[3:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /has_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /has_request">
       <obj_property name="ElementShortName">has_request[1:0]</obj_property>
       <obj_property name="ObjectShortName">has_request[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_request_to_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_request_to_output_arbiter">
       <obj_property name="ElementShortName">o_request_to_output_arbiter[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_request_to_output_arbiter[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_grant_from_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /i_grant_from_output_arbiter">
       <obj_property name="ElementShortName">i_grant_from_output_arbiter[9:0]</obj_property>
       <obj_property name="ObjectShortName">i_grant_from_output_arbiter[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /grant_from_output_arbiter" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /grant_from_output_arbiter">
       <obj_property name="ElementShortName">grant_from_output_arbiter</obj_property>
       <obj_property name="ObjectShortName">grant_from_output_arbiter</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_dest_output" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_dest_output">
       <obj_property name="ElementShortName">o_dest_output[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_output[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_dest_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_dest_vc">
       <obj_property name="ElementShortName">o_dest_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /state_q" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /state_q">
       <obj_property name="ElementShortName">state_q[1:0]</obj_property>
       <obj_property name="ObjectShortName">state_q[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /state_d" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /state_d">
       <obj_property name="ElementShortName">state_d[1:0]</obj_property>
       <obj_property name="ObjectShortName">state_d[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[0].input_arbiter_with_VCs /o_selected_vc">
       <obj_property name="ElementShortName">o_selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_selected_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">INPUT_ARBITER[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#0000FF</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_has_packet">
       <obj_property name="ElementShortName">i_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">i_has_packet[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_dest" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_dest">
       <obj_property name="ElementShortName">i_dest[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_dest[3:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_grant_from_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_grant_from_output_arbiter">
       <obj_property name="ElementShortName">i_grant_from_output_arbiter[9:0]</obj_property>
       <obj_property name="ObjectShortName">i_grant_from_output_arbiter[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /grant_from_output_arbiter" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /grant_from_output_arbiter">
       <obj_property name="ElementShortName">grant_from_output_arbiter</obj_property>
       <obj_property name="ObjectShortName">grant_from_output_arbiter</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /output_fifo_credits" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /output_fifo_credits">
       <obj_property name="ElementShortName">output_fifo_credits[9:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">output_fifo_credits[9:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_output_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /i_output_vc">
       <obj_property name="ElementShortName">i_output_vc[3:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">i_output_vc[3:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_selected_vc">
       <obj_property name="ElementShortName">o_selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_selected_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_request_to_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_request_to_output_arbiter">
       <obj_property name="ElementShortName">o_request_to_output_arbiter[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_request_to_output_arbiter[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_dest_output" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_dest_output">
       <obj_property name="ElementShortName">o_dest_output[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_output[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_dest_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /o_dest_vc">
       <obj_property name="ElementShortName">o_dest_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /state_q" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /state_q">
       <obj_property name="ElementShortName">state_q[1:0]</obj_property>
       <obj_property name="ObjectShortName">state_q[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /state_d" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /state_d">
       <obj_property name="ElementShortName">state_d[1:0]</obj_property>
       <obj_property name="ObjectShortName">state_d[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /has_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[1].input_arbiter_with_VCs /has_request">
       <obj_property name="ElementShortName">has_request[1:0]</obj_property>
       <obj_property name="ObjectShortName">has_request[1:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">INPUT_ARBITER[2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#0000FF</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_has_packet">
       <obj_property name="ElementShortName">i_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">i_has_packet[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_dest" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_dest">
       <obj_property name="ElementShortName">i_dest[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_dest[3:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_grant_from_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_grant_from_output_arbiter">
       <obj_property name="ElementShortName">i_grant_from_output_arbiter[9:0]</obj_property>
       <obj_property name="ObjectShortName">i_grant_from_output_arbiter[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_output_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /i_output_vc">
       <obj_property name="ElementShortName">i_output_vc[3:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">i_output_vc[3:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_selected_vc">
       <obj_property name="ElementShortName">o_selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_selected_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_request_to_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_request_to_output_arbiter">
       <obj_property name="ElementShortName">o_request_to_output_arbiter[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_request_to_output_arbiter[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_dest_output" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_dest_output">
       <obj_property name="ElementShortName">o_dest_output[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_output[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_dest_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /o_dest_vc">
       <obj_property name="ElementShortName">o_dest_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /has_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /has_request">
       <obj_property name="ElementShortName">has_request[1:0]</obj_property>
       <obj_property name="ObjectShortName">has_request[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /grant_from_output_arbiter" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[2].input_arbiter_with_VCs /grant_from_output_arbiter">
       <obj_property name="ElementShortName">grant_from_output_arbiter</obj_property>
       <obj_property name="ObjectShortName">grant_from_output_arbiter</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider26">
+   <wvobject fp_name="divider26" type="divider">
       <obj_property name="label">INPUT_ARBITER[3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#0000FF</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_has_packet" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_has_packet">
       <obj_property name="ElementShortName">i_has_packet[3:0]</obj_property>
       <obj_property name="ObjectShortName">i_has_packet[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_dest" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_dest">
       <obj_property name="ElementShortName">i_dest[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_dest[3:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_grant_from_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_grant_from_output_arbiter">
       <obj_property name="ElementShortName">i_grant_from_output_arbiter[9:0]</obj_property>
       <obj_property name="ObjectShortName">i_grant_from_output_arbiter[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /output_fifo_credits" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /output_fifo_credits">
       <obj_property name="ElementShortName">output_fifo_credits[9:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">output_fifo_credits[9:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_output_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /i_output_vc">
       <obj_property name="ElementShortName">i_output_vc[3:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">i_output_vc[3:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_selected_vc">
       <obj_property name="ElementShortName">o_selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_selected_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_request_to_output_arbiter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_request_to_output_arbiter">
       <obj_property name="ElementShortName">o_request_to_output_arbiter[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_request_to_output_arbiter[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_dest_output" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_dest_output">
       <obj_property name="ElementShortName">o_dest_output[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_output[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_dest_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /o_dest_vc">
       <obj_property name="ElementShortName">o_dest_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">o_dest_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /state_q" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /state_q">
       <obj_property name="ElementShortName">state_q[1:0]</obj_property>
       <obj_property name="ObjectShortName">state_q[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /state_d" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /state_d">
       <obj_property name="ElementShortName">state_d[1:0]</obj_property>
       <obj_property name="ObjectShortName">state_d[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /has_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /has_request">
       <obj_property name="ElementShortName">has_request[1:0]</obj_property>
       <obj_property name="ObjectShortName">has_request[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /grant_from_output_arbiter" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\INPUTS[3].input_arbiter_with_VCs /grant_from_output_arbiter">
       <obj_property name="ElementShortName">grant_from_output_arbiter</obj_property>
       <obj_property name="ObjectShortName">grant_from_output_arbiter</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label"> OUTPUT ARBITER [0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FF0080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /i_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /i_request">
       <obj_property name="ElementShortName">i_request[9:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_request[9:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /o_grant" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /o_grant">
       <obj_property name="ElementShortName">o_grant[9:0]</obj_property>
       <obj_property name="ObjectShortName">o_grant[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /o_input_sel" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /o_input_sel">
       <obj_property name="ElementShortName">o_input_sel[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_input_sel[3:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[0].output_arbiter_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][9:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][9:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label"> OUTPUT ARBITER [1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FF0080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /i_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /i_request">
       <obj_property name="ElementShortName">i_request[9:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_request[9:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /o_grant" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /o_grant">
       <obj_property name="ElementShortName">o_grant[9:0]</obj_property>
       <obj_property name="ObjectShortName">o_grant[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /o_input_sel" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /o_input_sel">
       <obj_property name="ElementShortName">o_input_sel[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_input_sel[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[1].output_arbiter_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][9:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][9:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label"> OUTPUT ARBITER [2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FF0080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /i_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /i_request">
       <obj_property name="ElementShortName">i_request[9:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_request[9:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][9:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /o_grant" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /o_grant">
       <obj_property name="ElementShortName">o_grant[9:0]</obj_property>
       <obj_property name="ObjectShortName">o_grant[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /o_input_sel" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[2].output_arbiter_with_VCs /o_input_sel">
       <obj_property name="ElementShortName">o_input_sel[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_input_sel[3:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label"> OUTPUT ARBITER [3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FF0080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /i_request" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /i_request">
       <obj_property name="ElementShortName">i_request[9:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">i_request[9:0][3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /o_grant" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /o_grant">
       <obj_property name="ElementShortName">o_grant[9:0]</obj_property>
       <obj_property name="ObjectShortName">o_grant[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /o_input_sel" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /o_input_sel">
       <obj_property name="ElementShortName">o_input_sel[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_input_sel[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/exa_crosb_crosb_with_VCs/\OUTPUTS[3].output_arbiter_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][9:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][9:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">EXA OUTPUT[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[0] /data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">S2E[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /select_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /select_array">
       <obj_property name="ElementShortName">select_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">select_array[1:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_empty" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_empty">
       <obj_property name="ElementShortName">fifo_empty[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_empty[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][128:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][128:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /o_fifo_full" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /o_fifo_full">
       <obj_property name="ElementShortName">o_fifo_full[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_fifo_full[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /rr_go" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /rr_go">
       <obj_property name="ElementShortName">rr_go[1:0]</obj_property>
       <obj_property name="ObjectShortName">rr_go[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /prio_sel" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /prio_sel">
       <obj_property name="ElementShortName">prio_sel[0:0]</obj_property>
       <obj_property name="ObjectShortName">prio_sel[0:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /vc_sel" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /vc_sel">
       <obj_property name="ElementShortName">vc_sel[0:0]</obj_property>
       <obj_property name="ObjectShortName">vc_sel[0:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /selected_vc">
       <obj_property name="ElementShortName">selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">selected_vc[1:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFA500</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fsm_state" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[0].s2e_with_VCs /fsm_state">
       <obj_property name="ElementShortName">fsm_state[1:0]</obj_property>
       <obj_property name="ObjectShortName">fsm_state[1:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">EXA OUTPUT[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[1] /data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">S2E[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /selected_vc">
       <obj_property name="ElementShortName">selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">selected_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][128:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][128:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /o_fifo_full" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /o_fifo_full">
       <obj_property name="ElementShortName">o_fifo_full[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_fifo_full[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /rr_go" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /rr_go">
       <obj_property name="ElementShortName">rr_go[1:0]</obj_property>
       <obj_property name="ObjectShortName">rr_go[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fsm_state" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[1].s2e_with_VCs /fsm_state">
       <obj_property name="ElementShortName">fsm_state[1:0]</obj_property>
       <obj_property name="ObjectShortName">fsm_state[1:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">EXA OUTPUT[2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_cons[2].traffic_consumer /rand_5bit" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\traffic_cons[2].traffic_consumer /rand_5bit">
       <obj_property name="ElementShortName">rand_5bit[4:0]</obj_property>
       <obj_property name="ObjectShortName">rand_5bit[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_cons[2].traffic_consumer /i_backpressure" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\traffic_cons[2].traffic_consumer /i_backpressure">
       <obj_property name="ElementShortName">i_backpressure[4:0]</obj_property>
       <obj_property name="ObjectShortName">i_backpressure[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[2] /data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">S2E[2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fsm_state" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fsm_state">
       <obj_property name="ElementShortName">fsm_state[1:0]</obj_property>
       <obj_property name="ObjectShortName">fsm_state[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /selected_vc">
       <obj_property name="ElementShortName">selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">selected_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TVALID" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TVALID">
       <obj_property name="ElementShortName">TVALID</obj_property>
       <obj_property name="ObjectShortName">TVALID</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TDATA" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TDATA">
       <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
       <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TDEST" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TDEST">
       <obj_property name="ElementShortName">TDEST[4:0]</obj_property>
       <obj_property name="ObjectShortName">TDEST[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TLAST" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /S_AXIS/TLAST">
       <obj_property name="ElementShortName">TLAST</obj_property>
       <obj_property name="ObjectShortName">TLAST</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][128:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][128:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_empty" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_empty">
       <obj_property name="ElementShortName">fifo_empty[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_empty[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /data_from_fifo" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /data_from_fifo">
       <obj_property name="ElementShortName">data_from_fifo[3:0][127:0]</obj_property>
       <obj_property name="ObjectShortName">data_from_fifo[3:0][127:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /o_fifo_full" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /o_fifo_full">
       <obj_property name="ElementShortName">o_fifo_full[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_fifo_full[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /rr_go" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[2].s2e_with_VCs /rr_go">
       <obj_property name="ElementShortName">rr_go[1:0]</obj_property>
       <obj_property name="ObjectShortName">rr_go[1:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">EXA OUTPUT[3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /i_output_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /i_output_vc">
       <obj_property name="ElementShortName">i_output_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">i_output_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/\m_exanet_tx[3] /data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider34">
+   <wvobject fp_name="divider34" type="divider">
       <obj_property name="label">S2E[3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /request_array" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /request_array">
       <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
       <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /selected_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /selected_vc">
       <obj_property name="ElementShortName">selected_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">selected_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_rd_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_rd_data">
       <obj_property name="ElementShortName">fifo_rd_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_rd_data[3:0][128:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_wr_data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_wr_data">
       <obj_property name="ElementShortName">fifo_wr_data[3:0][128:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_wr_data[3:0][128:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_enq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_enq">
       <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_deq" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fifo_deq">
       <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
       <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /o_fifo_full" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /o_fifo_full">
       <obj_property name="ElementShortName">o_fifo_full[3:0]</obj_property>
       <obj_property name="ObjectShortName">o_fifo_full[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /rr_go" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /rr_go">
       <obj_property name="ElementShortName">rr_go[1:0]</obj_property>
       <obj_property name="ObjectShortName">rr_go[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fsm_state" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/exanet_crosb_top_with_VCs_dut/\S2E[3].s2e_with_VCs /fsm_state">
       <obj_property name="ElementShortName">fsm_state[1:0]</obj_property>
       <obj_property name="ObjectShortName">fsm_state[1:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">axi traffic gen[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FFA500</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /resetn" type="logic">
-      <obj_property name="ElementShortName">resetn</obj_property>
-      <obj_property name="ObjectShortName">resetn</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /i_work" type="logic">
-      <obj_property name="ElementShortName">i_work</obj_property>
-      <obj_property name="ObjectShortName">i_work</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /i_src_coord" type="array">
-      <obj_property name="ElementShortName">i_src_coord[21:0]</obj_property>
-      <obj_property name="ObjectShortName">i_src_coord[21:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /dif_size_enable" type="logic">
-      <obj_property name="ElementShortName">dif_size_enable</obj_property>
-      <obj_property name="ObjectShortName">dif_size_enable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /dif_type_enable" type="logic">
-      <obj_property name="ElementShortName">dif_type_enable</obj_property>
-      <obj_property name="ObjectShortName">dif_type_enable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /fixed_dest_enable" type="logic">
-      <obj_property name="ElementShortName">fixed_dest_enable</obj_property>
-      <obj_property name="ObjectShortName">fixed_dest_enable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /fixed_header_vc_enable" type="logic">
-      <obj_property name="ElementShortName">fixed_header_vc_enable</obj_property>
-      <obj_property name="ObjectShortName">fixed_header_vc_enable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /delay_enable" type="logic">
-      <obj_property name="ElementShortName">delay_enable</obj_property>
-      <obj_property name="ObjectShortName">delay_enable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /fixed_dest_x" type="array">
-      <obj_property name="ElementShortName">fixed_dest_x[4:0]</obj_property>
-      <obj_property name="ObjectShortName">fixed_dest_x[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /fixed_dest_y" type="array">
-      <obj_property name="ElementShortName">fixed_dest_y[4:0]</obj_property>
-      <obj_property name="ObjectShortName">fixed_dest_y[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /fixed_dest_z" type="array">
-      <obj_property name="ElementShortName">fixed_dest_z[4:0]</obj_property>
-      <obj_property name="ObjectShortName">fixed_dest_z[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /valid_drop_rate" type="array">
-      <obj_property name="ElementShortName">valid_drop_rate[4:0]</obj_property>
-      <obj_property name="ObjectShortName">valid_drop_rate[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /fixed_header_vc" type="array">
-      <obj_property name="ElementShortName">fixed_header_vc[4:0]</obj_property>
-      <obj_property name="ObjectShortName">fixed_header_vc[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /fd" type="array">
-      <obj_property name="ElementShortName">fd[31:0]</obj_property>
-      <obj_property name="ObjectShortName">fd[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /filename" type="array">
-      <obj_property name="ElementShortName">filename[999:0]</obj_property>
-      <obj_property name="ObjectShortName">filename[999:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /words_left_q" type="array">
-      <obj_property name="ElementShortName">words_left_q[4:0]</obj_property>
-      <obj_property name="ObjectShortName">words_left_q[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /words_left_d" type="array">
-      <obj_property name="ElementShortName">words_left_d[4:0]</obj_property>
-      <obj_property name="ObjectShortName">words_left_d[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /state_q" type="array">
-      <obj_property name="ElementShortName">state_q[4:0]</obj_property>
-      <obj_property name="ObjectShortName">state_q[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /state_d" type="array">
-      <obj_property name="ElementShortName">state_d[4:0]</obj_property>
-      <obj_property name="ObjectShortName">state_d[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /exa_header_t" type="array">
-      <obj_property name="ElementShortName">exa_header_t</obj_property>
-      <obj_property name="ObjectShortName">exa_header_t</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /exa_footer_t" type="array">
-      <obj_property name="ElementShortName">exa_footer_t</obj_property>
-      <obj_property name="ObjectShortName">exa_footer_t</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /cur_time_q" type="array">
-      <obj_property name="ElementShortName">cur_time_q[127:0]</obj_property>
-      <obj_property name="ObjectShortName">cur_time_q[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_2" type="array">
-      <obj_property name="ElementShortName">rand_2[1:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_2[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_4_z" type="array">
-      <obj_property name="ElementShortName">rand_4_z[3:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_4_z[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_4_y" type="array">
-      <obj_property name="ElementShortName">rand_4_y[3:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_4_y[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_4_x" type="array">
-      <obj_property name="ElementShortName">rand_4_x[3:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_4_x[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_7" type="array">
-      <obj_property name="ElementShortName">rand_7[6:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_7[6:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_6" type="array">
-      <obj_property name="ElementShortName">rand_6[5:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_6[5:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_8" type="array">
-      <obj_property name="ElementShortName">rand_8[7:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_8[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_32" type="array">
-      <obj_property name="ElementShortName">rand_32[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_32[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_5" type="array">
-      <obj_property name="ElementShortName">rand_5[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_5[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /rand_5_header_vc" type="array">
-      <obj_property name="ElementShortName">rand_5_header_vc[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rand_5_header_vc[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /delay_counter" type="array">
-      <obj_property name="ElementShortName">delay_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">delay_counter[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /mem_pointer" type="array">
-      <obj_property name="ElementShortName">mem_pointer[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_pointer[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /display_dest_coord" type="array">
-      <obj_property name="ElementShortName">display_dest_coord[127:0]</obj_property>
-      <obj_property name="ObjectShortName">display_dest_coord[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /display_prio" type="array">
-      <obj_property name="ElementShortName">display_prio[127:0]</obj_property>
-      <obj_property name="ObjectShortName">display_prio[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /words_to_reach_16" type="array">
-      <obj_property name="ElementShortName">words_to_reach_16[4:0]</obj_property>
-      <obj_property name="ObjectShortName">words_to_reach_16[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /pkt_counter" type="array">
-      <obj_property name="ElementShortName">pkt_counter[127:0]</obj_property>
-      <obj_property name="ObjectShortName">pkt_counter[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /paylod" type="array">
-      <obj_property name="ElementShortName">paylod[127:0]</obj_property>
-      <obj_property name="ObjectShortName">paylod[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /baket_info" type="array">
-      <obj_property name="ElementShortName">baket_info</obj_property>
-      <obj_property name="ObjectShortName">baket_info</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /src_q" type="array">
-      <obj_property name="ElementShortName">src_q[41:0]</obj_property>
-      <obj_property name="ObjectShortName">src_q[41:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /dst_q" type="array">
-      <obj_property name="ElementShortName">dst_q[41:0]</obj_property>
-      <obj_property name="ObjectShortName">dst_q[41:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /prio_q" type="array">
-      <obj_property name="ElementShortName">prio_q[0:0]</obj_property>
-      <obj_property name="ObjectShortName">prio_q[0:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /timestamp_q" type="array">
-      <obj_property name="ElementShortName">timestamp_q[63:0]</obj_property>
-      <obj_property name="ObjectShortName">timestamp_q[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /size_q" type="array">
-      <obj_property name="ElementShortName">size_q[8:0]</obj_property>
-      <obj_property name="ObjectShortName">size_q[8:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /prio_num" type="array">
-      <obj_property name="ElementShortName">prio_num[31:0]</obj_property>
-      <obj_property name="ObjectShortName">prio_num[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /prio_val" type="array">
-      <obj_property name="ElementShortName">prio_val[31:0]</obj_property>
-      <obj_property name="ObjectShortName">prio_val[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /tag" type="array">
-      <obj_property name="ElementShortName">tag[127:0]</obj_property>
-      <obj_property name="ObjectShortName">tag[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /vc_num" type="array">
-      <obj_property name="ElementShortName">vc_num[31:0]</obj_property>
-      <obj_property name="ObjectShortName">vc_num[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /dimension_x" type="array">
-      <obj_property name="ElementShortName">dimension_x[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dimension_x[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /dimension_y" type="array">
-      <obj_property name="ElementShortName">dimension_y[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dimension_y[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /dimension_z" type="array">
-      <obj_property name="ElementShortName">dimension_z[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dimension_z[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /IDDLE" type="array">
-      <obj_property name="ElementShortName">IDDLE[4:0]</obj_property>
-      <obj_property name="ObjectShortName">IDDLE[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /HEADER" type="array">
-      <obj_property name="ElementShortName">HEADER[4:0]</obj_property>
-      <obj_property name="ObjectShortName">HEADER[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /PAYLOAD" type="array">
-      <obj_property name="ElementShortName">PAYLOAD[4:0]</obj_property>
-      <obj_property name="ObjectShortName">PAYLOAD[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /FOOTER" type="array">
-      <obj_property name="ElementShortName">FOOTER[4:0]</obj_property>
-      <obj_property name="ObjectShortName">FOOTER[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /DELAY" type="array">
-      <obj_property name="ElementShortName">DELAY[4:0]</obj_property>
-      <obj_property name="ObjectShortName">DELAY[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /max_size" type="array">
-      <obj_property name="ElementShortName">max_size[31:0]</obj_property>
-      <obj_property name="ObjectShortName">max_size[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/\traffic_gen[0].traffic_gen_0 /chanche_for_high_priority" type="array">
-      <obj_property name="ElementShortName">chanche_for_high_priority[31:0]</obj_property>
-      <obj_property name="ObjectShortName">chanche_for_high_priority[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">CONSUMER[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FFA500</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">CONSUMER[2]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FFA500</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider356">
+   <wvobject fp_name="divider356" type="divider">
       <obj_property name="label">CONSUMER[3]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FFA500</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/inactive_counter" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/inactive_counter">
       <obj_property name="ElementShortName">inactive_counter[31:0]</obj_property>
       <obj_property name="ObjectShortName">inactive_counter[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/active_flag_0" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/active_flag_0">
       <obj_property name="ElementShortName">active_flag_0[9:0]</obj_property>
       <obj_property name="ObjectShortName">active_flag_0[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_top_with_VCs_tb/active_flag_1" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_top_with_VCs_tb/active_flag_1">
       <obj_property name="ElementShortName">active_flag_1[9:0]</obj_property>
       <obj_property name="ObjectShortName">active_flag_1[9:0]</obj_property>
    </wvobject>

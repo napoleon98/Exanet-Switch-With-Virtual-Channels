@@ -174,12 +174,17 @@ module exa_crosb_e2s_with_VCs # (
 
   exa_crosb_output_vc_allocation #(
     .prio_num(prio_num),
-    .vc_num(vc_num)
+    .vc_num(vc_num),
+    .INPUT_PORT_NUMBER(INPUT_PORT_NUMBER),
+    .output_num(output_num),
+    .TDEST_WIDTH(TDEST_WIDTH)
   )exa_crosb_output_vc_allocation(
     .clk(M_ACLK),
     .resetn(M_ARESETN),
     .i_hdr_valid(exanet_rx.header_valid),
     .i_input_vc(exa_hdr.vc),
+    .i_tdest(M_AXIS_exa2axi.TDEST),
+    .i_cntrl_info ( i_cntrl_info ),
     .o_output_vc(o_output_vc)
   );
 
