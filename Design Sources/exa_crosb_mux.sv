@@ -10,7 +10,7 @@ module exa_crosb_mux #(
   input [data_width-1 :0]                DATA_i[input_num-1:0],
   input [input_num-1 : 0]                VALID_i,
   input [input_num-1 : 0]                LAST_i,
-  input [input_num-1 : 0]                PRIO_i,
+  //input [input_num-1 : 0]                PRIO_i,
   input [input_num-1 : 0]                CTS_FROM_INPUT_ARBITER_i,
 
   input [sel_width-1 :0]                 SEL_i,
@@ -18,7 +18,7 @@ module exa_crosb_mux #(
   output reg[data_width-1 : 0]           DATA_o,
   output reg                             VALID_o,
   output reg                             LAST_o,
-  output reg                             PRIO_o,
+  //output reg                             PRIO_o,
   output reg                             CTS_FROM_INPUT_ARBITER_o
 );
 
@@ -35,7 +35,7 @@ module exa_crosb_mux #(
   assign DATA_o     = channel_selected[SEL_i]; 
   assign VALID_o    = VALID_i[SEL_i];
   assign LAST_o     = LAST_i[SEL_i];
-  assign PRIO_o     = PRIO_i[SEL_i];
+  //assign PRIO_o     = PRIO_i[SEL_i];
   assign CTS_FROM_INPUT_ARBITER_o = CTS_FROM_INPUT_ARBITER_i[SEL_i];
 	
 	
