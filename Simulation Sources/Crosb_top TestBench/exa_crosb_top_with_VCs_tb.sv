@@ -15,7 +15,7 @@ module exa_crosb_top_with_VCs_tb();
   localparam input_num  = 10;
   localparam output_num = 10;
   localparam prio_num   = 2;
-  localparam vc_num     = 2;
+  localparam vc_num     = 3;
   localparam data_width = 128;
   
   localparam conf_reg_num = 256;
@@ -58,12 +58,7 @@ module exa_crosb_top_with_VCs_tb();
   logic [ 21:0]             i_src_coord = 22'b00_0000_0000_0000_0000_0000;
                                                                      
                                                                     
- /* logic [ 21:0]             i_src_coord_cons[output_num - 1 : 0] = {22'b00_0000_0000_0000_0001_0001,
-                                                                    22'b00_0000_0000_0000_0001_0000,
-                                                                    22'b00_0000_0000_0000_0000_0001,
-                                                                    22'b00_0000_0000_0000_0000_0000}; 
-  
-  */
+
   reg [31:0] headers_generated[input_num-1:0] = {default:0} ;//{0,0,0,0} ;
   reg [31:0] headers_consumed[output_num-1:0] ={default:0}  ;
   logic [31:0] total_headers_generated                      ;
@@ -126,6 +121,9 @@ module exa_crosb_top_with_VCs_tb();
   logic                          S_AXI_BVALID       ;
   logic                          S_AXI_BREADY  = 0  ;
       
+  
+  logic [logVcPrio-1:0]          selected_output_vc[output_num-1:0];
+  
    
   cntrl_info_t  cntrl_info;
 
@@ -212,10 +210,15 @@ module exa_crosb_top_with_VCs_tb();
     end 
   endgenerate
   
-  
+  localparam TDEST_WIDTH = 5;
   generate
     for (i = 0 ; i < output_num ; i = i +1 ) begin :traffic_cons
       exa_crosb_traffic_consumer_with_VCs #(
+        .TDEST_WIDTH(TDEST_WIDTH),
+        
+        .dimension_x(dimension_x),
+        .dimension_y(dimension_y),
+        .dimension_z(dimension_z),
         .vc_num(vc_num),
         .prio_num(prio_num),
         .input_num(input_num),
@@ -223,10 +226,14 @@ module exa_crosb_top_with_VCs_tb();
       )traffic_consumer (
         .clk(clk),
         .resetn(resetn),
-        .i_src_coord(i),//just because 18(example dest) is multiple of 9    //it was 'h10*(i + 3) and before it was 'h10*(i/2)
+        .i_consumer_id(i),
+        .i_src_coord(i_src_coord),
         .exa(m_exanet_tx[i]),
         .i_backpressure(backpressure[i]),
-        .i_dests_of_each_input(dests_of_each_input)
+        .i_dests_of_each_input(dests_of_each_input),
+        .i_cntrl_info(cntrl_info),
+        .i_selected_output_vc(selected_output_vc[i])
+        
       );     
 
     end 
@@ -289,11 +296,11 @@ module exa_crosb_top_with_VCs_tb();
        .exanet_rx(s_exanet_rx),
        .exanet_tx(m_exanet_tx),
        .o_dests_of_each_input(dests_of_each_input),
-       
+       .o_selected_output_vc(selected_output_vc),
        
           // AXI Clock and Reset
-       .S_AXI_ACLK(clk),
-       .S_AXI_ARESETN(resetn),
+       
+       
        // Memory Read Address Channel
        .S_AXI_ARID(S_AXI_ARID),
        .S_AXI_ARADDR(S_AXI_ARADDR),
@@ -336,8 +343,7 @@ module exa_crosb_top_with_VCs_tb();
        .S_AXI_BVALID(S_AXI_BVALID),
        .S_AXI_BREADY(S_AXI_BREADY),
        .o_cntrl_info(cntrl_info)
-       //.i_pkt_counter_input(pkt_counter_from_e2s),
-       //.i_pkt_counter_output(pkt_counter_from_s2e)       
+      
      );
 
 
@@ -419,8 +425,7 @@ module exa_crosb_top_with_VCs_tb();
       fixed_dest_z         = t_fixed_dest_z        ;
       
       fixed_vc_header    = t_fixed_vc_header   ;
-      for (int i = 0 ; i < input_num ; i++) begin
-       // traffic_work[i]    = t_traffic_work[i]   ;       
+      for (int i = 0 ; i < input_num ; i++) begin      
         fixed_dest_en[i]   = t_fixed_dest_en[i]  ;
         delay_en[i]        = t_delay_en[i]       ;
         valid_drop_rate[i] = t_valid_drop_rate[i];
@@ -512,7 +517,7 @@ module exa_crosb_top_with_VCs_tb();
      //singe size, single type , single dest , no backpressure , no validdrop
     //run_test ( 16'b0000000000000001 ,   16'b0000000000000000 ,    16'b0000000000000000 ,   16'b0000000000000001 , 4'b0011, 4'b0000,4'b0000,     '{default:0} ,  '{default:0}  , testlength, 16'b0000000000000000, 4'b0000);
      
-     run_test ( 10'b0000000001 ,   10'b0000000000 ,    10'b0000000000 ,   10'b0000000001 , 4'b0011, 4'b0001,4'b0000,     '{default:0} ,  '{default:0}  , testlength, 10'b0000000000, 4'b0000);  
+     run_test ( 10'b0000000001 ,   10'b0000000000 ,    10'b0000000000 ,   10'b0000000001 , 4'b0011, 4'b0000,4'b0000,     '{default:0} ,  '{default:0}  , testlength, 10'b0000000000, 4'b0000);  
      //with backpressure  
      run_test ( 10'b0000000001 ,   10'b0000000000 ,    10'b0000000000 ,   10'b0000000001 , 4'b0001, 4'b0001,4'b0000,     '{4,4,4,4,4,4,4,4,4,4}   ,  '{default:0}  , testlength, 10'b0000000000, 4'b0000);  
      //with valid_drop
@@ -543,7 +548,7 @@ module exa_crosb_top_with_VCs_tb();
      run_test ( 10'b0000000001 ,   10'b0000000001 ,    10'b0000000000 ,   10'b0000000001 ,   4'b0010, 4'b0001,4'b0000,     '{default:0} ,  '{4,4,4,4,4,4,4,4,4,4}  ,   testlength, 10'b0000000000, 4'b0000);  
      //with backpressure and valid_drop
      run_test ( 10'b0000000001 ,   10'b0000000001 ,    10'b0000000000 ,   10'b0000000001 ,   4'b0011, 4'b0000,4'b0000,     '{4,4,4,4,4,4,4,4,4,4}   ,  '{4,4,4,4,4,4,4,4,4,4}  ,   testlength, 10'b0000000000, 4'b0000);  
-  
+
      phase ++ ;
      $display("--------------phase 4 with multiple dests--------------");   
     //     traffic_work , dif_size_en , delay_enable ,fixed_dest_en, fixed_dest,            backpressure, valid_drop_rate,test_length ,fixed_header_vc_enable, fixed_header_vc
@@ -657,8 +662,8 @@ module exa_crosb_top_with_VCs_tb();
      
      
      
-   /*   
-    
+     
+ /*   
     
      run_test ( 4'b0001 ,   4'b0000 ,    4'b0000 ,   4'b0001 , 4'b0011, 4'b0000,4'b0000,     '{default:0} ,  '{default:0}  , testlength, 4'b0000, 4'b0000);  
      //with backpressure  
@@ -793,9 +798,9 @@ module exa_crosb_top_with_VCs_tb();
     //with backpressure and valid_drop
      run_test ( 4'b1111  , 4'b1111 ,   4'b1111 ,     4'b0000 ,   4'b0011, 4'b0000,4'b0000,    '{8,8,8,8}   ,  '{8,8,8,8}   , testlength, 4'b1111, 4'b0101);  
           
-     
-  */
-     
+ */    
+  
+   
      $display("--------------final phase--------------");   
      for (int i= 0 ; i < 100 ; i ++ ) begin
       
@@ -809,7 +814,7 @@ module exa_crosb_top_with_VCs_tb();
        rDstX = $urandom() % (dimension_x);
        rDstY = $urandom() % (dimension_y);
        rDstZ = $urandom() % (dimension_z);
-       $display("--------------another one bytes the dust %d,%d,%d,%d,%d,%d --------------",r5,r16a,r16b,r16c,r16d,rVc); 
+       $display("--------------another one bytes the dust: Num of test:%d,   %d,%d,%d,%d,%d,%d --------------",i,r5,r16a,r16b,r16c,r16d,rVc); 
         
        
      
@@ -825,7 +830,7 @@ module exa_crosb_top_with_VCs_tb();
          $finish();
        end      
      end
-    
+  
      $display("All tests completed succesfuly ");
       $display("headers gen / cons : %d  | %d " , total_headers_generated , total_headers_consumed);
       $display("payload gen / cons : %d  | %d " , total_payload_generated , total_payload_consumed);
@@ -837,133 +842,6 @@ module exa_crosb_top_with_VCs_tb();
    end
  
 
-  
-  
-  
-  
-
-  /* ************ ******************MY VERY FIRST  INITIAL BLOCK *****************************
-  initial begin
-    resetn = 0;
-
-    #103
-    resetn = 1;
-    traffic_work  = 4'b0001;
-    fixed_dest    = 4'b0000;
-    delay_en      = 4'b0000;
-    fixed_dest_en = 4'b0000;// 4'b1111;
-    dif_size_en   = 4'b0000;
-    valid_drop_rate = '{default:0};
-    
-    
-    backpressure[0] = 5'b00010;
-    backpressure[1] = 5'b00010;
-    backpressure[2] = 5'b00010;
-    backpressure[3] = 5'b00010;
-    
-    */
-    
-    /*the below lines  were used to control ready signals, and are commented out because this jod is done by consumer now*/
-   /*
-    m_exanet_tx[0].header_ready   = 0;
-    m_exanet_tx[0].payload_ready  = 0;
-    m_exanet_tx[0].footer_ready   = 0;
-    
-        
-    m_exanet_tx[1].header_ready   = 0;
-    m_exanet_tx[1].payload_ready  = 0;
-    m_exanet_tx[1].footer_ready   = 0;
-    
-        
-    m_exanet_tx[2].header_ready   = 0;
-    m_exanet_tx[2].payload_ready  = 0;
-    m_exanet_tx[2].footer_ready   = 0;
-    
-        
-    m_exanet_tx[3].header_ready   = 0;
-    m_exanet_tx[3].payload_ready  = 0;
-    m_exanet_tx[3].footer_ready   = 0;
-   */
-    /*
-    #10
-    traffic_work  = 4'b0101;
-    #10
-    traffic_work  = 4'b0111;
-    #10
-    traffic_work  = 4'b1111;
-    */
-    
-  /*the below lines  were used to control ready signals, and are commented out because this jod is done by consumer now*/
-      /*
-      #500
-      m_exanet_tx[0].header_ready   = 1;
-      m_exanet_tx[0].payload_ready  = 1;
-      m_exanet_tx[0].footer_ready   = 1;
-      
-          
-      m_exanet_tx[1].header_ready   = 1;
-      m_exanet_tx[1].payload_ready  = 1;
-      m_exanet_tx[1].footer_ready   = 1;
-      
-          
-      m_exanet_tx[2].header_ready   = 1;
-      m_exanet_tx[2].payload_ready  = 1;
-      m_exanet_tx[2].footer_ready   = 1;
-      
-          
-      m_exanet_tx[3].header_ready   = 1;
-      m_exanet_tx[3].payload_ready  = 1;
-      m_exanet_tx[3].footer_ready   = 1;
-      
-    #500
-       
-     m_exanet_tx[0].header_ready   = 0;
-     m_exanet_tx[0].payload_ready  = 0;
-     m_exanet_tx[0].footer_ready   = 0;
-     
-         
-     m_exanet_tx[1].header_ready   = 0;
-     m_exanet_tx[1].payload_ready  = 0;
-     m_exanet_tx[1].footer_ready   = 0;
-     
-         
-     m_exanet_tx[2].header_ready   = 0;
-     m_exanet_tx[2].payload_ready  = 0;
-     m_exanet_tx[2].footer_ready   = 0;
-     
-         
-     m_exanet_tx[3].header_ready   = 0;
-     m_exanet_tx[3].payload_ready  = 0;
-     m_exanet_tx[3].footer_ready   = 0;
-     
-    #500
-     
-   
-       
-       m_exanet_tx[0].header_ready   = 1;
-       m_exanet_tx[0].payload_ready  = 1;
-       m_exanet_tx[0].footer_ready   = 1;
-       
-           
-       m_exanet_tx[1].header_ready   = 1;
-       m_exanet_tx[1].payload_ready  = 1;
-       m_exanet_tx[1].footer_ready   = 1;
-       
-           
-       m_exanet_tx[2].header_ready   = 1;
-       m_exanet_tx[2].payload_ready  = 1;
-       m_exanet_tx[2].footer_ready   = 1;
-       
-           
-       m_exanet_tx[3].header_ready   = 1;
-       m_exanet_tx[3].payload_ready  = 1;
-       m_exanet_tx[3].footer_ready   = 1;   
-     */
-     
-    
- /*   
-  end
-  */
   
   
   

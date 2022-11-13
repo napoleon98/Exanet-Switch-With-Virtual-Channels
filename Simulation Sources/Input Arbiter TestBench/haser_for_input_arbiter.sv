@@ -1,12 +1,16 @@
 `timescale 1ns / 1ps
-
+`include "ceiling_up_log2.vh"
 
 
 module haser_for_input_arbiter #(
 
     parameter vc_num   = 3,
     parameter prio_num = 2,
-    parameter output_num = 8
+    parameter output_num = 8,
+    parameter logVcPrio    = `log2(prio_num*vc_num),
+    parameter logOutput    = `log2(output_num),
+    parameter logPrio      = `log2(prio_num),
+    parameter logVc        = `log2(vc_num)
 )(
   input                                        clk,
   input                                        resetn,
@@ -14,20 +18,20 @@ module haser_for_input_arbiter #(
   input                                        fixed_vcs_enable,
   input [(vc_num*prio_num)-1:0]                fixed_vcs,
   input                                        initialize,
-  input [$clog2(vc_num*prio_num)-1:0]          selected_vc,
+  input [logVcPrio-1:0]          selected_vc,
   input                                        cts,
     
   output [vc_num*prio_num-1:0]                 o_has_packet,
-  output  logic [(output_num)-1 :0]      dest_i [prio_num*vc_num-1 :0],
-  output  logic [$clog2(vc_num*prio_num)-1:0]  output_vc_i [vc_num*prio_num-1:0]
+  output  logic [logOutput -1 :0]      dest_i [prio_num*vc_num-1 :0],
+  output  logic [logVcPrio-1:0]  output_vc_i [vc_num*prio_num-1:0]
 
 );
- reg [$clog2(vc_num*prio_num)-1 :0] rand_vc_dest   = 0;
- reg [$clog2(output_num)-1 :0]      rand_dest      = 0;
- reg [$clog2(vc_num*prio_num)-1 :0] rand_vc_2      = 0;
+ reg [logVcPrio-1 :0] rand_vc_dest   = 0;
+ reg [logOutput-1 :0]      rand_dest      = 0;
+ reg [logVcPrio-1 :0] rand_vc_2      = 0;
  genvar i; 
  /* ***************************************************** TASK DESTER ************************************************************/
-   task dester(input fixed_dest_enable, input [$clog2(output_num)-1 :0] fixed_dest, input fixed_vc_enable, input[$clog2(prio_num*vc_num)-1 :0] fixed_vc,input initialize );begin
+   task dester(input fixed_dest_enable, input [logOutput-1 :0] fixed_dest, input fixed_vc_enable, input[logVcPrio-1 :0] fixed_vc,input initialize );begin
      if(initialize) begin
        for(int i=0;i<prio_num*vc_num;i++)begin
          dest_i[i]        = 0;
@@ -61,7 +65,7 @@ module haser_for_input_arbiter #(
  
  
   /* ***************************************************** TASK output_vcer ************************************************************/
-  task output_vcer(input fixed_vc_enable, input[$clog2(prio_num*vc_num)-1 :0] fixed_vc, input[$clog2(prio_num*vc_num)-1 :0] fixed_vc_value,  input initialize);begin
+  task output_vcer(input fixed_vc_enable, input[logVcPrio-1 :0] fixed_vc, input[logVcPrio-1 :0] fixed_vc_value,  input initialize);begin
     if(initialize) begin
       for(int i=0;i<prio_num*vc_num;i++)begin
         output_vc_i[i]     = 0;
@@ -174,16 +178,16 @@ module haser_for_input_arbiter #(
       always_comb begin 
         if(state_q[i] == HAS_LOW)begin
           has_packet[i] = 0;
-          dester(.fixed_dest_enable(1),.fixed_dest(0),.fixed_vc_enable(1),.fixed_vc(i),.initialize(0)); //****** CHANGE******
-          output_vcer(.fixed_vc_enable(1), .fixed_vc(i),.fixed_vc_value(0), .initialize(0));//****** CHANGE******
-          if(!fixed_vcs_enable) // ! is wrong?
+          dester(.fixed_dest_enable(1),.fixed_dest(0),.fixed_vc_enable(1),.fixed_vc(i),.initialize(0)); 
+          output_vcer(.fixed_vc_enable(1), .fixed_vc(i),.fixed_vc_value(0), .initialize(0));
+          if(!fixed_vcs_enable) 
             fixed_has_packets[i] = fixed_vcs[i];
         end      
         if(state_q[i] == HAS_HIGH & !high[i])begin
           has_packet[i] = 1;
           /*generate a destination and an output vc*/
-          dester(.fixed_dest_enable(0),.fixed_dest(0),.fixed_vc_enable(1),.fixed_vc(i),.initialize(0)); //****** CHANGE******
-          output_vcer(.fixed_vc_enable(1), .fixed_vc(i),.fixed_vc_value(i), .initialize(0));//****** CHANGE******
+          dester(.fixed_dest_enable(0),.fixed_dest(0),.fixed_vc_enable(1),.fixed_vc(i),.initialize(0)); 
+          output_vcer(.fixed_vc_enable(1), .fixed_vc(i),.fixed_vc_value(i), .initialize(0));
         end
         if(state_q[i] == GRANTED) begin
           if(!fixed_vcs_enable)begin
@@ -192,8 +196,8 @@ module haser_for_input_arbiter #(
             else begin
               has_packet[i] = 1;
               /* Dest and output_vc are lost after the first cycle, that's why the below tasks are called again with 0 as argument of fixed values*/
-              dester(.fixed_dest_enable(1),.fixed_dest(0),.fixed_vc_enable(1),.fixed_vc(i),.initialize(0));//****** CHANGE******
-              output_vcer(.fixed_vc_enable(1), .fixed_vc(i), .fixed_vc_value(0), .initialize(0));//****** CHANGE******
+              dester(.fixed_dest_enable(1),.fixed_dest(0),.fixed_vc_enable(1),.fixed_vc(i),.initialize(0));
+              output_vcer(.fixed_vc_enable(1), .fixed_vc(i), .fixed_vc_value(0), .initialize(0));
             end
           end 
           else begin

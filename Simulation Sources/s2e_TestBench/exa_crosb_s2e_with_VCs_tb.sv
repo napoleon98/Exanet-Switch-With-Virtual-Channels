@@ -5,7 +5,7 @@ module exa_crosb_s2e_with_VCs_tb();
   parameter integer C_S00_AXI_DATA_WIDTH	= 32;
   parameter integer C_S00_AXI_ADDR_WIDTH	= 4;
   localparam prio_num   = 2;
-  localparam vc_num     = 2;
+  localparam vc_num     = 3;
 
 // Parameters of Axi Master Bus Interface M00_AXIS
   parameter integer C_M00_AXIS_TDATA_WIDTH	= 128;
@@ -44,8 +44,8 @@ module exa_crosb_s2e_with_VCs_tb();
  exa_crosb_s2e_with_VCs #(
          .prio_num(prio_num),
          .vc_num(vc_num),
-         .output_num(4), // maybe useless
-         .input_num(4), // maybe useless 
+         .output_num(4),
+         .input_num(4),  
          .out_fifo_depth(72)// it was 40
     )s2e_with_VCs (
         
@@ -76,26 +76,6 @@ module exa_crosb_s2e_with_VCs_tb();
    );
 	
 
-  /*  
-  task output_vcer(input fixed_vc_enable, input[$clog2(prio_num*vc_num)-1 :0] fixed_vc, input initialize);begin
-    if(initialize) begin
-     
-   end
-   else begin
-     if(fixed_vc_enable)begin
-       output_vc_i = fixed_vc; 
-       
-     end
-     else begin
-       rand_vc     = $urandom() % (prio_num*vc_num);
-       output_vc_i = rand_vc;
-       
-     end  
-   end    
-  end 
-  endtask
-
-*/
 
 initial begin
           m00_axis_aclk = 0;
@@ -132,8 +112,8 @@ initial begin
             s_axis.TREADY = 0;//m00_axis_tready = 0;
             enable_w = 1;
             num_of_words_w = 18;
-            backpressure = 5'b01000;// ****** CHANGING THIS TO 10000, PROBLEM STARTS*****
-            #40 s_axis.TREADY = 1; // ****** THIS SHOULD BE DRIVEN BY exa_crosb_s2e_with_VCs ***********
+            backpressure = 5'b01000;
+            #40 s_axis.TREADY = 1;
             //#550 m00_axis_tready = 0;
             //#40 m00_axis_tready = 1;
   end
@@ -145,43 +125,8 @@ initial begin
      
       
   end
-  /*
-  always begin 
+
   
-    while(!m00_axis_tlast)begin
-      @(posedge m00_axis_aclk);
-    end
-       enable_w = 0;
-      @(posedge m00_axis_aclk);
-      @(posedge m00_axis_aclk);
-      @(posedge m00_axis_aclk);
-      enable_w = 1;
-    
-  end
-  */
-  
-  
-  
-  /*
-  initial begin
-     output_vcer(1,0,0);
-    forever begin
-      #5
-      if(m00_axis_tlast)begin
-        enable_w = 0;
-        #10
-        enable_w = 1;
-        output_vcer(1,2,0);
-        while (fifo_full[output_vc_i] == 1)begin
-          output_vcer(0,1,0);// fixed_vc == 0, so random vc will be selected
-        end
-      end
-      else begin 
-        @(negedge m00_axis_aclk);
-      end
-      
-    end  
-  end
- */
+ 
  
 endmodule

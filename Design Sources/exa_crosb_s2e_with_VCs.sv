@@ -8,9 +8,9 @@ import exanet_crosb_pkg::*;
 module exa_crosb_s2e_with_VCs #(
 	parameter prio_num               = 2,
 	parameter vc_num                 = 2,
-	parameter output_num             = 4, // maybe useless
-	parameter input_num              = 4, // number of inputs of next input
-	parameter integer out_fifo_depth = 40, // in testbench depth is 36,
+	parameter output_num             = 4, 
+	parameter input_num              = 4, 
+	parameter integer out_fifo_depth = 40, 
     parameter logVcPrio              = `log2(prio_num*vc_num),
     parameter logOutput              = `log2(output_num),
     parameter logPrio                = `log2(prio_num),
@@ -20,13 +20,12 @@ module exa_crosb_s2e_with_VCs #(
 	// Stream IF
 	input                                        S_ACLK,
     input                                        S_ARESETN,
-	input [logVcPrio-1:0]                        i_output_vc,
     output [prio_num*vc_num-1:0]                 o_fifo_full,
     AXIS.slave                                   S_AXIS,
 	
 	// ExaNet IF
     exanet.master                                exanet_tx,
-    output counter_t                             o_pkt_counter
+    output [logVcPrio-1:0]                       o_selected_vc 
 
 );
  
@@ -34,14 +33,12 @@ module exa_crosb_s2e_with_VCs #(
               Sop_Wait = 2'b10;
 			  
         
-  localparam  IDDLE     = 2'b00,     
-              GRANTED   = 2'b10;		  
+;		  
   
   logic [vc_num-1:0]                   request_array [prio_num-1:0]        ;
  
   wire [logVcPrio-1:0]                 selected_vc                         ;
-  //wire [prio_num * vc_num-1 :0]        has_packet;
- // wire                                 grant_valid;
+ 
    
     
   /*helper signals used for interface connections*/
@@ -57,86 +54,86 @@ module exa_crosb_s2e_with_VCs #(
   wire [128:0]                         fifo_wr_data [prio_num * vc_num-1:0];  
   wire [prio_num * vc_num-1 :0]        fifo_enq                            ;    
   wire [prio_num * vc_num-1 :0]        fifo_deq                            ; 
-  wire                                 fifo_deq_drop                       ;
+
   
   wire [prio_num-1:0]                  rr_go                               ;
   wire [prio_num-1:0]                  rr_go_after_prio_enf                ;
   wire [vc_num-1:0]                    select_array[prio_num-1:0]          ;
   wire [logPrio-1 :0]                  prio_sel                            ;
   wire [logVc-1 :0]                    vc_sel                              ;
-      
-  reg [1:0]                            state_d,state_q                     ;    
+  wire [4:0]                           output_vc                           ; 
+
+  wire [4:0]                           output_vc_final                     ;
+     
+ 
   reg [1:0]                            fsm_state                           ;     
   reg [prio_num-1:0]                   rr_go_after_prio_enf_q              ;
  
   reg [logPrio-1 :0]                   prio_sel_q                          ;
   reg [logVc-1 :0]                     vc_sel_q                            ;
    
-  reg [prio_num-1:0]                   rr_go_q                             ;
-//  reg                                  second_condition_rr_go_q;
- // wire                                 second_condition_rr_go;
+
+  reg [4:0]                            output_vc_q                         ;
+ 
+  
+ 
   
   
   counter_t pkt_counter;
-  assign o_pkt_counter = pkt_counter;
-  
-  
-  reg [3:0] testing_counter = 0;
- // reg footer_valid_q;
+ 
+  assign output_vc     = (S_AXIS.TVALID) ? S_AXIS.TDATA[4:0] : 0;
+
   
   genvar i,j;
    
  /*implement pkt counter logic here*/   
-  always @(posedge S_ACLK) begin
+  always_ff @(posedge S_ACLK) begin
     if (~S_ARESETN) begin
+    
       pkt_counter.hdr <= 0;
       pkt_counter.pld <= 0;
       pkt_counter.ftr <= 0;
+      
+      
      // footer_valid_q  <= 0;
      //  second_condition_rr_go_q <=0;
       prio_sel_q      <= 0;
       vc_sel_q        <= 0; 
-      rr_go_q         <= 0;
+      //rr_go_q         <= 0;
+      output_vc_q     <= 0;
+      //tvalid_q        <= 0;
       
     end
     else begin
-   
-      if (exanet_tx.header_valid & exanet_tx.header_ready)
-        pkt_counter.hdr <= pkt_counter.hdr + 1;
-      if (exanet_tx.payload_valid & exanet_tx.payload_ready)
-        pkt_counter.pld <= pkt_counter.pld + 1;
-      if (exanet_tx.footer_valid & exanet_tx.footer_ready)
-        pkt_counter.ftr <= pkt_counter.ftr + 1;    
+      
+ 
 
-      //footer_valid_q <= exanet_tx.footer_valid;// delay footer_valid one cycle, so we can use it for dropping fifo_deq
+/*this counter doesn't count the headers. It counts all the flits that arrived */
+
+      if (S_AXIS.TVALID & !S_AXIS.TLAST)begin
+        pkt_counter.hdr <= pkt_counter.hdr + 1;
+      end
+      else if(S_AXIS.TVALID & S_AXIS.TLAST)begin
+        pkt_counter.hdr <= 0;
+      end
+     
        
       
-     /* 
-      if(second_condition_rr_go)
-        second_condition_rr_go_q <= second_condition_rr_go;
-      else if(exanet_tx.header_valid & exanet_tx.header_ready)
-        second_condition_rr_go_q <= 0;
-      */  
        if(rr_go != 0)begin
          prio_sel_q             <= prio_sel;
          vc_sel_q               <= vc_sel;  
-         rr_go_q                <= rr_go;
+
        end
-       
-       if(exanet_tx.payload_valid & exanet_tx.payload_ready)
-         rr_go_q                <= 0; // it needs to be reset, so rr_go can be asserted for the next packet
-         
-       /*
-       if(request_array == 0 & fsm_state == Sop_st)begin
-         prio_sel_q               <= 0;
-         vc_sel_q                 <= 0; 
-       end
-        */
-        
       
+       /*We want to save the output_vc whenever a new header(first flit) arrives. A new header arrives, if tvalid was 0 and got 1, or if tvalid remains 1 but tlast has arrived one cycle earlier*/ 
+      if(pkt_counter.hdr == 0)begin
+        output_vc_q <= output_vc;
+      end
+      
+        
     end  
   end
-
+  assign output_vc_final = (pkt_counter.hdr == 0) ? output_vc : output_vc_q;
  
   
   always_ff @(posedge S_ACLK) begin
@@ -156,23 +153,23 @@ module exa_crosb_s2e_with_VCs #(
     for(i=0; i<prio_num; i++) begin : PRIO
       for(j=0; j<vc_num; j++) begin : VC
 	  	  
-	  //  assign data_from_fifo[i*vc_num + j]       = (fifo_deq[i*vc_num + j]) ? fifo_rd_data[i*vc_num + j][127:0] : data_from_fifo[i*vc_num + j];// same comment as fifo_wr_data
-		assign data_from_fifo[i*vc_num + j]       = (!S_ARESETN) ? 0 : ((fifo_deq[i*vc_num + j]) ? fifo_rd_data[i*vc_num + j][127:0] : data_from_fifo[i*vc_num + j]);
+
+		assign data_from_fifo[i*vc_num + j]       =  fifo_rd_data[i*vc_num + j][127:0] ;
+
+		
 		assign valid_from_fifo[i*vc_num + j]      = !fifo_empty[i*vc_num + j];//
 		
-		assign fifo_wr_data[i*vc_num + j]         = (S_AXIS.TVALID & ( i_output_vc == i*vc_num + j)) ? {S_AXIS.TLAST,S_AXIS.TDATA} : 0;// Does any condition need to be checked ?? or fifo_enq's conditions do the job?
-	
 		
-		assign fifo_enq[i*vc_num + j]             = S_AXIS.TVALID & ( i_output_vc == i*vc_num + j);
-		//without !footer_valid_q, fifo_deq could not be droped after tlast become low, because selected_vc changes one cycle later....*****!fifo_empty may be useless now****
-        assign fifo_deq[i*vc_num + j]             = ((selected_vc == i*vc_num + j) & !fifo_empty[selected_vc] /*& !footer_valid_q*/) ? ((exanet_tx.header_valid & exanet_tx.header_ready) |
-                                                                                                                                   (exanet_tx.payload_valid & exanet_tx.payload_ready) | 
-                                                                                                                                    (exanet_tx.footer_valid & exanet_tx.footer_ready)) : 0;
+		assign fifo_wr_data[i*vc_num + j]         = {S_AXIS.TLAST,S_AXIS.TDATA};
+		
+		assign fifo_enq[i*vc_num + j]             = (output_vc_final == i*vc_num + j) & S_AXIS.TVALID;
+        wire tmp = (exanet_tx.header_valid & exanet_tx.header_ready) | (exanet_tx.payload_valid & exanet_tx.payload_ready) |  (exanet_tx.footer_valid & exanet_tx.footer_ready) ;
+        assign fifo_deq[i*vc_num + j]             = ((selected_vc == i*vc_num + j) & !fifo_empty[selected_vc] & tmp );
 		
 		
 		
-		//******TEST 08/03/2022*********
-	    assign request_array[i][j] = /*fifo_enq[i*vc_num + j] | */(!fifo_empty[i*vc_num + j]);
+
+	    assign request_array[i][j] = (!fifo_empty[i*vc_num + j]);
 		
 		exa_fifo # (
           .DEPTH             ( out_fifo_depth ),
@@ -197,21 +194,10 @@ module exa_crosb_s2e_with_VCs #(
 	  
 	  end//end of VC Loop
 	 
-	
-	//TRUE
-	// assign rr_go[i] = (request_array[i]!=0) & (fsm_state == Sop_st & exanet_tx.header_ready); // without header_ready, rr_go may be high too early..So that, the selected_vc may be wrong because another vc may be not empty, until ready signal turns to high
-	 
-	//testing - 09/03/2022 firstly ->  
-	/*exanet_tx.header_ready is added in this condition because, in case that exanet_tx.header_ready is low, rr_go should wait...rr_go_q may be unnecessary*/
+
 	assign rr_go[i] = ((request_array[i]!=0) & (fsm_state == Sop_st) & /*!rr_go_q &*/ exanet_tx.header_ready);
 	
-	
-	// assign second_condition_rr_go  = (request_array[i]!=0) & last_from_fifo & exanet_tx.footer_ready;
-	 //assign rr_go[i] = ((request_array[i]!=0) & (fsm_state == Sop_st) & !rr_go_q & !second_condition_rr_go_q) |((request_array[i]!=0) & last_from_fifo & exanet_tx.footer_ready);// (request_array[i]!=0) & last_from_fifo & exanet_tx.footer_ready) extra
-	 //rr_go_q was used for turnig rr_go low one cycle later
-	  // Testing .....
-	 // assign rr_go[i] =(testing_counter == 1) ? ((request_array[i]!=0) & (fsm_state == Sop_st & exanet_tx.header_ready)) : ((request_array[i]!=0) & last_from_fifo) ;
-	  
+
     end//end of PRIO Loop
 	
   endgenerate	
@@ -249,7 +235,7 @@ module exa_crosb_s2e_with_VCs #(
         .resetn(S_ARESETN),
         .i_request(request_array[i]),
         .o_out(select_array[i]),
-        .o_has(),
+        //.o_has(),
         .go(rr_go_after_prio_enf[i])
      );
     end
@@ -271,30 +257,19 @@ module exa_crosb_s2e_with_VCs #(
 
    
   assign selected_vc             = (rr_go != 0) ? prio_sel*vc_num + vc_sel : prio_sel_q*vc_num + vc_sel_q;
-  assign last_from_fifo          = (fifo_deq[selected_vc] != 0) ? fifo_rd_data[selected_vc][128] : 0;//********* IF selected_vc be saved in register, should any condition be added?? *****
- 
- // assign grant_valid             = (state_q == REQUESTED) & request_array[prio_sel][vc_sel] & request_array_q[prio_sel][vc_sel];
+  assign last_from_fifo          = fifo_rd_data[selected_vc][128] ;
   
-  
-  
-  
-  
-  // ****fifo_empty != 1111( ** =  ^  ) or 15(supposed prio_num*vc_num = 4), so there is at least one fifo that is not empty ******	
-  /*
-  assign exanet_tx.header_valid  = fifo_empty != (2**(prio_num*vc_num) - 1) & fsm_state == Sop_st;                   
-  assign exanet_tx.payload_valid = fifo_empty != (2**(prio_num*vc_num) - 1) & (fsm_state == Sop_Wait) & !last_from_fifo;
-  assign exanet_tx.footer_valid  = fifo_empty != (2**(prio_num*vc_num) - 1) & (fsm_state == Sop_Wait) & last_from_fifo;
-  */
 
 
   assign exanet_tx.header_valid  = fifo_empty != (2**(prio_num*vc_num) - 1) & fsm_state == Sop_st; 
    /*!fifo_empty[selected_vc] is needed bacause fifo may get empty  at any time, so valid signal should get down */                  
   assign exanet_tx.payload_valid = !fifo_empty[selected_vc] & (fsm_state == Sop_Wait) & !last_from_fifo;
-  assign exanet_tx.footer_valid  = fifo_empty != (2**(prio_num*vc_num) - 1) & (fsm_state == Sop_Wait) & last_from_fifo; 
-  
+ 
+  assign exanet_tx.footer_valid  = !fifo_empty[selected_vc] & (fsm_state == Sop_Wait) & last_from_fifo; 
   assign exanet_tx.data          = data_from_fifo[selected_vc];	  
   
   assign o_fifo_full             = fifo_prog_full;
+  assign o_selected_vc           = selected_vc;
   
       // ******************************** FSM ********************
   always @(posedge S_ACLK) begin
@@ -313,8 +288,8 @@ module exa_crosb_s2e_with_VCs #(
         
         Sop_Wait :
         begin
-     // ****fifo_empty != 1111 or 15(supposed prio_num*vc_num = 4), so there is at least one fifo that is not empty ******
-          if(fifo_empty != (2**(prio_num*vc_num) - 1) & last_from_fifo & exanet_tx.footer_ready) // there was   S_AXIS.TVALID instead of fifo_empty     
+
+          if(!fifo_empty[selected_vc] & last_from_fifo & exanet_tx.footer_ready)    
             fsm_state <=  Sop_st;
           else 
             fsm_state <=  Sop_Wait;
@@ -327,68 +302,4 @@ module exa_crosb_s2e_with_VCs #(
 
 
 
- /*
-    
-  always_ff @(posedge S_ACLK) begin
-     if(!S_ARESETN) begin
-       state_q <= IDDLE;
-     end
-     else begin
-       state_q <= state_d;
-     end
-   end
- 
-  
-           
-  always_comb begin
-     state_d = state_q;
-     case(state_q)
-       IDDLE:
-         if(request_array != 0) begin
-           state_d = REQUESTED;
-         end
-         else 
-           state_d = IDDLE;
-           
-       REQUESTED:
-         if(grant_valid)
-           state_d = GRANTED;
-         else
-           state_d = IDDLE; 
-       
-       GRANTED:
-         if(i_last)
-           state_d = IDDLE;
-         else
-           state_d = GRANTED;
-       default:     
-         state_d = IDDLE;
-                       
-     endcase    
-  end
-  */
-  
-  /************** may be useless ************/
-  /*
-  always_comb begin
-    state_d = state_q;
-    case(state_q)
-      IDDLE:
-        if(request_array != 0 & exanet_tx.header_ready) begin
-          state_d = GRANTED;
-        end
-        else 
-          state_d = IDDLE;
-      GRANTED:
-        if(last_from_fifo)
-          state_d = IDDLE;
-        else
-          state_d = GRANTED;
-      default:     
-        state_d = IDDLE;
-                       
-    endcase    
-  end
-   
-  */
 endmodule			  

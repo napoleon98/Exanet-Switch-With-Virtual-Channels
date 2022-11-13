@@ -25,22 +25,19 @@ module exa_crosb_crosb_with_VCs#(
   AXIS.slave                           S_AXIS[input_num-1:0],
   AXIS.master                          M_AXIS[output_num-1:0],
   input [vc_num*prio_num-1:0]          i_output_fifo_credits [output_num-1:0],
-  input [logVcPrio-1:0]                i_output_vc[input_num-1:0][vc_num*prio_num-1:0],/**each axi stream should have an output vc in which the stream will get in at output*/
+  input [logVcPrio-1:0]                i_output_vc[input_num-1:0][vc_num*prio_num-1:0],
                                                                  
-  //input [logVcPrio-1:0]  i_input_vc[input_num-1:0],//each axi stream should get in on input vc
-                                                                 /*using this input vc, has packet will be created*/
+
   input [prio_num*vc_num-1:0]          i_has_packet[input_num-1:0],
   input [logOutput-1 :0]               i_dests[input_num-1:0][prio_num*vc_num-1 :0],
   
   output [logVcPrio-1:0]               o_selected_vc_from_input_arbiter[input_num-1:0],
   output                               o_cts_from_input_arbiter[input_num-1:0],
-  /* below signals will be used by top_module, in choosing the correct output_vc*/
-  output [logOutput-1 :0]              o_dest_output_of_each_input[input_num-1:0],
-  output [logVcPrio-1:0]               o_dest_output_vc_of_each_input[input_num-1:0],
+  
   output [logInput-1 :0]               o_selected_input_for_each_output[output_num-1:0]
   
  );
-  var [data_width-1:0]                   data_to_mux[output_num-1:0][input_num-1:0]            ; // it was output_num without -1 : 0....why var???
+  var [data_width-1:0]                   data_to_mux[output_num-1:0][input_num-1:0]            ; 
   wire [output_num-1:0]                  grants_from_output_arbiter [input_num-1:0]            ;//out of for loop for inputs or change the dimension
   
   wire [vc_num*prio_num-1:0]             requests_from_in_to_out[output_num-1:0][input_num-1:0];
@@ -64,7 +61,7 @@ module exa_crosb_crosb_with_VCs#(
       wire                                   cts                             ;
       //wire                                   last;
       wire [logOutput-1 :0]                  dest_output                     ;
-      wire [logVcPrio-1:0]                   dest_output_vc                  ;
+      //wire [logVcPrio-1:0]                   dest_output_vc                  ;
      // wire [logVcPrio-1:0]     selected_vc;
       wire [vc_num*prio_num-1:0]             request_to_output_arbiter       ;
       
@@ -72,13 +69,12 @@ module exa_crosb_crosb_with_VCs#(
       wire [data_width-1:0]                  demux_dout [output_num-1:0]     ;
       wire [output_num-1 : 0]                last_from_demux                 ;
       wire [output_num-1 : 0]                cts_from_demux                  ; 
-      //wire [output_num-1 : 0]                prio_from_demux;
+     
       wire [output_num-1 : 0]                valid_from_demux                ;
       wire [logOutput-1 :0]                  dest_o [prio_num*vc_num-1 :0]   ;
-     // wire [vc_num*prio_num-1:0]             has_packet;// check S_AXIS[I].TVALID & input_vc to fill each place with 1 or 0
-      //logic [logVcPrio-1:0]    output_vc [vc_num*prio_num-1:0];
+     
       wire [logVcPrio-1:0]                  output_vc_o [vc_num*prio_num-1:0];
-      //wire [(output_num)-1 :0]               dests [prio_num*vc_num-1 :0];
+      
       
 	  exa_crosb_demux # (
        .data_width(data_width),
@@ -86,13 +82,11 @@ module exa_crosb_crosb_with_VCs#(
       ) demux (
        .DATA_i(S_AXIS[i].TDATA),
        .VALID_i(S_AXIS[i].TVALID),
-       .LAST_i(S_AXIS[i].TLAST),
-       .PRIO_i(S_AXIS[i].prio),
+       .LAST_i(S_AXIS[i].TLAST),       
        .SEL_i(dest_output),
        .CTS_FROM_INPUT_ARBITER_i(cts),
        .DATA_o(demux_dout),
-       .LAST_o(last_from_demux),
-       //.PRIO_o(prio_from_demux),
+       .LAST_o(last_from_demux),     
        .VALID_o(valid_from_demux),
        .CTS_FROM_INPUT_ARBITER_o(cts_from_demux)
       );   
@@ -105,28 +99,26 @@ module exa_crosb_crosb_with_VCs#(
       )input_arbiter_with_VCs (
         .clk(clk),
         .resetn(resetn),
-        .i_has_packet(i_has_packet[i]),//
+        .i_has_packet(i_has_packet[i]),
         .i_dest(i_dests[i]),
-        .i_grant_from_output_arbiter(grants_from_output_arbiter[i]),//needs to be changed in input arbiter
-        .i_last(S_AXIS[i].TLAST),//
+        .i_grant_from_output_arbiter(grants_from_output_arbiter[i]),
+        .i_last(S_AXIS[i].TLAST),
         .output_fifo_credits(i_output_fifo_credits),// For every input, credits are the same 
-        .i_output_vc(i_output_vc[i]),//***check that [i] is right
+        .i_output_vc(i_output_vc[i]),
         .o_output_vc(output_vc_o),
-        //.o_selected_request(selected_request), // maybe useless input,
         .o_request_to_output_arbiter(request_to_output_arbiter),
-        .o_dest(dest_o),// it is the num of destination output of each  vc's packets
+        .o_dest(dest_o),
         .o_cts(cts),
         .o_selected_vc(o_selected_vc_from_input_arbiter[i]),
-       // .o_request_array(request_array), // maybe useless input
-        .o_dest_output(dest_output),
-        .o_dest_vc(dest_output_vc)
+       
+        .o_dest_output(dest_output)
+       
    
        );
       
-      assign o_dest_output_of_each_input[i]    = dest_output;
-      assign o_dest_output_vc_of_each_input[i] = dest_output_vc;
+   
       assign o_cts_from_input_arbiter[i]       = cts;
-      assign S_AXIS[i].TREADY                  = cts;// not sure about it
+      assign S_AXIS[i].TREADY                  = cts;
      
     end
   endgenerate
@@ -166,13 +158,12 @@ module exa_crosb_crosb_with_VCs#(
     for (i= 0 ; i<output_num ; i = i + 1) begin :OUTPUTS
       
       wire [input_num-1:0]                   grant                          ;
-      wire                                   cts                            ;
+     // wire                                   cts                            ;
       wire [logInput-1:0]                    input_sel                      ; 
       wire                                   valid_from_mux                 ;
       wire                                   last_from_mux                  ;
       wire                                   cts_from_input_arbiter_from_mux;
-      //wire [logVcPrio-1:0]     output_vc [vc_num*prio_num-1:0];
-       //wire                                  prio_from_mux;
+      
        
       exa_crosb_mux # (
         .data_width(data_width),
@@ -180,16 +171,14 @@ module exa_crosb_crosb_with_VCs#(
       ) mux (
         .DATA_i(data_to_mux[i]),
         .VALID_i(valids_from_demux[i]),
-        .LAST_i(lasts_from_demux[i]), 
-        //.PRIO_i(prios_from_demux[i]),      
+        .LAST_i(lasts_from_demux[i]),            
         .SEL_i(input_sel),
-        .CTS_FROM_INPUT_ARBITER_i(ctses_from_demux[i]),
-              
+        .CTS_FROM_INPUT_ARBITER_i(ctses_from_demux[i]),     
         .DATA_o(M_AXIS[i].TDATA),
         .VALID_o(valid_from_mux),
         .LAST_o(last_from_mux),
         .CTS_FROM_INPUT_ARBITER_o(cts_from_input_arbiter_from_mux)
-        //.PRIO_o(prio_from_mux)
+        
       );       
       
       
@@ -204,23 +193,17 @@ module exa_crosb_crosb_with_VCs#(
         .clk(clk),
         .resetn(resetn),
         .i_request(requests_from_in_to_out[i]),
-        //.i_output_vc(output_vc),// it is not used inside output arbiter
-        .i_last(last_from_mux),//it was lasts_from_demux[i][input_sel]  ?
-        
-       // .o_request_array(request_array),// useless
-        //.o_prio_sel(prio_sel),//useless
-       
+        .i_last(last_from_mux),
         .o_grant(grant),
         .o_input_sel(input_sel),
-        .o_cts(cts),
-        .cts_from_input_arbiter(cts_from_input_arbiter_from_mux)// it could be be ctses_from_demux[i][input_sel] ?
+        .cts_from_input_arbiter(cts_from_input_arbiter_from_mux)
       );
       
       assign o_selected_input_for_each_output[i] = input_sel;
       assign M_AXIS[i].TVALID                    = valid_from_mux & cts_from_input_arbiter_from_mux;
       assign M_AXIS[i].TLAST                     = last_from_mux  & cts_from_input_arbiter_from_mux;
       assign M_AXIS[i].TDEST                     = 0;//I used TDEST, output has been chosen, so store 0 in TDEST
-     // assign M_AXIS[i].prio   = prio_from_mux & cts;
+
 
       
       

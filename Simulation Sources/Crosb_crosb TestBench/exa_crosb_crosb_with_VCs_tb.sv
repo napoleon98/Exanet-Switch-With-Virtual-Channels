@@ -1,16 +1,22 @@
 `timescale 1ns / 1ps
 import exanet_crosb_pkg::*;
 import exanet_pkg::*;
+`include "ceiling_up_log2.vh"
 
 
 module exa_crosb_crosb_with_VCs_tb();
 
   
-  localparam prio_num   = 2;
-  localparam vc_num     = 3;
-  localparam output_num = 2;
-  localparam input_num  = 2;
-  localparam datawidth  = 128;
+  localparam prio_num     = 2;
+  localparam vc_num       = 3;
+  localparam output_num   = 2;
+  localparam input_num    = 2;
+  localparam datawidth    = 128;
+  localparam logVcPrio    = `log2(prio_num*vc_num);
+  localparam logOutput    = `log2(output_num);
+  localparam logPrio      = `log2(prio_num);
+  localparam logVc        = `log2(vc_num);
+  localparam logInput     = `log2(input_num);
   
   reg                                       clk;
   reg                                       resetn;
@@ -31,7 +37,7 @@ module exa_crosb_crosb_with_VCs_tb();
   wire [$clog2(vc_num*prio_num)-1:0]        output_vc[input_num-1:0][vc_num*prio_num-1:0];
   wire [$clog2(vc_num*prio_num)-1:0]        input_vc [input_num-1:0];
   wire [prio_num*vc_num-1:0]                has_packet[input_num-1:0];
-  wire [(output_num)-1 :0]                  dests[input_num-1:0][prio_num*vc_num-1 :0];
+  wire [(logOutput)-1 :0]                   dests[input_num-1:0][prio_num*vc_num-1 :0];
   
   wire [$clog2(vc_num*prio_num)-1:0]        selected_vc_from_input_arbiter[input_num-1:0];
   wire                                      cts_from_input_arbiter[input_num-1:0];
@@ -215,7 +221,6 @@ module exa_crosb_crosb_with_VCs_tb();
     output_fifo_credits_controller(.initialize(1), .full(0),.fixed_vc_enable(0), . output_vc(0), .dest_output(0));
     resetn = 0;
     initialize = 1;
-    //enable_w[0] = 0;
     num_of_words_w = 18;
     #30
     resetn = 1;

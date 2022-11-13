@@ -20,7 +20,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   reg    resetn         = 0;
  //inputs
   logic [vc_num*prio_num-1 : 0]           has_packet;
-  //logic [$clog2(output_num)-1 :0]         dest_i [prio_num*vc_num-1 :0];
+
   logic [(output_num)-1 :0]               dest_i [prio_num*vc_num-1 :0];
   logic [vc_num*prio_num-1:0]             grant_from_output_arbiter[output_num-1:0];
   logic                                   last;
@@ -29,7 +29,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   //outputs
   logic [$clog2(vc_num*prio_num)-1:0]     output_vc_o [vc_num*prio_num-1:0];
   logic [prio_num*vc_num-1:0]             selected_request [output_num-1:0];
- // logic [$clog2(output_num)-1 :0]         dest_o [prio_num*vc_num-1 :0];
+
   logic [(output_num)-1 :0]               dest_o [prio_num*vc_num-1 :0];
   logic                                   cts;
   logic [$clog2(vc_num*prio_num)-1:0]     selected_vc;
@@ -106,46 +106,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   
   );
   
-  /*
-  task haser(input fixed_vc_enable, input [$clog2(vc_num*prio_num)-1:0] fixed_vc, input [vc_num*prio_num-1:0] num_of_has, input initialize, input has); begin
-    if(initialize) begin
-      for(int i=0; i<prio_num*vc_num; i++) begin
-        has_packet[i]              = 0;
-      end  
-    end
-    else begin
-      if(has) begin
-        if(fixed_vc_enable)
-          has_packet[fixed_vc]           = 1;
-        else begin
-          rand_vc_has = $urandom() % (prio_num*vc_num); 
-          has_packet[rand_vc_has]            = 1;
-        end
-        if (num_of_has != 0) begin
-          for(int i=0; i<num_of_has; i++) begin
-            has_packet[i]              = 1;
-          end  
-        end
-      end
-      else begin
-        if(fixed_vc_enable)
-          has_packet[fixed_vc]           = 0;
-        else begin
-          rand_vc_has = $urandom() % (prio_num*vc_num);
-          has_packet[rand_vc_has]            = 0;
-        end
-        if (num_of_has != 0) begin
-          for(int i=0; i<num_of_has; i++) begin
-            has_packet[i]              = 0;
-          end  
-        end
-      end
-          
-    end
-  
-  end
-  endtask
-  */
+
   
   task output_fifo_credits_controller(input initialize,input full, input not_full,input fixed_vc_enable, input [prio_num*vc_num-1:0] output_vc, input [output_num-1:0]dest_output);begin
     if(initialize & not_full)begin
@@ -242,12 +203,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
       for(int j=0;j<prio_num*vc_num;j++)begin
         if(initialize)
           grant_from_output_arbiter[i][j] = 0;
-       /* else begin
-          if(selected_request[i][j] != 0 &(i != 0 | j != 0)) begin
-            output_dest_grant_controller = i;
-            output_vc_dest_grant_controller = j;
-          end
-        end*/
+
       end
     end
     
@@ -306,24 +262,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
       end
     end
   end
-  /*
-  always @(posedge clk) begin 
-  
-    for(int i=0;i<output_num;i++)begin
-      for(int j=0;j<prio_num*vc_num;j++)begin
-        if(initialize)
-          grant_from_output_arbiter[i][j] = 0;
-        else begin
-          if(selected_request[i][j] != 0 &(i != 0 | j != 0)) begin
-            output_dest_grant_controller    = i;
-            output_vc_dest_grant_controller = j;
-          end
-        end
-      end
-    end  
-    
-  end
-  */
+ 
   always @(posedge clk) begin
     rand_6    <= ($urandom() % 6) + 5 ;
     rand_1    <= $urandom() % 2;

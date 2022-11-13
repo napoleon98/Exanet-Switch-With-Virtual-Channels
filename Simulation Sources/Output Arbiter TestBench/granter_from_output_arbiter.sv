@@ -1,23 +1,5 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 05/03/2022 05:59:03 PM
-// Design Name: 
-// Module Name: granter_from_output_arbiter
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 /* This module simulates output arbiter. It can grant a request either at the same cycle that this request is generated, or after 
   a random number of cycles.  */
 
@@ -36,7 +18,7 @@ module granter_from_output_arbiter #(
   input [prio_num*vc_num-1:0]                  selected_request [output_num-1:0],
   input logic[$clog2(output_num)-1 :0]              output_dest,
   input logic [$clog2(vc_num*prio_num)-1:0]          output_vc_dest,
- // output  [vc_num*prio_num-1:0]                 grant_from_output_arbiter[output_num-1:0]
+
   output  [output_num-1:0]                      grant_from_output_arbiter
 
 
@@ -121,17 +103,7 @@ module granter_from_output_arbiter #(
   genvar i,j,k;
   generate
     for (i=0; i<output_num ; i = i+1) begin
-    /*
-      for(j=0; j<prio_num; j++)begin
-      
-        for(k=0; k<vc_num; k++)begin
-          assign grant_from_output_arbiter[i][j*vc_num + k] =((selected_request !=0 & !with_delay & state_q == IDLE) | 
-                                                             (state_q== WAITING & counter == num_of_delay_cycles) | state_q == GRANTED) ? (output_dest == i) & (output_vc_dest == j*vc_num + k) : 0;//***** change******
-        end
-        
-       
-      end
-      */
+   
        assign grant_from_output_arbiter[i] = ((selected_request !=0 & !with_delay & state_q == IDLE) | 
                                               (state_q== WAITING & counter == num_of_delay_cycles) | state_q == GRANTED) ? (output_dest == i) : 0;//***** change******
     end

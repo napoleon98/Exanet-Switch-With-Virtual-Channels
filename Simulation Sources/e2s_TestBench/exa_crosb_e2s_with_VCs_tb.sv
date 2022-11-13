@@ -45,7 +45,9 @@ module exa_crosb_e2s_with_VCs_tb(
           .dif_type_enable(0),
           .fixed_dest_enable(1),//it was 1
           .fixed_header_vc_enable(0),
-          .fixed_dest(0),//10
+          .fixed_dest_x(0),//10
+          .fixed_dest_y(0),
+          .fixed_dest_z(0),
           .i_work(traffic_work),
           .exa(s_exanet_tx),
           .valid_drop_rate(0),
@@ -134,13 +136,13 @@ module exa_crosb_e2s_with_VCs_tb(
       @(negedge clk);
       header_vc                      = header_vc + 1;
       */
-     
+   /*  
      while(!fifo_full[0]) begin
        
        @(posedge clk);
      end
-       
-    
+     traffic_work                  = 0; // change in 11/10/2022
+    */
    
   end
   

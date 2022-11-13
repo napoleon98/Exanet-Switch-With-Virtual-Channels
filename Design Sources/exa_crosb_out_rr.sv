@@ -7,10 +7,9 @@ module ss_out_rr #(
 	input				          resetn,
 	input  [input_num-1 : 0] 	  i_request,		
 	output  [input_num-1 :0]   	  o_out,
-	output				          o_has,
+
 	input                         go
-	//input                         in_arbiter
-	//input                         grant_from_output_arbiter // This input is used from input arbiter module, in order to indicate that its request was granted, so the next masks can change.
+
 );
 
 
@@ -34,60 +33,27 @@ module ss_out_rr #(
 	logic condition2 = 0;
 	
 	
-	//assign unmasked_request_or_masked_grant =  unmasked_request_vector | masked_grant_vector ; 
-	//assign reuse_grant =   grant_vector_dd & i_request; //it helps to check if a previous grant could be used nov..we check if current request has 1, in position that was granted before
 
 	
 
 
 	wire 			          mux_sel;
 	wire			          has_d;
-	reg			              has_q;
 	
 	logic  [input_num-1 : 0]  masked_grant_vector_2;//it is used in case that the selected vc/input was not granted
 
-    //assign unmasked_request_vector  = (go) ? i_request : unmasked_request_vector_q;//letting unmasked_request to be i_request all the time, there was problem with changes in masked_request
+    
 	assign unmasked_request_vector 	= i_request;
-	/*if previous selected vc/input was not granted and go is asserted, use masked_grant_vector_2, else use masked_grant_vector */
-	//assign masked_request_vector	= (go & !grant_from_output_arbiter_q) ? (unmasked_request_vector & masked_grant_vector_2)  : (unmasked_request_vector & masked_grant_vector) ; /*(go) ? unmasked_request_vector & masked_grant_vector : ((grant_from_output_arbiter & !drop_grant_from_output_arbiter_q) ? unmasked_request_vector & masked_grant_vector : masked_request_vector); *///unmasked_request_vector & masked_grant_vector ;
+	
 	assign masked_request_vector	= unmasked_request_vector & masked_grant_vector ;
 	assign mux_sel 			        = (masked_request_vector == 0);
 	assign grant_vector_d 		    = (mux_sel) ? unmasked_request_vector : masked_request_vector ;
 	/* CHANGING THE FOLLOWING LINE, RR GRANTS IN THE SAME CYCLE THAT GO SIGNAL IS ASSERTED*/
 	//assign o_out                  = (go) ? grant_vector_dd : 0;//grant_vector ;
 	assign o_out                  = grant_vector_dd;
-	assign o_has	                = has_q;
+
 	
-	/*if previous selected vc/input was not granted and go is asserted, check if a new request was generated and cannot be granted by masked_grant_vector*/
-	/*
-	always_comb begin
-	  if(!grant_from_output_arbiter_q & go)begin*/
-	  /*if this condition is true, it means that there is a request in a position that current masked_grant_vector cannot  be used to grant it
-	    This position is surely lower than the previous granted, so new masked_grant_vector_2 is 0, letting this req to be granted immediately*/
-	 /*   if(unmasked_request_or_masked_grant > masked_grant_vector)
-	      masked_grant_vector_2 = 0;
-	    else
-	      masked_grant_vector_2 = masked_grant_vector;
-	  end
-	  else
-	     masked_grant_vector_2 = masked_grant_vector;
-	end
 
-	always @(posedge clk) begin
-		if (~resetn) 
-			grant_vector <=  0 ;
-		else
-		      if (go) grant_vector <=  grant_vector_dd;
-	end
-
-	always @(posedge clk) begin
-		if (~resetn) 
-			has_q <=  0 ;
-		else
-			if (go)  has_q <=  has_d;
-			else     has_q <=  0;
-	end
-*/
 	generate
 	if (input_num <= 2) begin
 		assign masked_grant_vector_d = 	grant_vector_d[0] ? 2'b10 :
@@ -141,36 +107,6 @@ module ss_out_rr #(
 	    end
 		else begin
 		  if (go)  masked_grant_vector <=  masked_grant_vector_d;
-		/*
-		  if(in_arbiter)begin // the following code is related only with round robin in input and output arbiter
-		    if(go)begin
-		      first_go    <= 0;
-		      
-		    end
-		    //if(!first_go & ((go & !grant_from_output_arbiter_q) | (go & !grant_from_output_arbiter_q & (reuse_grant != 0))))
-		      unmasked_request_vector_q <= unmasked_request_vector;
-		 */ /*
-		    if(grant_from_output_arbiter)
-		      grant_from_output_arbiter_q <= grant_from_output_arbiter;
-		    if(go)
-		      grant_from_output_arbiter_q <= 0; 
-		      
-		    if(go)
-		      unmasked_request_vector_q <= unmasked_request_vector;
-		  
-
-		    grant_from_output_arbiter_qq <= grant_from_output_arbiter_q;*/
-		  /*Don't change masked_grant_vector, unless grant from output arbiter comes*/
-		  //drop_grant_from_output_arbiter_q <= grant_from_output_arbiter;
-	        /*if(grant_from_output_arbiter & !drop_grant_from_output_arbiter_q)  masked_grant_vector <=  masked_grant_vector_d;
-	      end// end of if (in arbiter)
-	      else
-	        if (go)  masked_grant_vector <=  masked_grant_vector_d;
-	        */
-	        /*
-	      if (grant_from_output_arbiter_q & !grant_from_output_arbiter_qq)  
-	        masked_grant_vector <=  masked_grant_vector_d;  
-	      */
 	    end
 	end
 
@@ -226,48 +162,3 @@ module ss_out_rr #(
 
 endmodule
 
-	//assign unmasked_request_vector 	= go ? i_request : i_request_q;//(first_go | (go & grant_from_output_arbiter_q)) ? i_request : (((go & (grant_vector_dd & i_request)) != 0) ? i_request_q : i_request);//i_request;
-	/*
-	always_comb begin
-	  if(in_arbiter)begin // the following code is related only with round robin in input and output arbiter
-	    if(first_go | (go & grant_from_output_arbiter_q))begin//if is the first go or our request has been granted, change your request to current one
-	      unmasked_request_vector = i_request;
-	      condition1 = 1;
-	    end
-	    else begin // if it is not the first go and the next go has come, while the previous request has not been granted..
-	      if(go & (reuse_grant == 0))begin
-	        //.. check if the previous grant could be used now..
-	         unmasked_request_vector = i_request;//********UNCOMMENT******* i_request_q;//if the grant cannot be used, change your request, so you can grant a new request..
-	         condition2 = 1;
-    	  end
-	      else begin
-	        unmasked_request_vector = unmasked_request_vector;//******** UNCOMMENT******
-	        condition2 = 0;
-	        condition1 = 0;
-	      end
-	      //unmasked_request_vector = unmasked_request_vector;
-	    end// end of else of if(first_go | (go & grant_from_output_arbiter_q))
-      end// end of if(in_arbiter)
-      else
-        unmasked_request_vector = i_request;
-	end*/
-	/*
-	logic condition_3;
-	assign condition_3 = (go & !grant_from_output_arbiter_q & (reuse_grant == 0));
-	always_comb begin
-	  if(in_arbiter)begin
-	    if(first_go | (go & grant_from_output_arbiter_q) | (go & !grant_from_output_arbiter_q & (reuse_grant == 0))) begin
-	      unmasked_request_vector = i_request;
-	      condition1 = 0;
-	    end
-	    else begin
-	      unmasked_request_vector = unmasked_request_vector_q;//whenever unmasked_request_vector should not change, drive it with its previous value that is saved in a register.  
-	      condition1 = 1;
-	    end
-	  end
-	  else 
-	    unmasked_request_vector = i_request;
-	end
-	*/
-	/* CHANGING THE FOLLOWING LINE, RR GRANTS IN THE SAME CYCLE THAT GO SIGNAL IS ASSERTED*/
-	//assign o_out 			= go ? grant_vector_dd : 0;//grant_vector ;

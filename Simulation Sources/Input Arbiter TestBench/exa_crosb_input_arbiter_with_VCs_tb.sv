@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 import exanet_crosb_pkg::*;
 import exanet_pkg::*;
+`include "ceiling_up_log2.vh"
 
 
 
@@ -13,6 +14,10 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   localparam vc_num     = 3;
   localparam output_num = 8;
   localparam input_num  = 4;
+  localparam logVcPrio    = `log2(prio_num*vc_num);
+  localparam logOutput    = `log2(output_num);
+  localparam logPrio      = `log2(prio_num);
+  localparam logVc        = `log2(vc_num);
   
   localparam num_of_has = 2;
   
@@ -21,42 +26,42 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   reg    resetn         = 0;
  //inputs
   logic [vc_num*prio_num-1 : 0]           has_packet;
-  //logic [$clog2(output_num)-1 :0]         dest_i [prio_num*vc_num-1 :0];
-  logic [(output_num)-1 :0]               dest_i [prio_num*vc_num-1 :0];
-  //logic [vc_num*prio_num-1:0]             grant_from_output_arbiter[output_num-1:0];
+
+  logic [logOutput-1 :0]               dest_i [prio_num*vc_num-1 :0];
+
   logic [output_num-1:0]                  grant_from_output_arbiter;
   logic                                   last;
   logic [vc_num*prio_num-1:0]             output_fifo_credits [output_num-1:0];
-  logic [$clog2(vc_num*prio_num)-1:0]     output_vc_i [vc_num*prio_num-1:0];
+  logic [logVcPrio-1:0]     output_vc_i [vc_num*prio_num-1:0];
   //outputs
-  logic [$clog2(vc_num*prio_num)-1:0]     output_vc_o [vc_num*prio_num-1:0];
+  logic [logVcPrio-1:0]     output_vc_o [vc_num*prio_num-1:0];
   logic [prio_num*vc_num-1:0]             selected_request [output_num-1:0];
- // logic [$clog2(output_num)-1 :0]         dest_o [prio_num*vc_num-1 :0];
-  logic [(output_num)-1 :0]               dest_o [prio_num*vc_num-1 :0];
+
+  logic [(logOutput)-1 :0]               dest_o [prio_num*vc_num-1 :0];
   logic                                   cts;
-  logic [$clog2(vc_num*prio_num)-1:0]     selected_vc;
+  logic [logVcPrio-1:0]     selected_vc;
   
   
-  logic [$clog2(vc_num*prio_num)-1:0]    input_vc;
-  logic [$clog2(vc_num*prio_num)-1:0]    output_vc;
-  logic [$clog2(output_num)-1 :0]        dest_output;
+  logic [logVcPrio-1:0]    input_vc;
+  logic [logVcPrio-1:0]    output_vc;
+  logic [logOutput-1 :0]        dest_output;
   logic                                  flag =0;
   logic [vc_num-1:0]                     request_array [prio_num-1:0];
   logic [vc_num-1:0]                     request_array_1 [prio_num-1:0];
-  logic [$clog2(output_num)-1 :0]         output_dest_grant_controller;
-  logic [$clog2(vc_num*prio_num)-1:0]    output_vc_dest_grant_controller;
+  logic [logOutput-1 :0]         output_dest_grant_controller;
+  logic [logVcPrio-1:0]    output_vc_dest_grant_controller;
   logic                                  stop = 0;
   logic [prio_num*vc_num-1:0]            request_to_output_arbiter;
   
   reg [5:0]                          rand_6    = 0;
-  reg [$clog2(output_num)-1 :0]      rand_dest = 0;
-  reg [$clog2(vc_num*prio_num)-1 :0] rand_vc_has   = 0;
-  reg [$clog2(vc_num*prio_num)-1 :0] rand_vc_output   = 0;
-  reg [$clog2(vc_num*prio_num)-1 :0] rand_vc_dest   = 0;
-  reg [$clog2(vc_num*prio_num)-1 :0] rand_vc   = 0;
+  reg [logOutput-1 :0]      rand_dest = 0;
+  reg [logVcPrio-1 :0] rand_vc_has   = 0;
+  reg [logVcPrio-1 :0] rand_vc_output   = 0;
+  reg [logVcPrio-1 :0] rand_vc_dest   = 0;
+  reg [logVcPrio-1 :0] rand_vc   = 0;
   reg                                rand_1    =0;
-  reg [$clog2(vc_num*prio_num)-1:0]  selected_vc_q_high;
-  reg [$clog2(vc_num*prio_num)-1:0]  selected_vc_q_low;
+  reg [logVcPrio-1:0]  selected_vc_q_high;
+  reg [logVcPrio-1:0]  selected_vc_q_low;
   
   exa_crosb_input_arbiter_with_VCs # (
        .prio_num(prio_num),
@@ -110,34 +115,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   
   );
   
-  /*
-  exa_crosb_output_arbiter_with_VCs#(
-        .prio_num(prio_num),       
-        .output_num(output_num),
-        .vc_num(vc_num),
-        .input_num(input_num)
-  )(   
-       .clk(clk),
-       resetn(resetn),
-       input [vc_num*prio_num-1:0]                              i_request[input_num-1:0],
-       input [$clog2(vc_num*prio_num)-1:0]                      i_output_vc [vc_num*prio_num-1:0], 
-       input                                                    i_last,
-       input                                                    cts_from_input_arbiter,
-       
-       
-       
-     //output [vc_num*prio_num-1:0]                             o_grant[input_num-1:0],
-       output [input_num-1:0]                                   o_grant,
-       output [$clog2(input_num)-1:0]                           o_input_sel,
-       output                                                   o_cts,
-       output [input_num-1:0]                                   o_request_array [prio_num-1:0],//************just for testing********
-       output [$clog2(prio_num)-1:0]                            o_prio_sel//************just for testing********
-       // another one output for granted_input may be declared                           
-       
   
-  
-   );
-  */
   granter_from_output_arbiter #(
      .prio_num(prio_num),
      .vc_num(vc_num),
@@ -206,7 +184,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   endtask
   
   
-  task dester(input fixed_dest_enable, input [$clog2(output_num)-1 :0] fixed_dest, input fixed_vc_enable, input[$clog2(prio_num*vc_num)-1 :0] fixed_vc,input initialize);begin
+  task dester(input fixed_dest_enable, input [logOutput-1 :0] fixed_dest, input fixed_vc_enable, input[$clog2(prio_num*vc_num)-1 :0] fixed_vc,input initialize);begin
     if(initialize) begin
       for(int i=0;i<prio_num*vc_num;i++)begin
         dest_i[i]        = 0;
@@ -263,24 +241,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   logic cond =0;
   assign request_array_1 = exa_crosb_input_arbiter_with_VCs.request_array;
 
-  /*
-  always @(posedge clk) begin 
-  
-    for(int i=0;i<output_num;i++)begin
-      for(int j=0;j<prio_num*vc_num;j++)begin
-        if(initialize)
-          grant_from_output_arbiter[i][j] = 0;
-        else begin
-          if(selected_request[i][j] != 0 &(i != 0 | j != 0)) begin
-            output_dest_grant_controller    = i;
-            output_vc_dest_grant_controller = j;
-          end
-        end
-      end
-    end  
-    
-  end
-  */
+ 
   always @(posedge clk) begin
     rand_6    <= ($urandom() % 6) + 5 ;
     rand_1    <= $urandom() % 2;
@@ -311,8 +272,8 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   end
  
  
- logic [$clog2(vc_num*prio_num)-1:0] expected_selected_vc;
- reg [$clog2(vc_num*prio_num)-1:0] expected_selected_vc_q;
+ logic [logVcPrio-1:0] expected_selected_vc;
+ reg [logVcPrio-1:0] expected_selected_vc_q;
  logic first_high_prio = 1;
  logic first_low_prio  = 1;
  
@@ -463,12 +424,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
       for(int j=0;j<prio_num*vc_num;j++)begin
         if(initialize)
           grant_from_output_arbiter[i] = 0;
-       /* else begin
-          if(selected_request[i][j] != 0 &(i != 0 | j != 0)) begin
-            output_dest_grant_controller = i;
-            output_vc_dest_grant_controller = j;
-          end
-        end*/
+
       end
     end
     
@@ -478,35 +434,7 @@ module exa_crosb_input_arbiter_with_VCs_tb(
       #1
       if(selected_request[output_dest_grant_controller][output_vc_dest_grant_controller] != 0)begin//check if selected_request is high when output arbiter is ready to grant it.
         cond = 0;
-        /*
-        if((request_array[0]!=0 & request_array[1]==0) | (request_array[1]!=0 & exa_crosb_input_arbiter_with_VCs.prio_sel_q == 1))begin
-        
-          if((request_array[0]!=0 & request_array[1]==0))begin
-            $display("request_array[1] is, %b and time is %t" , request_array_1[1],$time);
-            $display("request_array[0] is, %b and time is %t" , request_array_1[0],$time);
-          end
-          @(negedge clk);
-         // #1
-          grant_from_output_arbiter[output_dest_grant_controller][output_vc_dest_grant_controller] = 1;
-          repeat(17) 
-            @(posedge clk);//waiting for the "tlast" signal  
-            @(negedge clk);     
-            last                                                   = 1;
-            @(negedge clk);
-            last                                                   = 0;
-          
-        //grant_from_output_arbiter[output_dest_grant_controller][output_vc_dest_grant_controller] = 0;
-          for(int i=0;i<output_num;i++)begin
-            for(int j=0;j<prio_num*vc_num;j++)begin   
-              grant_from_output_arbiter[i][j] = 0;
-            end
-          end
-          
-         @(posedge clk);//@(negedge clk); // **** USING @(negedge clk) simulating grant in same cycle, @(posedge clk)  simulating in next cycle
-        end
-        else
-          @(posedge clk);
-          */
+       
         @(negedge clk);
                    // #1
         grant_from_output_arbiter[output_dest_grant_controller] = 1;
@@ -541,63 +469,5 @@ module exa_crosb_input_arbiter_with_VCs_tb(
   end
   endtask
   logic ingranter = 0;
-  //*********************** grant_from_output_arbiter ***************************
   
-  /*
-  initial begin
-    #115//#180
-    forever begin
-      #1
-      ingranter = 1;
-      if(selected_request != 0)
-        grant_from_output_arbiter_controller(.initialize(0));
-      else begin
-       @(posedge clk);// @(negedge clk);
-       ingranter = 0;
-      end
-    end
-  end
-  
-  */
- 
-  /*
-  task haser(input fixed_vc_enable, input [$clog2(vc_num*prio_num)-1:0] fixed_vc, input [vc_num*prio_num-1:0] num_of_has, input initialize, input has); begin
-    if(initialize) begin
-      for(int i=0; i<prio_num*vc_num; i++) begin
-        has_packet[i]              = 0;
-      end  
-    end
-    else begin
-      if(has) begin
-        if(fixed_vc_enable)
-          has_packet[fixed_vc]           = 1;
-        else begin
-          rand_vc_has = $urandom() % (prio_num*vc_num); 
-          has_packet[rand_vc_has]            = 1;
-        end
-        if (num_of_has != 0) begin
-          for(int i=0; i<num_of_has; i++) begin
-            has_packet[i]              = 1;
-          end  
-        end
-      end
-      else begin
-        if(fixed_vc_enable)
-          has_packet[fixed_vc]           = 0;
-        else begin
-          rand_vc_has = $urandom() % (prio_num*vc_num);
-          has_packet[rand_vc_has]            = 0;
-        end
-        if (num_of_has != 0) begin
-          for(int i=0; i<num_of_has; i++) begin
-            has_packet[i]              = 0;
-          end  
-        end
-      end
-          
-    end
-  
-  end
-  endtask
-  */
 endmodule

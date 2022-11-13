@@ -44,7 +44,7 @@ module exa_crosb_net_routing #(
   `include "switch_packet.h"
 	
   (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
-  logic [TDEST_WIDTH-1:0] 	tdest_d;	
+  //logic [TDEST_WIDTH-1:0] 	tdest_d;	
   (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
   logic                 	dec_err_d;
 
@@ -106,11 +106,11 @@ module exa_crosb_net_routing #(
   
   integer i;   
   always_comb begin  
-    tdest_d   = 0;
+    //tdest_d   = 0;
     dec_err_d = 1;
     for (i = 0; i< output_num ; i = i + 1) begin
       if ( (exa_addr >= PORTx_LOW_ADDR[i])&&(exa_addr <= PORTx_HIGH_ADDR[i]) ) begin
-        tdest_d    = i; 
+       // tdest_d    = i; 
         dec_err_d  = 0;
       end
     end
@@ -209,14 +209,7 @@ module exa_crosb_net_routing #(
       end
     end
   end
-   /************* high level ********
-     if Dx = Sx and Dy = Sy, then route based on offset.
-     else
-     if Dy>Sy then route to y-
-     if Duy<Sy the nrouutre to y+
-     same for x        
-          
-   */  
+
     
     
   generate
@@ -247,7 +240,7 @@ module exa_crosb_net_routing #(
     
     assign o_dest_valid = (dest_valid_q & i_hdr_valid) & (!o_dec_error) & (!dec_error_var);
     assign o_tdest      = tdest_q;
-  end else begin// I'm here, with reg_eneble = 0
+  end else begin
      assign o_dest_valid = i_hdr_valid & (!o_dec_error) & (!dec_error_var) ;
      assign o_tdest      = tdest_var;
   end

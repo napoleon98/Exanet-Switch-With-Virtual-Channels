@@ -12,481 +12,496 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="4907916666fs"></ZoomStartTime>
-      <ZoomEndTime time="5431916667fs"></ZoomEndTime>
-      <Cursor1Time time="5405000000fs"></Cursor1Time>
+      <ZoomStartTime time="5472204500fs"></ZoomStartTime>
+      <ZoomEndTime time="6169704501fs"></ZoomEndTime>
+      <Cursor1Time time="5525000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="136"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <ValueColumnWidth column_width="356"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="101" />
+   <WVObjectSize size="94" />
    <wave_markers>
-      <marker time="785000000" label="" />
-      <marker time="1860563000" label="" />
-      <marker time="6055000000" label="" />
-      <marker time="4895000000" label="" />
+      <marker label="" time="785000000" />
+      <marker label="" time="1860563000" />
+      <marker label="" time="6055000000" />
+      <marker label="" time="4895000000" />
    </wave_markers>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/m00_axis_aclk" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/m00_axis_aclk">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">m00_axis_aclk</obj_property>
       <obj_property name="ObjectShortName">m00_axis_aclk</obj_property>
+      <obj_property name="label">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/m00_axis_aresetn" type="logic">
-      <obj_property name="ElementShortName">m00_axis_aresetn</obj_property>
-      <obj_property name="ObjectShortName">m00_axis_aresetn</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq">
+      <obj_property name="ElementShortName">fifo_deq[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_deq[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq[5]">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq[4]">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq[3]">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq[2]">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq[0]">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/enable_w" type="logic">
-      <obj_property name="ElementShortName">enable_w</obj_property>
-      <obj_property name="ObjectShortName">enable_w</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/selected_vc">
+      <obj_property name="ElementShortName">selected_vc[2:0]</obj_property>
+      <obj_property name="ObjectShortName">selected_vc[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/num_of_words_w" type="array">
-      <obj_property name="ElementShortName">num_of_words_w[127:0]</obj_property>
-      <obj_property name="ObjectShortName">num_of_words_w[127:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array">
+      <obj_property name="ElementShortName">request_array[1:0][2:0]</obj_property>
+      <obj_property name="ObjectShortName">request_array[1:0][2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array[1]">
+         <obj_property name="ElementShortName">[1][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][2:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array[0]">
+         <obj_property name="ElementShortName">[0][2:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][2:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject type="divider" fp_name="divider261">
-      <obj_property name="label">AXI STREAM</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TVALID" type="logic">
-      <obj_property name="ElementShortName">TVALID</obj_property>
-      <obj_property name="ObjectShortName">TVALID</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TREADY" type="logic">
-      <obj_property name="ElementShortName">TREADY</obj_property>
-      <obj_property name="ObjectShortName">TREADY</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TDATA" type="array">
-      <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
-      <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/read_pointer" type="array">
-      <obj_property name="ElementShortName">read_pointer[127:0]</obj_property>
-      <obj_property name="ObjectShortName">read_pointer[127:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TDEST" type="array">
-      <obj_property name="ElementShortName">TDEST[4:0]</obj_property>
-      <obj_property name="ObjectShortName">TDEST[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TLAST" type="logic">
-      <obj_property name="ElementShortName">TLAST</obj_property>
-      <obj_property name="ObjectShortName">TLAST</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider262">
+   <wvobject fp_name="divider262" type="divider">
       <obj_property name="label">EXANET</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FF0000</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/header_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/header_ready">
       <obj_property name="ElementShortName">header_ready</obj_property>
       <obj_property name="ObjectShortName">header_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/payload_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/payload_ready">
       <obj_property name="ElementShortName">payload_ready</obj_property>
       <obj_property name="ObjectShortName">payload_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/footer_ready" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/footer_ready">
       <obj_property name="ElementShortName">footer_ready</obj_property>
       <obj_property name="ObjectShortName">footer_ready</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/header_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/header_valid">
       <obj_property name="ElementShortName">header_valid</obj_property>
       <obj_property name="ObjectShortName">header_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/payload_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/payload_valid">
       <obj_property name="ElementShortName">payload_valid</obj_property>
       <obj_property name="ObjectShortName">payload_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/footer_valid" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/footer_valid">
       <obj_property name="ElementShortName">footer_valid</obj_property>
       <obj_property name="ObjectShortName">footer_valid</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/footer_valid_q" type="logic">
-      <obj_property name="ElementShortName">footer_valid_q</obj_property>
-      <obj_property name="ObjectShortName">footer_valid_q</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/data" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/exanet_tx/data">
       <obj_property name="ElementShortName">data[127:0]</obj_property>
       <obj_property name="ObjectShortName">data[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider292">
+   <wvobject fp_name="divider261" type="divider">
+      <obj_property name="label">S_AXIS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TVALID">
+      <obj_property name="ElementShortName">TVALID</obj_property>
+      <obj_property name="ObjectShortName">TVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TREADY">
+      <obj_property name="ElementShortName">TREADY</obj_property>
+      <obj_property name="ObjectShortName">TREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TDATA">
+      <obj_property name="ElementShortName">TDATA[127:0]</obj_property>
+      <obj_property name="ObjectShortName">TDATA[127:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/S_AXIS/TLAST">
+      <obj_property name="ElementShortName">TLAST</obj_property>
+      <obj_property name="ObjectShortName">TLAST</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider292" type="divider">
       <obj_property name="label">FIFOs SIGNALS</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FFA500</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_rd_data" type="array">
-      <obj_property name="ElementShortName">fifo_rd_data[3:0][128:0]</obj_property>
-      <obj_property name="ObjectShortName">fifo_rd_data[3:0][128:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_wr_data" type="array">
-      <obj_property name="ElementShortName">fifo_wr_data[3:0][128:0]</obj_property>
-      <obj_property name="ObjectShortName">fifo_wr_data[3:0][128:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_enq" type="array">
-      <obj_property name="ElementShortName">fifo_enq[3:0]</obj_property>
-      <obj_property name="ObjectShortName">fifo_enq[3:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_enq">
+      <obj_property name="ElementShortName">fifo_enq[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_enq[5:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_prog_full" type="array">
-      <obj_property name="ElementShortName">fifo_prog_full[3:0]</obj_property>
-      <obj_property name="ObjectShortName">fifo_prog_full[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq" type="array">
-      <obj_property name="ElementShortName">fifo_deq[3:0]</obj_property>
-      <obj_property name="ObjectShortName">fifo_deq[3:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq">
+      <obj_property name="ElementShortName">fifo_deq[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_deq[5:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_empty" type="array">
-      <obj_property name="ElementShortName">fifo_empty[3:0]</obj_property>
-      <obj_property name="ObjectShortName">fifo_empty[3:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/rand_5_output_vc">
+      <obj_property name="ElementShortName">rand_5_output_vc[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rand_5_output_vc[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/data_from_fifo" type="array">
-      <obj_property name="ElementShortName">data_from_fifo[3:0][127:0]</obj_property>
-      <obj_property name="ObjectShortName">data_from_fifo[3:0][127:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/output_vc_final">
+      <obj_property name="ElementShortName">output_vc_final[4:0]</obj_property>
+      <obj_property name="ObjectShortName">output_vc_final[4:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider315">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array">
+      <obj_property name="ElementShortName">request_array[1:0][2:0]</obj_property>
+      <obj_property name="ObjectShortName">request_array[1:0][2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/selected_vc">
+      <obj_property name="ElementShortName">selected_vc[2:0]</obj_property>
+      <obj_property name="ObjectShortName">selected_vc[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_enq">
+      <obj_property name="ElementShortName">fifo_enq[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_enq[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_rd_data">
+      <obj_property name="ElementShortName">fifo_rd_data[5:0][128:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_rd_data[5:0][128:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_wr_data">
+      <obj_property name="ElementShortName">fifo_wr_data[5:0][128:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_wr_data[5:0][128:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_prog_full">
+      <obj_property name="ElementShortName">fifo_prog_full[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_prog_full[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_deq">
+      <obj_property name="ElementShortName">fifo_deq[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_deq[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/output_vc_final">
+      <obj_property name="ElementShortName">output_vc_final[4:0]</obj_property>
+      <obj_property name="ObjectShortName">output_vc_final[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fifo_empty">
+      <obj_property name="ElementShortName">fifo_empty[5:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_empty[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/data_from_fifo">
+      <obj_property name="ElementShortName">data_from_fifo[5:0][127:0]</obj_property>
+      <obj_property name="ObjectShortName">data_from_fifo[5:0][127:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/output_vc">
+      <obj_property name="ElementShortName">output_vc[4:0]</obj_property>
+      <obj_property name="ObjectShortName">output_vc[4:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/output_vc_q">
+      <obj_property name="ElementShortName">output_vc_q[4:0]</obj_property>
+      <obj_property name="ObjectShortName">output_vc_q[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider315" type="divider">
       <obj_property name="label">RR SIGNALS</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array" type="array">
-      <obj_property name="ElementShortName">request_array[1:0][1:0]</obj_property>
-      <obj_property name="ObjectShortName">request_array[1:0][1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array">
+      <obj_property name="ElementShortName">request_array[1:0][2:0]</obj_property>
+      <obj_property name="ObjectShortName">request_array[1:0][2:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array[1]" type="array">
-         <obj_property name="ElementShortName">[1][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/request_array[0]" type="array">
-         <obj_property name="ElementShortName">[0][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/rr_go" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/rr_go">
       <obj_property name="ElementShortName">rr_go[1:0]</obj_property>
       <obj_property name="ObjectShortName">rr_go[1:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/rr_go_q" type="array">
-      <obj_property name="ElementShortName">rr_go_q[1:0]</obj_property>
-      <obj_property name="ObjectShortName">rr_go_q[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/rr_go_after_prio_enf" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/rr_go_after_prio_enf">
       <obj_property name="ElementShortName">rr_go_after_prio_enf[1:0]</obj_property>
       <obj_property name="ObjectShortName">rr_go_after_prio_enf[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/rr_go_after_prio_enf_q" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/rr_go_after_prio_enf_q">
       <obj_property name="ElementShortName">rr_go_after_prio_enf_q[1:0]</obj_property>
       <obj_property name="ObjectShortName">rr_go_after_prio_enf_q[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/select_array" type="array">
-      <obj_property name="ElementShortName">select_array[1:0][1:0]</obj_property>
-      <obj_property name="ObjectShortName">select_array[1:0][1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/select_array">
+      <obj_property name="ElementShortName">select_array[1:0][2:0]</obj_property>
+      <obj_property name="ObjectShortName">select_array[1:0][2:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/select_array[1]" type="array">
-         <obj_property name="ElementShortName">[1][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/select_array[0]" type="array">
-         <obj_property name="ElementShortName">[0][1:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][1:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-      </wvobject>
    </wvobject>
-   <wvobject type="divider" fp_name="divider315">
+   <wvobject fp_name="divider315" type="divider">
       <obj_property name="label">RR[0]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /i_request" type="array">
-      <obj_property name="ElementShortName">i_request[1:0]</obj_property>
-      <obj_property name="ObjectShortName">i_request[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /i_request">
+      <obj_property name="ElementShortName">i_request[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_request[2:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /o_grant" type="array">
-      <obj_property name="ElementShortName">o_grant[1:0]</obj_property>
-      <obj_property name="ObjectShortName">o_grant[1:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /go" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /go">
       <obj_property name="ElementShortName">go</obj_property>
       <obj_property name="ObjectShortName">go</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /grant_from_output_arbiter" type="logic">
-      <obj_property name="ElementShortName">grant_from_output_arbiter</obj_property>
-      <obj_property name="ObjectShortName">grant_from_output_arbiter</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /masked_grant_vector">
+      <obj_property name="ElementShortName">masked_grant_vector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">masked_grant_vector[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /masked_grant_vector" type="array">
-      <obj_property name="ElementShortName">masked_grant_vector[1:0]</obj_property>
-      <obj_property name="ObjectShortName">masked_grant_vector[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /masked_grant_vector_d">
+      <obj_property name="ElementShortName">masked_grant_vector_d[2:0]</obj_property>
+      <obj_property name="ObjectShortName">masked_grant_vector_d[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /masked_grant_vector_d" type="array">
-      <obj_property name="ElementShortName">masked_grant_vector_d[1:0]</obj_property>
-      <obj_property name="ObjectShortName">masked_grant_vector_d[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /grant_vector_d">
+      <obj_property name="ElementShortName">grant_vector_d[2:0]</obj_property>
+      <obj_property name="ObjectShortName">grant_vector_d[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /grant_vector_d" type="array">
-      <obj_property name="ElementShortName">grant_vector_d[1:0]</obj_property>
-      <obj_property name="ObjectShortName">grant_vector_d[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /grant_vector_dd">
+      <obj_property name="ElementShortName">grant_vector_dd[2:0]</obj_property>
+      <obj_property name="ObjectShortName">grant_vector_dd[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /grant_vector_dd" type="array">
-      <obj_property name="ElementShortName">grant_vector_dd[1:0]</obj_property>
-      <obj_property name="ObjectShortName">grant_vector_dd[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /masked_request_vector">
+      <obj_property name="ElementShortName">masked_request_vector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">masked_request_vector[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /masked_request_vector" type="array">
-      <obj_property name="ElementShortName">masked_request_vector[1:0]</obj_property>
-      <obj_property name="ObjectShortName">masked_request_vector[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /unmasked_request_vector" type="array">
-      <obj_property name="ElementShortName">unmasked_request_vector[1:0]</obj_property>
-      <obj_property name="ObjectShortName">unmasked_request_vector[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /unmasked_request_vector">
+      <obj_property name="ElementShortName">unmasked_request_vector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">unmasked_request_vector[2:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /i_request_q" type="array">
-      <obj_property name="ElementShortName">i_request_q[1:0]</obj_property>
-      <obj_property name="ObjectShortName">i_request_q[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /reuse_grant">
+      <obj_property name="ElementShortName">reuse_grant[2:0]</obj_property>
+      <obj_property name="ObjectShortName">reuse_grant[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /first_go" type="logic">
-      <obj_property name="ElementShortName">first_go</obj_property>
-      <obj_property name="ObjectShortName">first_go</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /grant_from_output_arbiter_q" type="logic">
-      <obj_property name="ElementShortName">grant_from_output_arbiter_q</obj_property>
-      <obj_property name="ObjectShortName">grant_from_output_arbiter_q</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /reuse_grant" type="array">
-      <obj_property name="ElementShortName">reuse_grant[1:0]</obj_property>
-      <obj_property name="ObjectShortName">reuse_grant[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /condition1" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /condition1">
       <obj_property name="ElementShortName">condition1</obj_property>
       <obj_property name="ObjectShortName">condition1</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /condition2" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /condition2">
       <obj_property name="ElementShortName">condition2</obj_property>
       <obj_property name="ObjectShortName">condition2</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /mux_sel" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /mux_sel">
       <obj_property name="ElementShortName">mux_sel</obj_property>
       <obj_property name="ObjectShortName">mux_sel</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[0].ss_out_rr /drop_grant_from_output_arbiter_q" type="logic">
-      <obj_property name="ElementShortName">drop_grant_from_output_arbiter_q</obj_property>
-      <obj_property name="ObjectShortName">drop_grant_from_output_arbiter_q</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider315">
+   <wvobject fp_name="divider315" type="divider">
       <obj_property name="label">RR[1]</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /i_request" type="array">
-      <obj_property name="ElementShortName">i_request[1:0]</obj_property>
-      <obj_property name="ObjectShortName">i_request[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /i_request">
+      <obj_property name="ElementShortName">i_request[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_request[2:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /o_grant" type="array">
-      <obj_property name="ElementShortName">o_grant[1:0]</obj_property>
-      <obj_property name="ObjectShortName">o_grant[1:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /go" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /go">
       <obj_property name="ElementShortName">go</obj_property>
       <obj_property name="ObjectShortName">go</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /grant_from_output_arbiter" type="logic">
-      <obj_property name="ElementShortName">grant_from_output_arbiter</obj_property>
-      <obj_property name="ObjectShortName">grant_from_output_arbiter</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /masked_grant_vector">
+      <obj_property name="ElementShortName">masked_grant_vector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">masked_grant_vector[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /masked_grant_vector" type="array">
-      <obj_property name="ElementShortName">masked_grant_vector[1:0]</obj_property>
-      <obj_property name="ObjectShortName">masked_grant_vector[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /masked_grant_vector_d">
+      <obj_property name="ElementShortName">masked_grant_vector_d[2:0]</obj_property>
+      <obj_property name="ObjectShortName">masked_grant_vector_d[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /masked_grant_vector_d" type="array">
-      <obj_property name="ElementShortName">masked_grant_vector_d[1:0]</obj_property>
-      <obj_property name="ObjectShortName">masked_grant_vector_d[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /grant_vector_d">
+      <obj_property name="ElementShortName">grant_vector_d[2:0]</obj_property>
+      <obj_property name="ObjectShortName">grant_vector_d[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /grant_vector_d" type="array">
-      <obj_property name="ElementShortName">grant_vector_d[1:0]</obj_property>
-      <obj_property name="ObjectShortName">grant_vector_d[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /grant_vector_dd">
+      <obj_property name="ElementShortName">grant_vector_dd[2:0]</obj_property>
+      <obj_property name="ObjectShortName">grant_vector_dd[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /grant_vector_dd" type="array">
-      <obj_property name="ElementShortName">grant_vector_dd[1:0]</obj_property>
-      <obj_property name="ObjectShortName">grant_vector_dd[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /masked_request_vector">
+      <obj_property name="ElementShortName">masked_request_vector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">masked_request_vector[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /masked_request_vector" type="array">
-      <obj_property name="ElementShortName">masked_request_vector[1:0]</obj_property>
-      <obj_property name="ObjectShortName">masked_request_vector[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /unmasked_request_vector">
+      <obj_property name="ElementShortName">unmasked_request_vector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">unmasked_request_vector[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /unmasked_request_vector" type="array">
-      <obj_property name="ElementShortName">unmasked_request_vector[1:0]</obj_property>
-      <obj_property name="ObjectShortName">unmasked_request_vector[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /reuse_grant">
+      <obj_property name="ElementShortName">reuse_grant[2:0]</obj_property>
+      <obj_property name="ObjectShortName">reuse_grant[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /i_request_q" type="array">
-      <obj_property name="ElementShortName">i_request_q[1:0]</obj_property>
-      <obj_property name="ObjectShortName">i_request_q[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /first_go" type="logic">
-      <obj_property name="ElementShortName">first_go</obj_property>
-      <obj_property name="ObjectShortName">first_go</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /grant_from_output_arbiter_q" type="logic">
-      <obj_property name="ElementShortName">grant_from_output_arbiter_q</obj_property>
-      <obj_property name="ObjectShortName">grant_from_output_arbiter_q</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /reuse_grant" type="array">
-      <obj_property name="ElementShortName">reuse_grant[1:0]</obj_property>
-      <obj_property name="ObjectShortName">reuse_grant[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /condition1" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /condition1">
       <obj_property name="ElementShortName">condition1</obj_property>
       <obj_property name="ObjectShortName">condition1</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /condition2" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /condition2">
       <obj_property name="ElementShortName">condition2</obj_property>
       <obj_property name="ObjectShortName">condition2</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /mux_sel" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /mux_sel">
       <obj_property name="ElementShortName">mux_sel</obj_property>
       <obj_property name="ObjectShortName">mux_sel</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/\rr_gen[1].ss_out_rr /drop_grant_from_output_arbiter_q" type="logic">
-      <obj_property name="ElementShortName">drop_grant_from_output_arbiter_q</obj_property>
-      <obj_property name="ObjectShortName">drop_grant_from_output_arbiter_q</obj_property>
-   </wvobject>
-   <wvobject type="divider" fp_name="divider316">
+   <wvobject fp_name="divider316" type="divider">
       <obj_property name="label">OTHER</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#800080</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/selected_vc" type="array">
-      <obj_property name="ElementShortName">selected_vc[1:0]</obj_property>
-      <obj_property name="ObjectShortName">selected_vc[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/selected_vc">
+      <obj_property name="ElementShortName">selected_vc[2:0]</obj_property>
+      <obj_property name="ObjectShortName">selected_vc[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/prio_sel" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/prio_sel">
       <obj_property name="ElementShortName">prio_sel[0:0]</obj_property>
       <obj_property name="ObjectShortName">prio_sel[0:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/prio_sel_q" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/prio_sel_q">
       <obj_property name="ElementShortName">prio_sel_q[0:0]</obj_property>
       <obj_property name="ObjectShortName">prio_sel_q[0:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/vc_sel" type="array">
-      <obj_property name="ElementShortName">vc_sel[0:0]</obj_property>
-      <obj_property name="ObjectShortName">vc_sel[0:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/vc_sel">
+      <obj_property name="ElementShortName">vc_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">vc_sel[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/vc_sel_q" type="array">
-      <obj_property name="ElementShortName">vc_sel_q[0:0]</obj_property>
-      <obj_property name="ObjectShortName">vc_sel_q[0:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/vc_sel_q">
+      <obj_property name="ElementShortName">vc_sel_q[1:0]</obj_property>
+      <obj_property name="ObjectShortName">vc_sel_q[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/i_output_vc" type="array">
-      <obj_property name="ElementShortName">i_output_vc[1:0]</obj_property>
-      <obj_property name="ObjectShortName">i_output_vc[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/i_output_vc">
+      <obj_property name="ElementShortName">i_output_vc[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_output_vc[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF0080</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider322">
+   <wvobject fp_name="divider322" type="divider">
       <obj_property name="label">FSMs SIGNALS</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fsm_state" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/s2e_with_VCs/fsm_state">
       <obj_property name="ElementShortName">fsm_state[1:0]</obj_property>
       <obj_property name="ObjectShortName">fsm_state[1:0]</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider322">
+   <wvobject fp_name="divider322" type="divider">
       <obj_property name="label">FSMs state - traffic_gen</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/mst_exec_state" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/mst_exec_state">
       <obj_property name="ElementShortName">mst_exec_state[1:0]</obj_property>
       <obj_property name="ObjectShortName">mst_exec_state[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/read_pointer" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/read_pointer">
       <obj_property name="ElementShortName">read_pointer[127:0]</obj_property>
       <obj_property name="ObjectShortName">read_pointer[127:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/rand_output_vc" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/rand_output_vc">
       <obj_property name="ElementShortName">rand_output_vc[1:0]</obj_property>
       <obj_property name="ObjectShortName">rand_output_vc[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/non_zero" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/non_zero">
       <obj_property name="ElementShortName">non_zero[3:0]</obj_property>
       <obj_property name="ObjectShortName">non_zero[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/non_zero_binary" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/non_zero_binary">
       <obj_property name="ElementShortName">non_zero_binary[1:0]</obj_property>
       <obj_property name="ObjectShortName">non_zero_binary[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/tx_en" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/tx_en">
       <obj_property name="ElementShortName">tx_en</obj_property>
       <obj_property name="ObjectShortName">tx_en</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/tx_done" type="logic">
+   <wvobject type="logic" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/tx_done">
       <obj_property name="ElementShortName">tx_done</obj_property>
       <obj_property name="ObjectShortName">tx_done</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/delay" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/delay">
       <obj_property name="ElementShortName">delay[10:0]</obj_property>
       <obj_property name="ObjectShortName">delay[10:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/output_vc_q" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/output_vc_q">
       <obj_property name="ElementShortName">output_vc_q[1:0]</obj_property>
       <obj_property name="ObjectShortName">output_vc_q[1:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/stream_data_out" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/stream_data_out">
       <obj_property name="ElementShortName">stream_data_out[127:0]</obj_property>
       <obj_property name="ObjectShortName">stream_data_out[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/mem_pointer" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/mem_pointer">
       <obj_property name="ElementShortName">mem_pointer[3:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_pointer[3:0][31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/MEM" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/axi_stream_traffic_generator_v1_0_M00_AXIS_inst/MEM">
       <obj_property name="ElementShortName">MEM[3:0][0:53][127:0]</obj_property>
       <obj_property name="ObjectShortName">MEM[3:0][0:53][127:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider563">
+   <wvobject fp_name="divider563" type="divider">
       <obj_property name="label">CONSUMER</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">#FFFF00</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/axi_traffic_gen_mem" type="array">
-      <obj_property name="ElementShortName">axi_traffic_gen_mem[3:0][0:53][127:0]</obj_property>
-      <obj_property name="ObjectShortName">axi_traffic_gen_mem[3:0][0:53][127:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/axi_traffic_gen_mem">
+      <obj_property name="ElementShortName">axi_traffic_gen_mem[5:0][0:53][127:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_traffic_gen_mem[5:0][0:53][127:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/addr" type="array">
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/addr">
       <obj_property name="ElementShortName">addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">addr[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/packet_num" type="array">
-      <obj_property name="ElementShortName">packet_num[3:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">packet_num[3:0][31:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/packet_num">
+      <obj_property name="ElementShortName">packet_num[5:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">packet_num[5:0][31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/mem" type="array">
-      <obj_property name="ElementShortName">mem[3:0][0:17][127:0]</obj_property>
-      <obj_property name="ObjectShortName">mem[3:0][0:17][127:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/mem">
+      <obj_property name="ElementShortName">mem[5:0][0:17][127:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[5:0][0:17][127:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/selected_vc" type="array">
-      <obj_property name="ElementShortName">selected_vc[1:0]</obj_property>
-      <obj_property name="ObjectShortName">selected_vc[1:0]</obj_property>
+   <wvobject type="array" fp_name="/exa_crosb_s2e_with_VCs_tb/exa_traffic_consumer_with_VCs/selected_vc">
+      <obj_property name="ElementShortName">selected_vc[2:0]</obj_property>
+      <obj_property name="ObjectShortName">selected_vc[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>

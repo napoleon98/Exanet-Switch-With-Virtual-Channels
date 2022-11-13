@@ -9,7 +9,7 @@ module exa_crosb_output_arbiter_with_VCs_tb(
   localparam prio_num   = 2;
   localparam vc_num     = 3;
   localparam output_num = 8;
-  localparam input_num  = 4;
+  localparam input_num  = 8;
   
   reg    clk            = 0;
   always #5 clk = ~clk;
@@ -62,7 +62,7 @@ module exa_crosb_output_arbiter_with_VCs_tb(
     .clk(clk),
     .resetn(resetn),
     .i_request(request),
-    .i_output_vc(output_vc),
+   // .i_output_vc(output_vc),
     .i_last(last),
     .o_request_array(request_array),
     .o_prio_sel(prio_sel),
@@ -99,30 +99,7 @@ module exa_crosb_output_arbiter_with_VCs_tb(
  
   
   
-/*  
-  task requester(input initialize);begin
-    if(initialize)begin
-      for(int i=0;i<input_num;i++)begin
-        for(int j=0; j<prio_num*vc_num;j++)begin
-          request[i][j] = 0;  
-        end
-      end
-    end
-    
-    else begin
-      for(int i=0;i<input_num;i++)begin
-        for(int j=0; j<prio_num*vc_num;j++)begin
-          request[i][j] = 1;  
-        end
-      end
-    
-      
-    end
-    
-  end
-  endtask
-  
- */ 
+
  
       
 //save the previous selected_vc
@@ -140,7 +117,7 @@ always @(posedge clk) begin
        selected_input_q_low  <= input_sel;
    
    end
-  // expected_selected_input_q <= expected_selected_input;
+
  end
 
 end

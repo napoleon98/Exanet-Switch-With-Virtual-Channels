@@ -44,34 +44,13 @@ module exa_crosb_e2s_with_VCs # (
     	
     (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
 	output		     	                 o_dec_error,
-	output counter_t                     o_pkt_counter,
 	output [prio_num*vc_num-1:0]         o_has_packet,
 	output [prio_num*vc_num-1:0]         o_fifo_full,
 	output [logOutput-1 :0]              o_dests [prio_num*vc_num-1:0],
     output [logVcPrio-1:0]               o_output_vc [vc_num*prio_num-1:0]
 );
     
-/*implement pkt counter logic here*/
-  counter_t pkt_counter;
-  assign o_pkt_counter = pkt_counter;
-  
-  
-  always @(posedge M_ACLK) begin
-    if (~M_ARESETN) begin
-      pkt_counter.hdr <= 0;
-      pkt_counter.pld <= 0;
-      pkt_counter.ftr <= 0;
-    end
-    else begin
-      if (exanet_rx.header_valid & exanet_rx.header_ready)
-        pkt_counter.hdr <= pkt_counter.hdr + 1;
-      if (exanet_rx.payload_valid & exanet_rx.payload_ready)
-        pkt_counter.pld <= pkt_counter.pld + 1;
-      if (exanet_rx.footer_valid & exanet_rx.footer_ready)
-        pkt_counter.ftr <= pkt_counter.ftr + 1;    
-    end  
-  end
-    
+
   localparam Idle_St = 2'b01,
              Xfer_St = 2'b10;
   reg [1:0]  X_State;
@@ -119,7 +98,6 @@ module exa_crosb_e2s_with_VCs # (
         .Clk                     ( M_ACLK ),
         .Reset                   ( ~M_ARESETN) ,
         .i_header                ( exanet_rx.data ),
-        .o_header                ( modified_header ),
         .o_prio                  ( ),
         .i_hdr_valid             ( exanet_rx.header_valid ),
         .i_src_coord             ( i_src_coord ),
@@ -132,7 +110,7 @@ module exa_crosb_e2s_with_VCs # (
   assign o_dec_error = (dec_error != 0);
    
   exanet_header exa_hdr;
-  assign exa_hdr = modified_header;/*"modified_header" will be replaced from "modified_header_from_out_vc_allocation"*/  
+  assign exa_hdr = (exanet_rx.header_valid) ? exanet_rx.data : 0;
   
  /*implement the Exa 2 AXI logic here */ 
   always @(posedge M_ACLK) begin
@@ -155,22 +133,7 @@ module exa_crosb_e2s_with_VCs # (
     end
   end    
   
-/* -----------SHOULD BE IMPLEMENTED -----------------
-  
-  exa_crosb_out_vc_allocation # (
-  
-  )exa_crosb_out_vc_allocation(
-    .Clk                     ( M_ACLK ),
-    .Reset                   ( ~M_ARESETN) ,
-    .i_header                ( modified_header ),
-    .i_tdest                 ( M_AXIS_exa2axi.TDEST ),
-    .i_src_coord             ( i_src_coord ),// 
-    .o_header                ( modified_header_from_out_vc_allocation ),
-    .o_prio                  ( prio ),
-  
-  
-  )  
-*/  
+
 
   exa_crosb_output_vc_allocation #(
     .prio_num(prio_num),
@@ -183,9 +146,11 @@ module exa_crosb_e2s_with_VCs # (
     .resetn(M_ARESETN),
     .i_hdr_valid(exanet_rx.header_valid),
     .i_input_vc(exa_hdr.vc),
+    .i_header(exanet_rx.data),
     .i_tdest(M_AXIS_exa2axi.TDEST),
     .i_cntrl_info ( i_cntrl_info ),
-    .o_output_vc(o_output_vc)
+    //.o_output_vc(o_output_vc),
+    .o_header(modified_header)
   );
 
   
@@ -197,7 +162,7 @@ module exa_crosb_e2s_with_VCs # (
   assign M_AXIS_exa2axi.TVALID = (X_State == Idle_St) ? (exanet_rx.header_valid & tdest_valid)  :  exanet_rx.payload_valid | exanet_rx.footer_valid;
   
   
-  assign exanet_rx.header_ready  = M_AXIS_exa2axi.TREADY;//  WRONGGGGGGGGG
+  assign exanet_rx.header_ready  = M_AXIS_exa2axi.TREADY;
   assign exanet_rx.payload_ready = (X_State==Xfer_St) & M_AXIS_exa2axi.TREADY;
   assign exanet_rx.footer_ready  = (X_State==Xfer_St) & M_AXIS_exa2axi.TREADY;
  
@@ -226,21 +191,7 @@ module exa_crosb_e2s_with_VCs # (
   genvar i,j;
  
   generate
-  /*if (fifo_enable == 0) begin 
-  
-    for(j=0; j<prio_num; j++) begin 
-      for(i=0; i<vc_num; i++) begin 
-        assign tdata_from_fifo[j*prio_num + i]   = M_AXIS_exa2axi.TDATA;
-        assign tvalid_from_fifo[j*prio_num + i]  = M_AXIS_exa2axi.TVALID;
-        assign tlast_from_fifo[j*prio_num + i]   = M_AXIS_exa2axi.TLAST;
-        assign tdest_from_fifo[j*prio_num + i]   = M_AXIS_exa2axi.TDEST;
-        assign M_AXIS_exa2axi.TREADY  =  M_AXIS.TREADY ; // should be changed
-      end
-    end
-	
-  end */                                       
-  //else begin
-      //M_AXIS_d.TDATA,M_AXIS_d.TLAST,M_AXIS_d.TDEST,header_valid 
+
             
     (* KEEP = DEBUG *) (* MARK_DEBUG = DEBUG *)
     wire [prio_num * vc_num -1 :0]            fifo_prog_full;    
@@ -263,9 +214,12 @@ module exa_crosb_e2s_with_VCs # (
     for(j=0; j<prio_num; j++) begin :PRIO
       for(i=0; i<vc_num; i++) begin :VC
     //the data going into the fifos//
-        // if header_valid = 1 start writing and don't wait for the header to be stored in vc_from_header_q
-        assign fifo_wr_data[j*vc_num + i]        =  exanet_rx.header_valid ? ((exa_hdr.vc == j*vc_num + i) ? {M_AXIS_exa2axi.TDEST,M_AXIS_exa2axi.TLAST,M_AXIS_exa2axi.TDATA} : 0) : (vc_from_header_q == j*vc_num + i) ? {M_AXIS_exa2axi.TDEST,M_AXIS_exa2axi.TLAST,M_AXIS_exa2axi.TDATA} : 0; // ******conditions may be useless, because fifo_enq "decides" when the wr_data are actually written in fifo********
-        assign fifo_enq[j*vc_num + i]            =  exanet_rx.header_valid ? ((exa_hdr.vc == j*vc_num + i) ? (M_AXIS_exa2axi.TVALID & M_AXIS_exa2axi.TREADY) : 0) : (vc_from_header_q == j*vc_num + i) ? (M_AXIS_exa2axi.TVALID & M_AXIS_exa2axi.TREADY) : 0;// "M_AXIS_exa2axi.TREADY" maybe it's useless
+        
+        
+        assign fifo_wr_data[j*vc_num + i]        =   {M_AXIS_exa2axi.TDEST,M_AXIS_exa2axi.TLAST,M_AXIS_exa2axi.TDATA}; 
+       
+       // if header_valid = 1 start writing and don't wait for the header to be stored in vc_from_header_q
+        assign fifo_enq[j*vc_num + i]            =  exanet_rx.header_valid ? ((exa_hdr.vc == j*vc_num + i) ? (M_AXIS_exa2axi.TVALID & M_AXIS_exa2axi.TREADY) : 0) : (vc_from_header_q == j*vc_num + i) ? (M_AXIS_exa2axi.TVALID & M_AXIS_exa2axi.TREADY) : 0;
             
       
         if (net_route_reg_enable) //if network routing is pipelined, then wait for the answer.
@@ -273,18 +227,23 @@ module exa_crosb_e2s_with_VCs # (
         else
           assign M_AXIS_exa2axi.TREADY = (exanet_rx.header_valid) ? exanet_ready_q[exa_hdr.vc] : exanet_ready_q[vc_from_header_q] ;
           
-    //the data comming out of the fifos//
-        assign tdata_from_fifo[j*vc_num + i]    = (i_selected_vc_from_input_arbiter == (j*vc_num + i)) ? fifo_rd_data[(j*vc_num + i)][127:0] : 0;
-        assign tvalid_from_fifo[j*vc_num + i]   = (i_selected_vc_from_input_arbiter == (j*vc_num + i)) ? ~fifo_empty[(j*vc_num + i)] : 0;
-        assign tlast_from_fifo[j*vc_num + i]    = (i_selected_vc_from_input_arbiter == (j*vc_num + i)) ? (fifo_rd_data[(j*vc_num + i)][128] & (~fifo_empty[(j*vc_num + i)])) : 0;
-        assign tdest_from_fifo[j*vc_num + i]    = (i_selected_vc_from_input_arbiter == (j*vc_num + i)) ? fifo_rd_data[(j*vc_num + i)][TDEST_WIDTH+129-1:129] : 0;
-        assign fifo_deq[j*vc_num + i]           = (i_selected_vc_from_input_arbiter == (j*vc_num + i)) ? i_cts_from_input_arbiter : 0;
-        assign o_has_packet[(j*vc_num + i)]     = ~fifo_empty[(j*vc_num + i)];
+
+    
+       assign tdata_from_fifo[j*vc_num + i]    = fifo_rd_data[(j*vc_num + i)][127:0]                                                 ;
+       assign tvalid_from_fifo[j*vc_num + i]   =  ~fifo_empty[(j*vc_num + i)]                                                        ;
+       assign tlast_from_fifo[j*vc_num + i]    = fifo_rd_data[(j*vc_num + i)][128] & (~fifo_empty[(j*vc_num + i)])                   ;
+       assign tdest_from_fifo[j*vc_num + i]    = fifo_rd_data[(j*vc_num + i)][TDEST_WIDTH+129-1:129]                                 ;
+       assign fifo_deq[j*vc_num + i]           = (i_selected_vc_from_input_arbiter == (j*vc_num + i)) ? i_cts_from_input_arbiter : 0 ;
+       assign o_has_packet[(j*vc_num + i)]     = ~fifo_empty[(j*vc_num + i)]                                                         ;
+    
        
+       
+       /*output_vc has the number of output_vc  of the first packet that is going to go out*/
+        assign o_output_vc [(j*vc_num + i)]     = fifo_rd_data[(j*vc_num + i)][4:0];
        
       /*one cycle after the data are written in fifo, the head is in rd_data without any dequeue*/
         assign o_dests[j*vc_num + i]            =  fifo_rd_data[(j*vc_num + i)][TDEST_WIDTH+129-1:129];
-        //********************same thing shuld be implemented for output_vc*****************
+   
        
         assign o_fifo_full [(j*vc_num + i)]     = fifo_prog_full[j*vc_num + i];
        

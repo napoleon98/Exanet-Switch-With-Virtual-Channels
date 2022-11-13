@@ -23,9 +23,9 @@ module exa_traffic_consumer_with_VCs #(
   reg [127:0] mem [vc_num*prio_num - 1:0][18] ;
   reg header_valid_q;
   reg [31:0] addr = 1;//0;
-  reg [31:0] packet_num[vc_num*prio_num - 1:0]          = '{'{0},'{0},'{0},'{0}};
+  reg [31:0] packet_num[vc_num*prio_num - 1:0]          = '{'{0},'{0},'{0},'{0}, '{0}, '{0}};
   reg [4:0] rand_5bit = 0;    //used for backpressuer
-  //reg [31:0] i;
+
   
    
    
@@ -44,7 +44,7 @@ module exa_traffic_consumer_with_VCs #(
   //write down the packet
   always @(posedge clk) begin
     if (exa.header_valid & exa.header_ready)begin
-      mem[selected_vc][0] <= exa.data;// IT WAS COMMENT
+      mem[selected_vc][0] <= exa.data;
     end
     else if (exa.payload_valid & exa.payload_ready)//the first time that this condition is met, header is stored in mem..Not payload
       mem[selected_vc][addr] <= exa.data;

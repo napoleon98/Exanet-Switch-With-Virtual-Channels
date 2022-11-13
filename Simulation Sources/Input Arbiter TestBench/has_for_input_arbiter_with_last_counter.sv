@@ -2,7 +2,7 @@
 
 
 
-module haser_for_input_arbiter #(
+module haser_for_input_arbiter_with_last_counter #(
 
     parameter vc_num   = 3,
     parameter prio_num = 2,

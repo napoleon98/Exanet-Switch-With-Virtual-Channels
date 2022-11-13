@@ -11,7 +11,7 @@ module exa_crosb_regfile #(
 	parameter S_AXI_DATA_WIDTH      = 128,
 	parameter conf_reg_num          = 1,
 	parameter prio_num              = 2,
-	parameter S_AXI_ADDR_WIDTH      = `log2(conf_reg_num*16),// 16 may needs to be changed !!!!!
+	parameter S_AXI_ADDR_WIDTH      = `log2(conf_reg_num*16),
 	parameter DEBUG                 = "false"
 	)(
 	// AXI Clock and Reset

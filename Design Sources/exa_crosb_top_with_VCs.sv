@@ -5,9 +5,9 @@ import exanet_crosb_pkg::*;
 `include "ceiling_up_log2.vh"
 
 module exa_crosb_top_with_VCs #(
-  parameter integer input_num             = 4,
-  parameter integer output_num            = 4,
-  parameter integer vc_num                = 2,
+  parameter integer input_num             = 16,
+  parameter integer output_num            = 16,
+  parameter integer vc_num                = 3,
   parameter integer max_ports             = 32,
   parameter integer prio_num              = 2,
   parameter integer in_fifo_depth         = 40,
@@ -45,13 +45,10 @@ module exa_crosb_top_with_VCs #(
   input  [ 21:0]                  i_src_coord ,
   output [ input_num-1:0]         o_dec_error,
   output cntrl_info_t             o_cntrl_info,
-  output [(logOutput-1) :0]o_dests_of_each_input[input_num-1:0][prio_num*vc_num-1 :0],
+  output [(logOutput-1) :0]       o_dests_of_each_input[input_num-1:0][prio_num*vc_num-1 :0],
+  output [logVcPrio-1:0]          o_selected_output_vc[output_num-1:0],   
   
   
-
-  // AXI Clock and Reset
-  input                           S_AXI_ACLK,
-  input                           S_AXI_ARESETN,
   // Memory Read Address Channel
   input [S_AXI_ID_WIDTH-1:0]      S_AXI_ARID,
   input [S_AXI_ADDR_WIDTH-1:0]    S_AXI_ARADDR,
@@ -97,12 +94,12 @@ module exa_crosb_top_with_VCs #(
 
 );
 
-
+  
   localparam TDEST_WIDTH = 5;//logOutput;
   AXIS   S_AXIS[input_num-1  : 0]();   //from exa2axi
   AXIS   M_AXIS[output_num-1 : 0]();  //from crossbar to axi2exa
   cntrl_info_t  cntrl_info;
-  
+  assign o_cntrl_info    = cntrl_info;
   /*****************exa_crosb_crosb signals************/
     
   wire [vc_num*prio_num-1:0]               output_fifo_credits [output_num-1:0]                        ;
@@ -113,7 +110,7 @@ module exa_crosb_top_with_VCs #(
   
   wire [logVcPrio-1:0]                     selected_vc_from_input_arbiter[input_num-1:0]               ;
   wire                                     cts_from_input_arbiter[input_num-1:0]                       ;
-  wire [logOutput-1 :0]                    dest_output_of_each_input[input_num-1:0]                    ;
+
   wire [logVcPrio-1:0]                     dest_output_vc_of_each_input[input_num-1:0]                 ;
   
   wire [logInput-1 :0]                     selected_input_for_each_output[output_num-1:0]              ; 
@@ -121,8 +118,7 @@ module exa_crosb_top_with_VCs #(
   wire [logVcPrio-1:0]                    output_vc_for_each_input[input_num-1:0][vc_num*prio_num-1:0] ;  /*'{default:0}*/
   
     
-  counter_t pkt_counter_from_e2s[input_num-1:0];  
-  counter_t pkt_counter_from_s2e[output_num-1:0];
+
   
   /******************************************************/
   assign o_dests_of_each_input = dests_of_each_input;
@@ -145,8 +141,7 @@ module exa_crosb_top_with_VCs #(
       wire [prio_num*vc_num-1 : 0]    has_packet; 
       wire [prio_num*vc_num-1 : 0]    fifo_full;
       wire [logOutput-1 :0]  dests[prio_num*vc_num-1 : 0] ;
-      //wire [prio_num*vc_num- 1: 0]    selected_vc_from_input_arbiter;  
-      //wire                            cts_from_input_arbiter;
+
       
       exa_crosb_e2s_with_VCs # (
               .INPUT_PORT_NUMBER    (i),
@@ -174,7 +169,7 @@ module exa_crosb_top_with_VCs #(
               .i_cts_from_input_arbiter(cts_from_input_arbiter[i]),//added
               .i_selected_vc_from_input_arbiter(selected_vc_from_input_arbiter[i]),//added
               .o_dec_error(o_dec_error[i]),
-              .o_pkt_counter(pkt_counter_from_e2s[i]),
+              //.o_pkt_counter(pkt_counter_from_e2s[i]),
               .o_has_packet(has_packet),
               .o_fifo_full(fifo_full),
               .o_dests(dests), // added
@@ -186,8 +181,7 @@ module exa_crosb_top_with_VCs #(
     end
   endgenerate
   
-  
-  //assign output_vc = input_vc;/**simulating that input_vc and output_vc are the same*/ 
+
   
   exa_crosb_crosb_with_VCs#(
     .data_width(128),
@@ -202,22 +196,19 @@ module exa_crosb_top_with_VCs #(
     .S_AXIS(S_AXIS),
     .M_AXIS(M_AXIS),
     .i_output_fifo_credits(output_fifo_credits),
-    .i_output_vc(output_vc_for_each_input),/**simulating that input_vc and output_vc are the same*/ 
+    .i_output_vc(output_vc_for_each_input),
     .i_has_packet(has_packet_of_each_input),
     .i_dests(dests_of_each_input),
     .o_selected_vc_from_input_arbiter(selected_vc_from_input_arbiter),
-    .o_cts_from_input_arbiter(cts_from_input_arbiter),
-    /*the below signals will be used for choosing the correct output_vc for s2e
-      i.e. output_vc[dest_output_of_each_input][dest_output_vc_of_each_input]*/
-    .o_dest_output_of_each_input(dest_output_of_each_input),
-    .o_dest_output_vc_of_each_input(dest_output_vc_of_each_input),
-    
+    .o_cts_from_input_arbiter(cts_from_input_arbiter),   
     .o_selected_input_for_each_output(selected_input_for_each_output)
     
   );
   
   
   wire [logVcPrio-1:0]  output_vc_i[output_num-1:0];
+  wire [logVcPrio-1:0]  selected_output_vc_o[output_num-1:0];
+  assign o_selected_output_vc = selected_output_vc_o;
   genvar j;
 
   generate
@@ -229,13 +220,7 @@ module exa_crosb_top_with_VCs #(
       assign exanet_tx[i].header_valid  = egza.header_valid;
       assign exanet_tx[i].payload_valid = egza.payload_valid;
       assign exanet_tx[i].footer_valid  = egza.footer_valid;
-      /*******ready signals should be driven by the next tranceiver, for now they are always high******/
-      /*
-      assign exanet_tx[i].header_ready  = 1;
-      assign exanet_tx[i].payload_ready  = 1;
-      assign exanet_tx[i].footer_ready  = 1;
-      */
-      /*************************************************************************************************/
+      
       assign egza.header_ready          = exanet_tx[i].header_ready;
       assign egza.payload_ready         = exanet_tx[i].payload_ready;
       assign egza.footer_ready          = exanet_tx[i].footer_ready;
@@ -244,29 +229,28 @@ module exa_crosb_top_with_VCs #(
       
       
       wire [logInput-1:0]selected_input;
-      //wire [logVcPrio-1:0]  output_vc_i;
+
       
       	
       exa_crosb_s2e_with_VCs #(
            .prio_num(prio_num),
            .vc_num(vc_num),
-           .output_num(output_num), // maybe useless
-           .input_num(input_num), // maybe useless 
+           .output_num(output_num), 
+           .input_num(input_num), 
            .out_fifo_depth(out_fifo_depth)// it was 40
       )s2e_with_VCs (
            .S_ACLK(ACLK),
            .S_ARESETN(ARESETN),
-           .i_output_vc(output_vc_i[i]),
            .o_fifo_full(fifo_full),
            .S_AXIS(M_AXIS[i]),
-           .o_pkt_counter(pkt_counter_from_s2e[i]),
+           .o_selected_vc(selected_output_vc_o[i]),
           // ExaNet IF
            .exanet_tx(egza)
       );
       /*if fifo_full is low, output_fifo_credits[i] is high, so there is space to accomodate packets*/
       assign output_fifo_credits[i] = ~fifo_full;
       assign selected_input    = selected_input_for_each_output[i];
-      assign output_vc_i[i] = dest_output_vc_of_each_input[selected_input];
+     
       
     end
   endgenerate
@@ -284,8 +268,8 @@ module exa_crosb_top_with_VCs #(
           .DEBUG(DEBUG)
   ) exa_crosb_regfile (
           // AXI Clock and Reset
-          .S_AXI_ACLK(S_AXI_ACLK),
-          .S_AXI_ARESETN(S_AXI_ARESETN),
+          .S_AXI_ACLK(ACLK),
+          .S_AXI_ARESETN(ARESETN),
           // Memory Read Address Channel
           .S_AXI_ARID(S_AXI_ARID),
           .S_AXI_ARADDR(S_AXI_ARADDR),
@@ -328,8 +312,7 @@ module exa_crosb_top_with_VCs #(
           .S_AXI_BVALID(S_AXI_BVALID),
           .S_AXI_BREADY(S_AXI_BREADY),
           .o_cntrl_info(cntrl_info)
-          //.i_pkt_counter_input(pkt_counter_from_e2s),
-          //.i_pkt_counter_output(pkt_counter_from_s2e)
+
       );
 
 

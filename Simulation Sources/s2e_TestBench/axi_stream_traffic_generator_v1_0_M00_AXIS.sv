@@ -59,7 +59,7 @@ import exanet_crosb_pkg::*;
 	// AXI Stream internal signals
 	//wait counter. The master waits for the user defined number of clock cycles before initiating a transfer.
 	
-	reg [10:0] count;//it was  reg [WAIT_COUNT_BITS-1 : 0] 	count;
+	reg [10:0] count;
 	reg [10:0] delay;
 	//streaming data valid
 	wire  	axis_tvalid;
@@ -81,23 +81,27 @@ import exanet_crosb_pkg::*;
 	
     reg [31:0]                         rand_32            = 0;
     reg [31:0]                         rand_32_header     = 0;
+    reg [4:0]                          rand_5_output_vc   = 0;
     reg [4:0]                          rand_dest          = 0;
     reg [$clog2(vc_num*prio_num)-1:0]  rand_output_vc     = 0; 
     reg [$clog2(vc_num*prio_num)-1:0]  output_vc_q;
     reg [127:0]                        MEM [vc_num*prio_num - 1:0][54] ; // 1152 packets storage. 
     
-    reg [31:0]                         mem_pointer[vc_num*prio_num - 1:0]          = '{'{0},/*'{0},'{0},*/'{0},'{0},'{0}};
-    reg [31:0]                         mem_pointer_q[vc_num*prio_num - 1:0]        = '{'{0},/*'{0},'{0},*/'{0},'{0},'{0}};
+    reg [31:0]                         mem_pointer[vc_num*prio_num - 1:0]          = '{'{0},'{0},'{0},'{0},'{0},'{0}};
+    reg [31:0]                         mem_pointer_q[vc_num*prio_num - 1:0]        = '{'{0},'{0},'{0},'{0},'{0},'{0}};
     reg                                axis_tvalid_q;
     
   
     always @(posedge M_AXIS_ACLK) begin
       rand_32           <= $random();
+      
       rand_output_vc    <= $urandom() % vc_num*prio_num;
       rand_dest         <= $urandom() % output_num;
-      if(read_pointer == num_of_words - 2)
+      rand_5_output_vc  <= $urandom() % (vc_num*prio_num);
+      if(read_pointer == num_of_words - 2)begin
          rand_32_header    <= $random();
-      
+         
+      end
     end  
 	// I/O Connections assignments
 
@@ -221,14 +225,14 @@ import exanet_crosb_pkg::*;
 	                                                
       if(!M_AXIS_ARESETN) begin                           
 	                                                
-	    stream_data_out <= {32'hAAAAAAAA,32'h0,rand_32,32'hAAAAAAAA};  
+	    stream_data_out <= {32'hAAAAAAAA,32'h0,rand_32,27'hAAAAAA,rand_5_output_vc};//{32'hAAAAAAAA,32'h0,rand_32,32'hAAAAAAAA};  
 	    output_vc_q     <= rand_output_vc;  
 	    delay           <= 0;     
 	    tdest           <= rand_dest;             
 	  end                                          
 	  else if (tx_en | (delay != 0)/*&&  count == 2*/)begin    
 	    if (read_pointer == num_of_words -1)begin                                            
-	      stream_data_out <= {32'hAAAAAAAA,32'h0,rand_32_header,32'hAAAAAAAA};  
+	      stream_data_out <= {32'hAAAAAAAA,32'h0,rand_32_header,27'hAAAAAA,rand_5_output_vc};  
 	      tdest           <= rand_dest;
 	      if(delay == 2)begin// this delay let us choose the correct vc and avoid the case that the selected vc, is going full one cycle later
 	        delay <= 0;
@@ -253,7 +257,7 @@ import exanet_crosb_pkg::*;
 	    if(M_AXIS.TVALID)
 	      MEM[output_vc_q][mem_pointer[output_vc_q]] <= stream_data_out;
 	    
-	   // MEM[mem_pointer] <= stream_data_out;
+	  
 	    
 	  end                                          
 	end                                             

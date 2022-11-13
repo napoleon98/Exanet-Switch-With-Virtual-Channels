@@ -93,12 +93,12 @@ module requester_for_output_arbiter #(
   
   always_ff @(posedge clk) begin
     if(!resetn)begin
-     // rand_vc           <= 0;
+
       rand_input        <= 0;
       
     end
     else begin
-      //rand_vc             <= $urandom() % 6;
+
       rand_input          <= $urandom();
       
     end
@@ -113,8 +113,10 @@ module requester_for_output_arbiter #(
       state_d[i] = state_q[i];
       case(state_q[i])
         REQUEST_LOW:
-          if(!initialize & (rand_input[i] != 0))
+          if(!initialize & (rand_input[i] != 0) & !fixed_inputs_enable)
             state_d[i] = REQUEST_HIGH;
+          else if (!initialize & (fixed_inputs[i] != 0) & fixed_inputs_enable)
+             state_d[i] = REQUEST_HIGH;
           else
             state_d[i] = REQUEST_LOW;
         REQUEST_HIGH:
@@ -145,10 +147,7 @@ module requester_for_output_arbiter #(
         if(state_q[i] == REQUEST_LOW)begin
           request[i] = 0;
           last_counter[i] = 0;
-          /*
-          if(!fixed_inputs_enable)
-            fixed_request[i] = fixed_inputs[i];
-            */
+        
         end      
         if(state_q[i] == REQUEST_HIGH)begin
           request[i][rand_vc[i]] = 1;//rand_vc 
